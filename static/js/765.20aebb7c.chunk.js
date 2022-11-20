@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_app=self.webpackChunkreact_app||[]).push([[765],{8765:function(e,t,a){a.r(t);var n=a(2791),c=a(184);t.default=function(e){var t=e.pageTitle;return(0,n.useEffect)((function(){document.title="Blog - ".concat(t)}),[]),(0,c.jsx)("div",{className:"page-not-found mb-5",children:(0,c.jsx)("h1",{className:"alert alert-danger text-center",children:"Error 404: This Page is not found !!"})})}}}]);
+//# sourceMappingURL=765.20aebb7c.chunk.js.map
