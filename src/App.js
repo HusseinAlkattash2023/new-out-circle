@@ -3,6 +3,12 @@ import { lazy, Suspense } from "react";
 
 const Home = lazy(() => import("./Pages/Home/index"));
 const Login = lazy(() => import("./Pages/Login/index"));
+// const Login = lazy(() => import("./Pages/Login/index"));
+// const Login = lazy(() => import("./Pages/Login/index"));
+// const Login = lazy(() => import("./Pages/Login/index"));
+// const Login = lazy(() => import("./Pages/Login/index"));
+// const Login = lazy(() => import("./Pages/Login/index"));
+// const Login = lazy(() => import("./Pages/Login/index"));
 const PageNotFound = lazy(() => import("./Pages/404/index"));
 
 function App() {
