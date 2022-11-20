@@ -1,0 +1,138 @@
+.message{
+    background-color: #0a382b;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+.message .back {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.message .back img{
+    width: 30px;
+    height: 30px;
+}
+.message .back span{
+    border: 2px solid white;
+    padding: 5px 55px 5px 5px;
+    position: relative;
+    right: -50px;
+    border-radius: 20px 0% 0% 20px;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s ease;
+    border-right: none;
+}
+.message .back:hover.back span{
+    opacity: 1; 
+    visibility: visible;
+}
+.message .div1{
+    text-align: center;
+    margin-top:10px ;
+    color: #c4f9ae;
+    font-size: 23px;
+    position: relative;
+    left:80px;
+}
+.message .div1 p{
+    font-family: book;
+}
+.message .side{
+    height: 100%;
+}
+.message .side img{
+    width: 55vw;
+    height: 105%;
+    position: absolute;
+    top:-15px;
+    left:-5px;
+    font-family: PMingLiU;
+}
+.message .section2{
+    position: absolute;
+    right:100px;
+    top:95px;
+    width: 460px;
+}
+.message .section2 form textarea{
+    width: 87%;
+    height: 250px;
+    border-radius: 15px;
+    border: none;
+    border: 2px solid #20ab84;
+    padding: 10px;
+    background-color: #d3f9c3;
+    resize: none;
+}
+.message .section2 form .upload{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    width: 100%;
+    margin-right: 30px;
+}
+.message .section2 form button{
+    background: none;
+    border: none;
+}
+.message .section2 form button img{
+    width: 50px;
+    position: absolute;
+    right:0px;
+    top:100px;
+}
+.message .section2 form .upload p{
+    background-color: #d3f9c3;
+    padding: 8px 10px;
+    text-align: center;
+    width: 90%;
+    border-radius: 20px;
+    /* margin-top: 8px; */
+    border: 2px solid #20ab84;
+    position: relative;
+    right: 10px;
+}
+.message .section2 form .upload img{
+    position: relative;
+    right: 0px;
+    bottom: 10px;
+}
+.message .section2 .check{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #22594e;
+    width: 100%;
+    border-radius: 8px;
+    padding: 5px 10px;
+    color: #fff;
+    margin-top: -20px;
+    border: 1px solid #707070;
+
+}
+.message .section2 .wages{
+    width: 100%;
+    margin-top: 20px;
+    color: #000;
+    background-color: #d2bc8e;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-family: arial;
+}
+ @font-face {
+    font-family: "PMingLiU";
+    src: url('../../fonts/pmingliu.ttf');
+ }
+ @font-face {
+    font-family: "arial";
+    src: url('../../fonts/arial.ttf');
+ }
+ @font-face {
+    font-family: "book";
+    src: url('../../fonts/Book\ Antiqua\ Font.ttf');
+ }

@@ -1,0 +1,331 @@
+
+.home{
+    text-align: center;
+    /* margin-top: 100px; */
+    overflow: hidden;
+    background-color: #fff;
+    height: 100vh;
+    position: relative;
+}
+.home .img2{
+    height:660px;
+    width:100% ;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.home .img2_ar{
+    height:660px;
+    width:100% ;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    transform: rotateY(180deg);
+}
+.home ._header1{
+    position: absolute;
+    top:0px;
+    width: 100vw;
+    background-color: #003f30;
+    height: 29.5px;
+    z-index: 11;
+}
+.home ._header1 button{
+    border: none;
+}
+.home .main{
+    position: absolute;
+    right:300px;
+    top:100px;
+    text-align: center;
+}
+.home .main_ar{
+    position: absolute;
+    left:-120px;
+    top:100px;
+    text-align: center;
+}
+.home ._header2{
+    background-image: url('../../Assets/images/Path\ 314.svg');
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 25px;
+    right: -0px;
+    width: 85%;
+    height: 45.8px;
+    padding: 10px 0px;
+    border-bottom: 3px solid #003f30;
+    z-index: 0;
+}
+.home ._header2_ar{
+    background-image: url('../../Assets/images/Path\ 314.svg');
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 25px;
+    left:0px;
+    width: 100%;
+    height: 45.8px;
+    padding: 10px 0px;
+    border-bottom: 3px solid #003f30;
+    z-index: 0;
+    transform: rotateY(180deg);
+}
+.home marquee{
+    position: absolute;
+    z-index: 11;
+    top: 35px;
+    color: #003f30;
+    width: 80%;
+    right: 0px;
+}
+
+
+.login1{
+    position: absolute;
+    right: 10px;
+    top:80px;
+    transition: all 2s ease;
+    z-index: 100;
+}
+.login1_ar{
+    position: absolute;
+    left: 10px;
+    top:80px;
+    transition: all 2s ease;
+    z-index: 100;
+}
+.login1 div{
+    padding: 2px 35px 2px 0px;
+    border-radius: 25px 0% 0% 25px;
+    width: 120px;
+    position: absolute;
+    right: -10px;
+    margin-right: 0px;
+    font-size: 20px;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    border-right: none;
+    transition: all 0.6s ease;
+    font-family: 'Changa', sans-serif;
+
+}
+
+.login1:hover.login1 div{
+     opacity: 1;
+     visibility: visible;
+}
+ .outcircle{
+    position: relative;
+    left: 190px;
+    bottom: 18px;
+}
+
+.home .cards{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width: 900px;
+    margin: 10px auto;
+    position: relative;
+    left: 200px;
+    z-index: 100;
+}
+.home .cards .img_{
+    width: 160px;
+    height: 340px;
+}
+.home .cards a{
+    display: flex;
+    position: relative;
+}
+.home .cards .hov .iui{
+    position: absolute;
+    height: 340px;
+    width: 380px;
+    transition: all 0.7s ease;
+    z-index: 200;
+    left: -100px;
+    visibility: hidden;
+    opacity: 0;
+}
+.home .cards .hov .iu{
+    position: absolute;
+    height: 340px;
+    width: 0;
+    right: -100px;
+    width: 380px;
+    transition: all 0.7s ease;
+    visibility: hidden;
+    opacity: 0;
+}
+.home .cards .hov:hover.hov .iui{
+    left: 0px;
+    visibility: visible;
+    opacity: 1;
+}
+.home .cards .hov:hover.hov .iu{
+    right: 0px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.home .sidebar{
+    width: 350px;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 60;
+}
+.home .sidebar_ar{
+    width: 350px;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right:10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 60;
+}
+.home .sidebar .logo{
+    position: absolute;
+    top: 5px;
+    left: 40px;
+}
+.home .sidebar_ar .logo{
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    z-index: 1111;
+}
+.home .sidebar .logo img,
+.home .sidebar_ar .logo img{
+    width: 150px;
+}
+
+.home .sidebar a,
+.home .sidebar_ar a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-top: 30px;
+    transition: all 0.5s ease;
+}
+.home .sidebar .icon1{
+    position: relative;
+    left:40px;
+}
+.home .sidebar_ar .icon1{
+    position: relative;
+    right:40px;
+}
+.home .sidebar .icon2{
+    position: relative;
+    right: 90px;
+}
+.home .sidebar_ar .icon2{
+    position: relative;
+    left: 90px;
+}
+.home .sidebar .icon3{
+    position: relative;
+    left: 36px;
+    bottom: 10px;
+}
+.home .sidebar_ar .icon3{
+    position: relative;
+    right: 20px;
+    bottom: 0px;
+}
+.home .sidebar span,
+.home .sidebar_ar span{
+    color: white;
+    font-weight: 600;
+    font-family: 'Changa', sans-serif;
+
+}
+.home .sidebar .navbar_{
+    margin-top: 30px;
+}
+.home footer p{
+    position: absolute;
+    bottom:-26px;
+    width: 74%;
+    height: 104px;
+    right: 0;
+    z-index: 10;
+    text-transform: uppercase;
+    padding: 20px;
+    color: #0a382b;
+    font-size: 40px;
+    border: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    background-color: none;
+    background-image: url('../../Assets/images/Group\ 287.svg');
+    font-family: 'Changa', sans-serif;
+}
+.home footer .icons{
+    position: absolute;
+    left: 0px;
+    bottom: 10px;
+    z-index: 7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 60;
+}
+.home footer .icons_ar{
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    z-index: 7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 60;
+}
+
+.home footer .icons ul , .home footer .icons_ar ul{
+    display: flex;
+    list-style-type: none;
+    position: relative;
+    top:10px;
+}
+
+.home footer .icons ul li,
+.home footer .icons_ar ul li{
+    padding:5px;
+    border-radius: 50%;
+    line-height: 50%;
+}
+
+.home footer .icons ul li img,
+.home footer .icons_ar ul li img{
+    width: 34px;
+}
+.home footer .icons  div img,
+.home footer .icons_ar  div img{
+    width: 80px;
+}
+
+.footer_ar .put-ads img{
+    height: 100px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 80%;
+    z-index: 0;
+}

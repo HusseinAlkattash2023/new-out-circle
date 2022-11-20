@@ -1,0 +1,117 @@
+.profile{
+    background-color: #0a382b;
+    width: 100vw;
+    height: 100vh;
+}
+
+.profile section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    position: absolute;
+    right: 250px;
+    top:30px;
+}
+.profile header button{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color:#c4f9ae;
+    border-radius: 50%;
+    font-size: 16px;
+    border: 2px solid #22594e;
+    color: #22594e;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
+}
+
+.profile section header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2AF6BC;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: center;
+    border-radius: 15px;
+    position: relative;
+    border: 1px solid #707070;
+    opacity:0.68;
+}
+
+.profile section header .icon{
+    position: absolute;
+    left: 20px;
+    bottom: 5px;
+}
+.profile section header .text{
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.profile section .body{
+    background-color: #22594e;
+    width: 100%;
+    border-radius: 50px;
+    text-align: center;
+    border: 1px solid #707070;
+    padding: 20px;
+    height: 460px;
+}
+.profile section .body .information{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 3px solid #c4f9ae;
+    width: 80%;
+    margin: 10px auto;
+    border-radius: 15px;
+    padding: 0px 10px;
+}
+.profile section .body .information input{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background:none;
+    border: none;
+    color:#fff;
+    font-size: 20px;
+}
+.profile section .body .information input:focus{
+    outline: none;
+}
+.profile section .body .information img{
+    width: 25px;
+}
+.profile section .body .information p{
+    font-size: 20px;
+    text-align: left;
+    color: white;
+    position: relative; 
+    top:6px 
+}
+
+.profile section .body .footer button{
+    background-color: #000;
+    border:none;
+    border:2px solid #199370;
+    color: #fff;
+    border-radius: 30px;
+    transition: all 0.5s ease;
+    font-size: 20px;
+}
+.profile section .body .footer button:hover{
+    letter-spacing: 1px;
+}
+
+.profile .section2 img{
+    position: absolute;
+    left:0;
+    top:0px;
+    width: 27%;
+    height: 100%;
+}

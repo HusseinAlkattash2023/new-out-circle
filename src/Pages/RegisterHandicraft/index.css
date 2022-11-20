@@ -1,0 +1,15 @@
+.scientific{
+    background-color: #0a382b;
+    width:100vw;
+    height: 100vh;
+}
+
+
+.scientific .background2 img{
+    position: absolute;
+    top:0;
+    left:0;
+    width:27%;
+    height: 100%;
+}
+

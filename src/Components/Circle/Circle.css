@@ -1,0 +1,92 @@
+.circle .section2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid  #199370;
+    width: 760px;
+    height: 550px;
+    position: absolute;
+    top:8%;
+    right: 200px;
+    border-radius: 50px;
+    overflow-y: scroll;
+    padding-top:250px ;
+    padding-bottom: 10px;
+}
+.circle_ar .section2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid  #199370;
+    width: 760px;
+    height: 550px;
+    position: absolute;
+    top:8%;
+    left: 200px;
+    border-radius: 50px;
+    overflow-y: scroll;
+    padding-top:250px ;
+    padding-bottom: 10px;
+}
+.circle .section2::-webkit-scrollbar,
+.circle_ar .section2::-webkit-scrollbar{
+    display: none;
+  }
+.circle .section2,
+.circle_ar .section2{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.circle .section2 a,
+.circle_ar .section2 a{
+    text-decoration: none;
+    margin: 5px auto;
+    padding: 20px;
+    color: #c4f9ae;
+    width: 95%;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    transition: all 0.5s ease;
+    border: 1px solid #707070;
+    background: linear-gradient(to right, #19926f,  #0d4f3c);
+    /* height: 200px; */
+}
+
+.circle .section2 a:hover,
+.circle_ar .section2 a:hover{
+    background: linear-gradient(to right, #c4f9ae,  #c4f9ae);
+    color: #22594e;
+}
+.circle .section1{
+    position: absolute;
+    top:30%;
+    left: 100px;
+}
+.circle_ar .section1{
+    position: absolute;
+    top:30%;
+    right: 100px;
+}
+.circle .section1 p{
+    text-align: center;
+    position: relative;
+    bottom:150px;
+    font-size: 25px;
+    width: 200px;
+    margin: auto;
+}
+.circle_ar .section1 p{
+    text-align: center;
+    position: relative;
+    bottom:170px;
+    font-size: 45px;
+    width: 200px;
+    margin: auto;
+}
+
+
