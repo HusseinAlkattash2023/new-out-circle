@@ -1,21 +1,19 @@
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 import {BsPersonPlus} from "react-icons/bs"
-import {BsArrowRight} from "react-icons/bs"
-import {BsArrowLeft} from "react-icons/bs"
-import back from '../../images/back.png'
+import back from '../../Assets/images/back.png'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import './LoginAsCoporate.css'
+import './index.css'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import PersonalInfo from './steps/PersonalInfo';
 import CompanyInfo from './steps/CompanyInfo';
 import PartnerInfo from './steps/PartnerInfo';
-import corporate from '../../images/Mask Group -1.png'
+import corporate from '../../Assets/images/Mask Group -1.png'
 
 
-function LoginCorporate() {
+function RegisterCorporate() {
 
   const [page , setPage] = useState(0)
   const [formData , setFormData] = useState({
@@ -105,7 +103,7 @@ function LoginCorporate() {
 }
 
 
-export default LoginCorporate
+export default RegisterCorporate;
 
 
 /*

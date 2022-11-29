@@ -1,9 +1,9 @@
 import React from 'react'
-import logo from '../../images/Group 360.svg'
-import back from '../../images/back.png'
+import logo from '../../Assets/images/Group 360.svg'
+import back from '../../Assets/images/back.png'
 import {Link} from 'react-router-dom';
-import goals from '../../images/goals.png'
-import './Goals.css'
+import goals from '../../Assets/images/goals.png'
+import './index.css'
 function Goals() {
     return (
         <div className='goals'>
@@ -19,6 +19,7 @@ function Goals() {
                     </Link>
             </div>
             <img src={goals} alt=""/>
+            <div className="rectangle"></div>
             <section className='main'>
                 <div>
                     <h2>Goals & Advanteges</h2>

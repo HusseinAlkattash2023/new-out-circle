@@ -1,20 +1,22 @@
 import React from 'react'
-import Circle from '../../component/Circle/Circle'
-import './Handicraft.css'
+import Circle from '../../Components/Circle/Circle'
+import './index.css'
 import {Link} from 'react-router-dom'
-import back from '../../images/back.png'
-import logout from '../../images/logout.png'
-import notifications from '../../images/notification.png';
-import profile from '../../images/profile.png'
-import image from '../../images/New folder/Group 430.png'
-function Handicraft({handicraft_}) {
+import back from '../../Assets/images/back.png'
+import logout from '../../Assets/images/logout.png'
+import notifications from '../../Assets/images/notification.png';
+import profile from '../../Assets/images/profile.png'
+import image1 from '../../Assets/images/New folder/Group 430.png'
+import image2 from '../../Assets/images/New folder/Component 31 – 11.png'
+function Handicraft() {
   const ClearLocalStorate = ()=>{
     localStorage.clear();
 }
-  return (
-    <div className='handicraft'>
+    const state = localStorage.getItem("users")
+    return (
+        <div className='handicraft'>
         {
-                    handicraft_ ? (
+                    !state ? (
                     <header className='header2'>
                     <Link to="/">
                         <span>Back</span>
@@ -39,15 +41,16 @@ function Handicraft({handicraft_}) {
                     )
                 }
         <Circle 
-        circle={image}
-        demand1="handicraft/service_1"
-        demand2="handicraft/service_2"
-        demand3="handicraft/service_3"
-        demand4="handicraft/service_4"
-        demand5="handicraft/service_5"
-        demand6="handicraft/service_6"
-        demand7="handicraft/service_7"
-        demand8="handicraft/service_8"
+        circle1={image1}
+        circle2={image2}
+        demand1="handicraft/service1"
+        demand2="handicraft/service2"
+        demand3="handicraft/service3"
+        demand4="handicraft/service4"
+        demand5="handicraft/service5"
+        demand6="handicraft/service6"
+        demand7="handicraft/service7"
+        demand8="handicraft/service8"
         service="Handicraft"
         service1="Consultations and ideas in the current work in all areas of banking/financial/marketing ..ect"
         service2="New business advice and ideas"

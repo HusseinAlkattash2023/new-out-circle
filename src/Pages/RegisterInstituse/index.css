@@ -8,8 +8,18 @@
     right: 20px;
     top: 20px;
 }
+.instituse header .back_ar{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
 .instituse header a img{
     width: 30px;
+}
+.instituse header .back_ar img{
+    width: 30px;
+    position: absolute;
+    left: 0;
 }
 .instituse header a span{
     border: 2px solid white;
@@ -23,10 +33,25 @@
     border-right: none;
     transition: all 0.5s ease;
 }
+.instituse header .back_ar span{
+    border: 2px solid white;
+    padding: 5px 8px 8px 80px;
+    position: relative;
+    left: -150px;
+    border-radius: 0px 20px 20px 0px;
+    color: white;
+    border-left: none;
+    transition: all 0.5s ease;
+}
 
 .instituse header a:hover span{
     visibility: visible;
     opacity: 1;
+}
+.instituse header .back_ar:hover span{
+    visibility: visible;
+    opacity: 1;
+    left:-30px;
 }
 
 .instituse .register2{
@@ -39,8 +64,19 @@
     right: 150px;
     top:40px;
 }
+.instituse .register2_ar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    position: absolute;
+    left: 150px;
+    top:40px;
+}
 
-.instituse .register2 header{
+.instituse .register2 header,
+.instituse .register2_ar header{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,20 +90,26 @@
     opacity:0.68;
 }
 
-.instituse .register2 header .icon{
+.instituse .register2 header .icon ,
+.instituse .register2_ar header .icon{
     position: absolute;
     left: 20px;
     bottom: 0px;
     font-size: 35px;
 }
-.instituse .register2 header .text{
+.instituse .register2 header .text ,
+.instituse .register2_ar header .text{
     font-size: 22px;
     letter-spacing: 1px;
     font-weight: bold;
     font-family: 'Rubik Dirt',sans-serif;
 }
+.instituse .register2_ar header .text{
+    font-family: changa;
+}
 
-.instituse .register2 .form-container{
+.instituse .register2 .form-container ,
+.instituse .register2_ar .form-container{
     background-color: #22594e;
     width: 100%;
     text-align: center;
@@ -81,15 +123,19 @@
     border: 1px solid #707070;
     height: 480px;
 }
-.instituse .register2 .form-container h2{
+.instituse .register2 .form-container h2 ,
+.instituse .register2_ar .form-container h2{
     color: white;
     font-size: 25px;
     letter-spacing: 1px;
     border-bottom: 3px solid white;
     margin-bottom: 20px;
+    font-family: 'Readex Pro', sans-serif;
 }
 .instituse .register2 .form-container .input_ input,
-.instituse .register2 .form-container .input_ textarea{
+.instituse .register2 .form-container .input_ textarea,
+.instituse .register2_ar .form-container .input_ input,
+.instituse .register2_ar .form-container .input_ textarea{
     padding: 8px 16px;
     background: none;
     border: none;
@@ -98,6 +144,12 @@
     color: white;
     width: 400px;
     font-size: 20px;
+    font-family: 'Readex Pro', sans-serif;
+}
+.instituse .register2_ar .form-container .input_ input,
+.instituse .register2_ar .form-container .input_ textarea{
+    text-align: right;
+    font-size: 17px;
 }
 .instituse .background2 img{
     position: absolute;
@@ -106,8 +158,16 @@
     top: 0;
     left: 0;
 }
+.instituse .background2_ar img{
+    position: absolute;
+    width: 27%;
+    height: 100%;
+    top: 0;
+    right:0;
+}
 
-.instituse .register2 .form-container span{
+.instituse .register2 .form-container span ,
+.instituse .register2_ar .form-container span{
     color: white;
     font-size: 20px;
     letter-spacing: 1px;
@@ -115,7 +175,8 @@
     margin-bottom: 20px;
 }
 
-.instituse .register2 .form-container .next{
+.instituse .register2 .form-container .next ,
+.instituse .register2_ar .form-container .next{
     text-align: right;
     padding: 5px 15px;
     background-color: #2AF6BC;
@@ -127,12 +188,15 @@
     transition: all 0.5s ease;
     opacity: 0.68;
     margin-top: 10px;
+    font-family: 'Readex Pro', sans-serif;
 }
-.instituse .register2 .form-container .next:hover{
+.instituse .register2 .form-container .next:hover,
+.instituse .register2_ar .form-container .next:hover{
     letter-spacing: 1px;
 }
 
-.instituse .register2 .form-container .submit{
+.instituse .register2 .form-container .submit,
+.instituse .register2_ar .form-container .submit{
     border: none;
     background-color: black;
     color: white;
@@ -143,24 +207,29 @@
     transition: all 0.5s ease;
 }
 
-.instituse .register2 .form-container .submit:hover{
+.instituse .register2 .form-container .submit:hover ,
+.instituse .register2_ar .form-container .submit:hover{
     letter-spacing: 1px;
     font-weight: 600;
 }
-.register2 .body{
+.register2 .body ,
+.register2_ar .body{
     overflow: scroll;
     height: 350px;
 }
- .register2 .body::-webkit-scrollbar {
+ .register2 .body::-webkit-scrollbar ,
+ .register2_ar .body::-webkit-scrollbar{
     display: none;
   }
-  .register2 .body{
+  .register2 .body ,
+  .register2_ar .body{
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
 
-  .instituse .register2 .form-container .input_ .phone_number input{
-    padding: 10px 50px;
+  .instituse .register2 .form-container .input_ .phone_number input ,
+  .instituse .register2_ar .form-container .input_ .phone_number input{
+    padding: 15px 50px;
     background: none;
     border: none;
     border: 2px solid #c4f9ae;
@@ -171,20 +240,32 @@
     margin-bottom: 10px;
     font-size: 20px;
 }
-.instituse .register2 .form-container .input_1{
+.instituse .register2_ar .form-container .input_ .phone_number input{
+    font-size: 17px;
+    padding: 20px;
+}
+.instituse .register2 .form-container .input_1 ,
+.instituse .register2_ar .form-container .input_1{
     margin:20px auto ;
     border: 2px solid #c4f9ae;
     width: 400px;
     border-radius: 10px;
 
 }
-.instituse .register2 .form-container .input_1 label{
+.instituse .register2 .form-container .input_1 label ,
+.instituse .register2_ar .form-container .input_1 label{
 display: flex;
 align-items: center;
 justify-content: space-between;
 margin: 10px;
 cursor: pointer;
 }
-.instituse .register2 .form-container .input_1 p{
+.instituse .register2 .form-container .input_1 p ,
+.instituse .register2_ar .form-container .input_1 p{
 color:#fff;
+    font-family: changa;
+    padding: 0px 40px;
+}
+.instituse .register2_ar .form-container .input_1 input{
+    color:#fff;
 }

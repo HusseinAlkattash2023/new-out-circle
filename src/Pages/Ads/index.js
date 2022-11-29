@@ -1,5 +1,5 @@
 import React from 'react'
-import NewAdr from '../../component/NewAdr/NewAdr'
+import NewAdr from '../../Components/NewAdr/NewAdr'
 const Ads = () => {
     return (
         <div>

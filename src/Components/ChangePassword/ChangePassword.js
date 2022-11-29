@@ -1,6 +1,6 @@
 import React from 'react'
-import pass from '../../images/password.svg'
-import login from '../../images/Mask Group 2.png'
+import pass from '../../Assets/images/password.svg'
+import login from '../../Assets/images/Mask Group 2.png'
 import './ChangePasswod.css'
 const ChangePassword = () => {
   return (

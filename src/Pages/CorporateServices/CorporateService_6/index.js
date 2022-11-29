@@ -1,6 +1,6 @@
 import React from 'react'
-import Message from '../../../component/Message/Message'
-import image from '../../../images/Corporate/corporate6.png'
+import Message from '../../../Components/Message/Message'
+import image from '../../../Assets/images/Corporate/corporate6.png'
 const CorporateService_6 = () => {
   return (
     <div>

@@ -1,96 +1,490 @@
 import { Routes, Route } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense  , useState , useEffect} from "react";
+
+import {CorporateService1 , CorporateService2 , CorporateService3 , CorporateService4 , CorporateService5, CorporateService6 , CorporateService7 , CorporateService8} from './routers';
+import {CorporateServiceAr1 , CorporateServiceAr2 , CorporateServiceAr3 , CorporateServiceAr4 , CorporateServiceAr5, CorporateServiceAr6 , CorporateServiceAr7 , CorporateServiceAr8} from './routers';
+import {InstituteService1 , InstituteService2 , InstituteService3 , InstituteService4 , InstituteService5 , InstituteService6 , InstituteService7 , InstituteService8} from './routers';
+import {InstituteServiceAr1 , InstituteServiceAr2 , InstituteServiceAr3 , InstituteServiceAr4 , InstituteServiceAr5 , InstituteServiceAr6 , InstituteServiceAr7 , InstituteServiceAr8} from './routers';
+import {ScientificService1 , ScientificService2 , ScientificService3 , ScientificService4 , ScientificService5 , ScientificService6 , ScientificService7 , ScientificService8} from './routers';
+import {ScientificServiceAr1 , ScientificServiceAr2 , ScientificServiceAr3 , ScientificServiceAr4 , ScientificServiceAr5 , ScientificServiceAr6 , ScientificServiceAr7 , ScientificServiceAr8} from './routers';
+import {HandicraftService1 , HandicraftService2 , HandicraftService3 , HandicraftService4 , HandicraftService5 , HandicraftService6 , HandicraftService7 , HandicraftService8} from './routers';
+import {HandicraftServiceAr1 , HandicraftServiceAr2 , HandicraftServiceAr3 , HandicraftServiceAr4 , HandicraftServiceAr5 , HandicraftServiceAr6 , HandicraftServiceAr7 , HandicraftServiceAr8} from './routers';
+import {CareerService1 , CareerService2 , CareerService3 , CareerService4 , CareerService5 , CareerService6} from "./routers";
+import {CareerServiceAr1 , CareerServiceAr2 , CareerServiceAr3 , CareerServiceAr4 , CareerServiceAr5 , CareerServiceAr6} from "./routers";
+import {PersonalService1 , PersonalService2 , PersonalService3 , PersonalService4 , PersonalService5} from './routers';
+import {PersonalServiceAr1 , PersonalServiceAr2 , PersonalServiceAr3 , PersonalServiceAr4 , PersonalServiceAr5} from './routers';
 
 const Home = lazy(() => import("./Pages/Home/index"));
-const Login = lazy(() => import("./Pages/Login/index"));
-// const Login = lazy(() => import("./Pages/Login/index"));
-// const Login = lazy(() => import("./Pages/Login/index"));
-// const Login = lazy(() => import("./Pages/Login/index"));
-// const Login = lazy(() => import("./Pages/Login/index"));
-// const Login = lazy(() => import("./Pages/Login/index"));
-// const Login = lazy(() => import("./Pages/Login/index"));
-const PageNotFound = lazy(() => import("./Pages/404/index"));
+const Login = lazy(() => import("./Pages/Login/index.js"));
+const Register = lazy(() => import("./Pages/Register/index.js"));
+const RegisterIndividuals = lazy(() => import("./Pages/RegisterIndividuals/index.js"));
+const ForgetPass = lazy(() => import("./Pages/ForgetPass/index.js"))
+const ResetPass = lazy(() => import("./Pages/ResetPass/index.js"))
+const RegisterCorporate = lazy(() => import("./Pages/RegisterAsCorporate/index.js"));
+const RegisterInstitute = lazy(() => import("./Pages/RegisterInstituse/index.js"));
+const RegisterScientific = lazy(() => import("./Pages/RegisterScientific/index.js"));
+const RegisterHandicraft = lazy(() => import("./Pages/RegisterHandicraft/index.js"));
+const Corporate = lazy(() => import('./Pages/Corporate/index.js'));
+const CorporateAr = lazy(() => import('./Pages/Corporate/index-Ar.js'));
+const Institute = lazy(() => import('./Pages/Institute/index.js'));
+const InstituteAr = lazy(() => import('./Pages/Institute/index-Ar.js'));
+const Scientific = lazy(() => import('./Pages/Scientific/index.js'));
+const ScientificAr = lazy(() => import('./Pages/Scientific/index-Ar.js'));
+const Handicraft = lazy(() => import('./Pages/Handicraft/index.js'));
+const HandicraftAr = lazy(() => import('./Pages/Handicraft/index-Ar.js'));
+const Individuals = lazy(() => import('./Pages/Individuals/index.js'));
+const IndividualsAr = lazy(() => import('./Pages/Individuals/index-Ar.js'));
+const Whyus = lazy(() => import('./Pages/WhyUs/index.js'));
+const WhyusAr = lazy(() => import('./Pages/WhyUs/index-ar.js'));
+const Goals = lazy(() => import('./Pages/Goals/index.js'));
+const GoalsAr = lazy(() => import('./Pages/Goals/index-ar.js'));
+const ContactUs = lazy(() => import('./Pages/ContactUs/index.js'));
+const ContactUsAr = lazy(() => import('./Pages/ContactUs/index-ar.js'));
+const News = lazy(() => import('./Pages/News/index.js'));
+const Ads = lazy(() => import('./Pages/Ads/index.js'));
+const Visitor = lazy(() => import('./Components/Visiter/Visiter.js'));
+const Notifications = lazy(() => import('./Pages/Notifications/index.js'));
+const CareerServices = lazy(() => import('./Pages/CareerServices/index.js'));
+const CareerServicesAr = lazy(() => import('./Pages/CareerServices/index-ar.js'));
+const PersonalServices = lazy(() => import('./Pages/PersonalServices/index.js'));
+const PersonalServicesAr = lazy(() => import('./Pages/PersonalServices/index-ar.js'));
+const ProfileIndividual = lazy(() => import('./Pages/Individuals/index.js'));
+const ProfileHandicraft = lazy(() => import('./Pages/Handicraft/index.js'));
+const ProfileScientific = lazy(() => import('./Pages/Scientific/index.js'));
+const ProfileInstitute = lazy(() => import('./Pages/Institute/index.js'));
+const ChangePassword = lazy(() => import('./Components/ChangePassword/ChangePassword.js'));
+const HomeAr = lazy(() => import('./Pages/Home/index-Ar.js'));
+const LoginAr = lazy(() => import('./Pages/Login/index-Ar.js'))
+const RegisterAr = lazy(() => import('./Pages/Register/index-Ar.js'));
+const RegisterIndividualsAr = lazy(() => import('./Pages/RegisterIndividuals/index-Ar.js'))
+const RegisterHandicraftAr = lazy(() => import('./Pages/RegisterHandicraft/index-Ar.js'))
+const RegisterScientificAr = lazy(() => import('./Pages/RegisterScientific/index-ar.js'));
+const RegisterInstituteAr = lazy(() => import('./Pages/RegisterInstituse/index-ar.js'));
+const RegisterCorporateAr = lazy(() => import('./Pages/RegisterAsCorporate/index-ar.js'));
+
+ // const CorporateService1 = lazy(() => import('./Pages/CorporateServices/CorporateService_1/index.js'));
+ const PageNotFound = lazy(() => import("./Pages/404/index"));
 
 function App() {
+
+  const routes = [
+    {
+      path:"/",
+      element:<Home/>,
+    },{
+      path:"/ar",
+      element:<HomeAr/>,
+    },{
+      path:'/login',
+      element:<Login/>,
+    },{
+      path:'/login-ar',
+      element:<LoginAr/>,
+    },{
+      path:'/register',
+      element:<Register/>,
+    },{
+      path:'/register-ar',
+      element:<RegisterAr/>,
+    },{
+      path:'/forget-password',
+      element:<ForgetPass/>,
+    },{
+      path:'/reset-password',
+      element:<ResetPass/>,
+    },{
+      path:'/register-coporate',
+      element:<RegisterCorporate/>,
+    },{
+      path:'/register-corporate-ar',
+      element:<RegisterCorporateAr/>,
+    },{
+      path:'/register-institute',
+      element:<RegisterInstitute/>,
+    },{
+      path:'/register-institute-ar',
+      element:<RegisterInstituteAr/>,
+    },{
+      path:'/register-scientific',
+      element:<RegisterScientific/>,
+    },{
+      path:'/register-scientific-ar',
+      element:<RegisterScientificAr/>,
+    },{
+      path:'/register-handicraft',
+      element:<RegisterHandicraft/>,
+    },{
+      path:'/register-handicraft-ar',
+      element:<RegisterHandicraftAr/>,
+    },{
+      path:'/register-individuals',
+      element:<RegisterIndividuals/>,
+    },{
+      path:'/register-individuals-ar',
+      element:<RegisterIndividualsAr/>,
+    },{
+      path:'/why-us',
+      element:<Whyus/>,
+    },{
+      path:'/whyus-ar',
+      element:<WhyusAr/>,
+    },{
+      path:'/goals',
+      element:<Goals/>,
+    },{
+      path:'/goals-ar',
+      element:<GoalsAr/>,
+    },{
+      path:'/contact-us',
+      element:<ContactUs/>,
+    },{
+      path:'/contactus-ar',
+      element:<ContactUsAr/>,
+    },{
+      path:'/individuals',
+      element:<Individuals/>,
+    },{
+      path:'/individuals-ar',
+      element:<IndividualsAr/>,
+    },{
+      path:'/career-services',
+      element:<CareerServices/>,
+    },{
+      path:'/career-services-ar',
+      element:<CareerServicesAr/>,
+    },{
+      path:'/personal-services',
+      element:<PersonalServices/>,
+    },{
+      path:'/personal-services-ar',
+      element:<PersonalServicesAr/>,
+    },{
+      path:'/handicraft',
+      element:<Handicraft/>,
+    },{
+      path:'/handicraft-ar',
+      element:<HandicraftAr/>,
+    },{
+      path:'/scientific',
+      element:<Scientific/>,
+    },{
+      path:'/scientific-ar',
+      element:<ScientificAr/>,
+    },{
+      path:'/institute',
+      element:<Institute/>,
+    },{
+      path:'/institute-ar',
+      element:<InstituteAr/>,
+    },{
+      path:'/corporate',
+      element:<Corporate/>,
+    },{
+      path:'/corporate-ar',
+      element:<CorporateAr/>,
+    },{
+      path:'/news',
+      element:<News/>,
+    },{
+      path:'/ads',
+      element:<Ads/>,
+    },{
+      path:'/profile-individual',
+      element:<ProfileIndividual/>,
+    },{
+      path:'/notifications',
+      element:<Notifications/>,
+    },{
+      path:'/change-password',
+      element:<ChangePassword/>,
+    },{
+      path:'/profile-handicraft',
+      element:<ProfileHandicraft/>,
+    },{
+      path:'/profile-scientific',
+      element:<ProfileScientific/>,
+    },{
+      path:'/profile-institute',
+      element:<ProfileInstitute/>,
+    },{
+      path:'/visitor',
+      element:<Visitor/>,
+    },{
+      path:'/corporate/service1',
+      element:<CorporateService1/>
+    },{
+      path:'/corporate/service1-ar',
+      element:<CorporateServiceAr1/>
+    },{
+      path:'/corporate/service2',
+      element:<CorporateService2/>
+    },{
+      path:'/corporate/service2-ar',
+      element:<CorporateServiceAr2/>
+    },{
+      path:'/corporate/service3',
+      element:<CorporateService3/>
+    },{
+      path:'/corporate/service3-ar',
+      element:<CorporateServiceAr3/>
+    },{
+      path:'/corporate/service4',
+      element:<CorporateService4/>
+    },{
+      path:'/corporate/service4-ar',
+      element:<CorporateServiceAr4/>
+    },{
+      path:'/corporate/service5',
+      element:<CorporateService5/>
+    },{
+      path:'/corporate/service5-ar',
+      element:<CorporateServiceAr5/>
+    },{
+      path:'/corporate/service6',
+      element:<CorporateService6/>
+    },{
+      path:'/corporate/service6-ar',
+      element:<CorporateServiceAr6/>
+    },{
+      path:'/corporate/service7',
+      element:<CorporateService7/>
+    },{
+      path:'/corporate/service7-ar',
+      element:<CorporateServiceAr7/>
+    },{
+      path:'/corporate/service8',
+      element:<CorporateService8/>
+    },{
+      path:'/corporate/service8-ar',
+      element:<CorporateServiceAr8/>
+    },{
+      path:'/handicraft/service1',
+      element:<HandicraftService1/>
+    },{
+      path:'/handicraft/service2',
+      element:<HandicraftService2/>
+    },{
+      path:'/handicraft/service3',
+      element:<HandicraftService3/>
+    },{
+      path:'/handicraft/service4',
+      element:<HandicraftService4/>
+    },{
+      path:'/handicraft/service5',
+      element:<HandicraftService5/>
+    },{
+      path:'/handicraft/service6',
+      element:<HandicraftService6/>
+    },{
+      path:'/handicraft/service7',
+      element:<HandicraftService7/>
+    },{
+      path:'/handicraft/service8',
+      element:<HandicraftService8/>
+    },{
+      path:'/handicraft/service1-ar',
+      element:<HandicraftServiceAr1/>
+    },{
+      path:'/handicraft/service2-ar',
+      element:<HandicraftServiceAr2/>
+    },{
+      path:'/handicraft/service3-ar',
+      element:<HandicraftServiceAr3/>
+    },{
+      path:'/handicraft/service4-ar',
+      element:<HandicraftServiceAr4/>
+    },{
+      path:'/handicraft/service5-ar',
+      element:<HandicraftServiceAr5/>
+    },{
+      path:'/handicraft/service6-ar',
+      element:<HandicraftServiceAr6/>
+    },{
+      path:'/handicraft/service7-ar',
+      element:<HandicraftServiceAr7/>
+    },{
+      path:'/handicraft/service8-ar',
+      element:<HandicraftServiceAr8/>
+    },{
+      path:'/institute/service1',
+      element:<InstituteService1/>
+    },{
+      path:'/institute/service1-ar',
+      element:<InstituteServiceAr1/>
+    },{
+      path:'/institute/service2',
+      element:<InstituteService2/>
+    },{
+      path:'/institute/service2-ar',
+      element:<InstituteServiceAr2/>
+    },{
+      path:'/institute/service3',
+      element:<InstituteService3/>
+    },{
+      path:'/institute/service3-ar',
+      element:<InstituteServiceAr3/>
+    },{
+      path:'/institute/service4',
+      element:<InstituteService4/>
+    },{
+      path:'/institute/service4-ar',
+      element:<InstituteServiceAr4/>
+    },{
+      path:'/institute/service5-ar',
+      element:<InstituteServiceAr5/>
+    },{
+      path:'/institute/service5',
+      element:<InstituteService5/>
+    },{
+      path:'/institute/service6',
+      element:<InstituteService6/>
+    },{
+      path:'/institute/service6-ar',
+      element:<InstituteServiceAr6/>
+    },{
+      path:'/institute/service7',
+      element:<InstituteService7/>
+    },{
+      path:'/institute/service7-ar',
+      element:<InstituteServiceAr7/>
+    },{
+      path:'/institute/service8',
+      element:<InstituteService8/>
+    },{
+      path:'/institute/service8-ar',
+      element:<InstituteServiceAr8/>
+    },{
+      path:'/scientific/service1',
+      element:<ScientificService1/>
+    },{
+      path:'/scientific/service2',
+      element:<ScientificService2/>
+    },{
+      path:'/scientific/service3',
+      element:<ScientificService3/>
+    },{
+      path:'/scientific/service4',
+      element:<ScientificService4/>
+    },{
+      path:'/scientific/service5',
+      element:<ScientificService5/>
+    },{
+      path:'/scientific/service6',
+      element:<ScientificService6/>
+    },{
+      path:'/scientific/service7',
+      element:<ScientificService7/>
+    },{
+      path:'/scientific/service8',
+      element:<ScientificService8/>
+    },{
+      path:'/scientific/service1-ar',
+      element:<ScientificServiceAr1/>
+    },{
+      path:'/scientific/service2-ar',
+      element:<ScientificServiceAr2/>
+    },{
+      path:'/scientific/service3-ar',
+      element:<ScientificServiceAr3/>
+    },{
+      path:'/scientific/service4-ar',
+      element:<ScientificServiceAr4/>
+    },{
+      path:'/scientific/service5-ar',
+      element:<ScientificServiceAr5/>
+    },{
+      path:'/scientific/service6-ar',
+      element:<ScientificServiceAr6/>
+    },{
+      path:'/scientific/service7-ar',
+      element:<ScientificServiceAr7/>
+    },{
+      path:'/scientific/service8-ar',
+      element:<ScientificServiceAr8/>
+    },{
+      path:'/career-services/service1',
+      element:<CareerService1/>
+    },{
+      path:'/career-services/service2',
+      element:<CareerService2/>
+    },{
+      path:'/career-services/service3',
+      element:<CareerService3/>
+    },{
+      path:'/career-services/service4',
+      element:<CareerService4/>
+    },{
+      path:'/career-services/service5',
+      element:<CareerService5/>
+    },{
+      path:'/career-services/service6',
+      element:<CareerService6/>
+    },{
+      path:'/career-service/service1-ar',
+      element:<CareerServiceAr1/>
+    },{
+      path:'/career-service/service2-ar',
+      element:<CareerServiceAr2/>
+    },{
+      path:'/career-service/service3-ar',
+      element:<CareerServiceAr3/>
+    },{
+      path:'/career-service/service4-ar',
+      element:<CareerServiceAr4/>
+    },{
+      path:'/career-service/service5-ar',
+      element:<CareerServiceAr5/>
+    },{
+      path:'/career-service/service6-ar',
+      element:<CareerServiceAr6/>
+    },{
+      path:'/personal-service/service1',
+      element:<PersonalService1/>
+    },{
+      path:'/personal-service/service2',
+      element:<PersonalService2/>
+    },{
+      path:'/personal-service/service3',
+      element:<PersonalService3/>
+    },{
+      path:'/personal-service/service4',
+      element:<PersonalService4/>
+    },{
+      path:'/personal-service/service5',
+      element:<PersonalService5/>
+    },{
+      path:'/personal-service/service1-ar',
+      element:<PersonalServiceAr1/>
+    },{
+      path:'/personal-service/service2-ar',
+      element:<PersonalServiceAr2/>
+    },{
+      path:'/personal-service/service3-ar',
+      element:<PersonalServiceAr3/>
+    },{
+      path:'/personal-service/service4-ar',
+      element:<PersonalServiceAr4/>
+    },{
+      path:'/personal-service/service5-ar',
+      element:<PersonalServiceAr5/>
+    },{
+      path:'*',
+      element:<PageNotFound/>
+    }
+  ];
+  
   return (
     <div className="App">
       <Suspense>
         <Routes>
-          <Route path="/" element={<Home pageTitle="Home" />}></Route>
-          <Route path="/login" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/register" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/register-coporate" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/register-institute" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/register-prof" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/register-hand" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/register-individuals" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/why-us" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/goals" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/contact-us" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/individuals" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/career-service" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/personal-services" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/handicraft" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/scientific" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/institute" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/corporate" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/news" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/ads" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/profile-individual" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/notifications" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/change-password" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/profile-handicraft" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/profile-scientific" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/profile-institute" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/visitor" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/corporate/service1" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/corporate/service2" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/corporate/service3" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/corporate/service4" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/corporate/service5" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/corporate/service6" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/corporate/service7" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/corporate/service8" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/handicraft/service1" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/handicraft/service2" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/handicraft/service3" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/handicraft/service4" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/handicraft/service5" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/handicraft/service6" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/handicraft/service7" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/handicraft/service8" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/institute/service1" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/institute/service2" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/institute/service3" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/institute/service4" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/institute/service5" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/institute/service6" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/institute/service7" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/institute/service8" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/scientific/service1" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/scientific/service2" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/scientific/service3" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/scientific/service4" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/scientific/service5" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/scientific/service6" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/scientific/service7" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/scientific/service8" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/career-services/service1" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/career-services/service2" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/career-services/service3" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/career-services/service4" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/career-services/service5" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/career-services/service6" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/personal-services/service1" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/personal-services/service2" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/personal-services/service3" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/personal-services/service4" element={<Login pageTitle="Login" />}></Route>
-          <Route path="/personal-services/service5" element={<Login pageTitle="Login" />}></Route>
-          <Route path="*" element={<PageNotFound pageTitle="Page Not Found" />}></Route>
-        </Routes>
+          {
+          routes.map(({path, element}, key) => <Route exact path={path} element={element}  key={key} />)
+          }
+          </Routes>
       </Suspense>
     </div>
   );
 }
 
 export default App;
+

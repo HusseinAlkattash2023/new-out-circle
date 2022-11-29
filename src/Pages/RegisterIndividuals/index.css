@@ -12,9 +12,21 @@
     width:27%;
     height: 100%;
 }
+.scientific .background3_ar img{
+    position: absolute;
+    top:0;
+    right:0;
+    width:27%;
+    height: 100%;
+}
 .scientific header a{
     position: absolute;
     right: 20px;
+    top: 20px;
+}
+.scientific header .back_ar{
+    position: absolute;
+    left: 20px;
     top: 20px;
 }
 .scientific header a span{
@@ -29,14 +41,32 @@
     border-right: none;
     transition: all 0.5s ease;
 }
+.scientific header .back_ar span{
+    border: 2px solid #fff;
+    padding: 5px 5px 8px 80px;
+    position: relative;
+    left: -150px;
+    border-radius: 0% 20px 20px 0%;
+    color: #fff;
+    border-left: none;
+    transition: all 0.5s ease;
+}
 
 .scientific header img{
     width: 30px;
-
+}
+.scientific header .back_ar img{
+    position: absolute;
+    left: 0;
 }
 .scientific header a:hover span{
     visibility: visible;
     opacity: 1;
+}
+.scientific header .back_ar:hover span{
+    visibility: visible;
+    opacity: 1;
+    left:-30px;
 }
 .scientific .body{
     display: flex;
@@ -48,8 +78,19 @@
     right: 160px;
     top:30px;
 }
+.scientific .body_ar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    position: absolute;
+    left: 160px;
+    top:30px;
+}
 
-.scientific .body header{
+.scientific .body header,
+.scientific .body_ar header{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,19 +104,25 @@
     opacity:0.68;
 }
 
-.scientific .body header .icon{
+.scientific .body header .icon,
+.scientific .body_ar header .icon{
     position: absolute;
     left: 20px;
     font-size: 40px;
     bottom: 0px;
 }
-.scientific .body header .text{
+.scientific .body header .text,
+.scientific .body_ar header .text{
     font-size: 26px;
     letter-spacing: 1px;
     font-weight: bold;
     font-family: 'Rubik Dirt',sans-serif;
 }
-.scientific .body form{
+.scientific .body_ar header .text{
+    font-family: changa;
+}
+.scientific .body form,
+.scientific .body_ar form{
     background-color: #22594e;
     width: 100%;
     text-align: center;
@@ -90,7 +137,8 @@
     height: 480px;
 }
 
-.scientific .body form .input_ .input{
+.scientific .body form .input_ .input ,
+.scientific .body_ar form .input_ .input{
     padding: 8px 16px;
     background: none;
     border: none;
@@ -99,9 +147,15 @@
     color: white;
     width: 400px;
     font-size: 20px;
+    font-family: 'Readex Pro', sans-serif;
+}
+.scientific .body_ar form .input_ .input{
+    text-align: right;
+    font-size: 17px;
 }
 
-.scientific .body form .input_ .phone_number input{
+.scientific .body form .input_ .phone_number input,
+.scientific .body_ar form .input_ .phone_number input{
     padding: 10px 50px;
     background: none;
     border: none;
@@ -113,7 +167,16 @@
     margin-bottom: 10px;
     font-size: 20px;
 }
-.scientific .body form .submit{
+.scientific .body_ar form .input_ .phone_number input{
+    font-family: 'Readex Pro', sans-serif;
+    font-size: 17px;
+    padding: 10px;
+}
+.scientific .body_ar form .input_ .phone_number input{
+    text-align: right;
+}
+.scientific .body form .submit,
+.scientific .body_ar form .submit{
     border: none;
     background-color: black;
     color: white;
@@ -123,35 +186,42 @@
     transition: all 0.5s ease;
     border: 2px solid #199370;
     margin-top: 20px;
-    font-family: 'Changa', medium;
+    font-family: 'Readex Pro', sans-serif;
     text-transform: uppercase;
     font-weight: 600;
 }
-.scientific .body form .input_1{
+.scientific .body form .input_1,
+.scientific .body_ar form .input_1{
         margin:20px auto ;
         border: 2px solid #c4f9ae;
         width: 400px;
         border-radius: 10px;
 
 }
-.scientific .body form .input_1 label{
+.scientific .body form .input_1 label,
+.scientific .body_ar form .input_1 label{
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 10px;
     cursor: pointer;
 }
-.scientific .body form .input_1 label p{
+.scientific .body form .input_1 label p,
+.scientific .body_ar form .input_1 label p{
     color:#fff;
+    font-family: 'Readex Pro', sans-serif;
 }
-.scientific .body .bar{
+.scientific .body .bar,
+.scientific .body_ar .bar{
     overflow: scroll;
     height: 350px;
 }
-.scientific .body .bar::-webkit-scrollbar {
+.scientific .body .bar::-webkit-scrollbar,
+.scientific .body_ar .bar::-webkit-scrollbar {
     display: none;
   }
-  .scientific .body .bar{
+  .scientific .body .bar,
+  .scientific .body_ar .bar{
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }

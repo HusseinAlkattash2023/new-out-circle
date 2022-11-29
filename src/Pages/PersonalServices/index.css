@@ -1,0 +1,63 @@
+.personalServices{
+    background-color: #0a382b;
+    width: 100vw;
+    height: 100vh;
+}
+
+.personalServices header a{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.personalServices header a img{
+    width: 30px;
+}
+.personalServices header a span{
+    border: 2px solid white;
+    padding: 5px 55px 5px 5px;
+    position: relative;
+    right: -50px;
+    border-radius: 20px 0% 0% 20px;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s ease;
+    border-right: none;
+}
+.personalServices header a:hover span{
+    opacity: 1;
+    visibility: visible;
+}
+
+.personalServices .personal{
+    position: absolute;
+    top: 75%;
+    left: 12%;
+    font-size: 20px;
+    color: white;
+    letter-spacing: 1px;
+    text-align: center;
+    font-family: book;
+}
+
+.personalServices .service6 , .personalServices .link{
+    display: none;
+}
+.personalServices .section2{
+    padding-top: 40px;
+    height: 450px;
+}
+.personalServices .personal_ar{
+    position: absolute;
+    top: 75%;
+    right: 10%;
+    font-size: 30px;
+    color: white;
+    letter-spacing: 1px;
+    font-family: changa;
+}
+
+@font-face{
+    font-family: book;
+    src:url('../../Assets/fonts/Book\ Antiqua\ Font.ttf')
+}

@@ -1,6 +1,6 @@
 import React from 'react'
-import Message from '../../component/Message/Message'
-import image1 from '../../images/Institute/institute7.png'
+import Message from '../../../Components/Message/Message'
+import image1 from '../../../Assets/images/Institute/institute7.png'
 const InstituteService_7 = () => {
   return (
     <div>

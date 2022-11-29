@@ -1,6 +1,6 @@
 import React from 'react'
-import Message from '../../../component/Message/Message'
-import image from '../../../images/personal_services/Group 470.png'
+import Message from '../../../Components/Message/Message'
+import image from '../../../Assets/images/personal_services/Group 470.png'
 const PersonalService_3 = () => {
   return (
     <div>

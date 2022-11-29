@@ -1,6 +1,6 @@
 import React from 'react'
-import Message from '../../../component/Message/Message'
-import image from '../../../images/Handicraft/handicraft1.png'
+import Message from '../../../Components/Message/Message'
+import image from '../../../Assets/images/Handicraft/handicraft1.png'
 const HandicraftServices_1 = () => {
   return (
     <div>

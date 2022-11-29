@@ -2,13 +2,13 @@ import React , {useRef, useState} from 'react'
 import './FormInput.css'
 import ReactPhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import back from '../../images/back.png'
+import back from '../../Assets/images/back.png'
 import {BsPersonPlus} from 'react-icons/bs'
 import {Link , useNavigate} from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import file from '../../images/file.png'
+import file from '../../Assets/images/file.png'
 
 const schema = yup.object({
     username:yup.string().required('Please Enter your username'),
@@ -146,4 +146,4 @@ function FormInput({text , setShow , route}) {
 )
 }
 
-export default FormInput
+export default FormInput;

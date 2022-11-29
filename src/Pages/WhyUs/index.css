@@ -1,29 +1,32 @@
 .whyus{
-    /* background-image:url('../../images/Untitled155.png');
-    background-position:center;
-    background-repeat: no-repeat;
-    background-size: cover; */
     background-color: #0a382b;
     width: 100vw;
     height: 100vh;
     position: relative;
     text-align: center;
     overflow: hidden;
+    margin: 0;
 }
 .whyus .background{
     position: absolute;
-    width: 100%;
-    left:0;
+    width: 110%;
+    left:-60px;
     height: 120%;
-    top:50px;
+    top:30px;
 }
 
-
 .whyus .logo img{
-    width: 100px;
+    width: 120px;
     position: absolute;
     top:20px;
     left:20px;
+    z-index: 40;
+}
+.whyus .logo_ar img{
+    width: 120px;
+    position: absolute;
+    top:20px;
+    right:20px;
     z-index: 40;
 }
 .whyus .back a{
@@ -32,16 +35,25 @@
     top: 30px;
     z-index: 40;
 }
+.whyus .back_ar a{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    z-index: 40;
+}
 .whyus  .back a img{
     width: 30px;
     height: 30px;
-    position: relative;
-    top:10px
+}
+.whyus  .back_ar a img{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 0;
 }
 .whyus .back a span{
     border: 2px solid white;
     padding: 5px 55px 5px 5px;
-    position: relative;
     right: -50px;
     border-radius: 20px 0% 0% 20px;
     color: white;
@@ -49,11 +61,26 @@
     visibility: hidden;
     transition: all 0.6s ease;
     border-right: none;
-    top:10px
+}
+.whyus .back_ar a span{
+    border: 2px solid white;
+    padding: 5px 5px 8px 95px;
+    position: relative;
+    left: -170px;
+    border-radius: 0px 20px 20px 0px;
+    color: white;
+    transition: all 0.6s ease;
+    border-left: none;
+    /* top:10px */
 }
 .whyus  .back a:hover span{
     opacity: 1;
     visibility: visible;
+}
+.whyus  .back_ar a:hover span{
+    opacity: 1;
+    visibility: visible;
+    left: -50px;
 }
 .whyus .main{
     /* background-image: url('../../images/Group\ 384.png'); */
@@ -62,44 +89,52 @@
     z-index: 3;
     margin: 10px auto;
     padding: 10px 50px;
-    left:14%;
-    top:100px;
+    left:7%;
+    top:50px;
 }
 
 .whyus .main h2{
     color: black;
     font-size: 50px;
     font-weight: 600;
-    text-shadow: 2px 2px 5px white;
+    text-shadow: 0px 2px 2px white;
     letter-spacing: 2px;
+    font-family: changa;
+    font-weight: 600;
 }
 
 .whyus .main .text{
     color:#C4F9AE;
-    background-color: black;
-    width: 900px;
+    background-color: #171717;
+    width: 1100px;
     margin: 20px auto;
     text-align: left;
-    opacity: 0.8;
-    border-radius: 70px;
+    opacity: 0.55;
+    border-radius: 90px;
     padding: 30px 50px;
     line-height: 28px;
-    height: 380px;
+    height: 450px;
     overflow-y: scroll;
+    font-family: book;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .whyus .main .text_ar{
     color:#C4F9AE;
-    background-color: black;
-    width: 900px;
+    background-color: #171717;
+    width: 1100px;
     margin: 20px auto;
     text-align: right;
-    opacity: 0.8;
-    border-radius: 70px;
+    opacity: 0.55;
+    border-radius: 90px;
     padding: 30px 50px;
     line-height: 28px;
-    height: 380px;
+    height: 450px;
     overflow-y: scroll;
+    font-family: 'Readex Pro', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
 }
  
 .whyus .main .text::-webkit-scrollbar ,
@@ -111,3 +146,7 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
+@font-face{
+    font-family: book;
+    src: url("../../Assets/fonts/Book\ Antiqua\ Font.ttf");
+}

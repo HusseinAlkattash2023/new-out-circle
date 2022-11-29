@@ -33,8 +33,27 @@
     z-index: 11;
 }
 .home ._header1 button{
-    border: none;
+    background: none;
+    color: #a3b18a;
+    font-weight:bold;
 }
+
+.Ar {
+    position:absolute;
+    right: 50px;
+} 
+.En {
+    position:absolute;
+    right: 10px;
+} 
+.Ar_ {
+    position:absolute;
+    left: 10px;
+} 
+.En_ {
+    position:absolute;
+    left: 50px;
+} 
 .home .main{
     position: absolute;
     right:300px;
@@ -81,6 +100,9 @@
     right: 0px;
 }
 
+.home .marquee_ar{
+    width: 100%;
+}
 
 .login1{
     position: absolute;
@@ -97,27 +119,38 @@
     z-index: 100;
 }
 .login1 div{
-    padding: 2px 35px 2px 0px;
+    padding: 2px 50px 2px 0px;
     border-radius: 25px 0% 0% 25px;
-    width: 120px;
+    width: 160px;
     position: absolute;
-    right: -10px;
+    right: -190px;
     margin-right: 0px;
     font-size: 20px;
     z-index: 10;
-    opacity: 0;
-    visibility: hidden;
     border-right: none;
     transition: all 0.6s ease;
     font-family: 'Changa', sans-serif;
-
 }
-
+.login1_ar div{
+    padding: 5px 5px 5px 65px;
+    border-radius: 0px 25px 25px 0px;
+    width: 170px;
+    position: absolute;
+    left: -190px;
+    margin-right: 0px;
+    font-size: 16px;
+    z-index: 10;
+    border-right: none;
+    transition: all 0.6s ease;
+    font-family: 'Changa', sans-serif;
+}
 .login1:hover.login1 div{
-     opacity: 1;
-     visibility: visible;
+    right: -30px;
 }
- .outcircle{
+.login1_ar:hover.login1_ar div{
+    left:-30px;
+}
+.outcircle{
     position: relative;
     left: 190px;
     bottom: 18px;
@@ -257,13 +290,13 @@
 .home .sidebar .navbar_{
     margin-top: 30px;
 }
-.home footer p{
+.home footer .ads_space{
     position: absolute;
     bottom:-26px;
-    width: 74%;
-    height: 104px;
-    right: 0;
-    z-index: 10;
+    width: 90%;
+    height: 140px;
+    right:-20px;
+    z-index: 0;
     text-transform: uppercase;
     padding: 20px;
     color: #0a382b;
@@ -272,7 +305,6 @@
     font-weight: 500;
     letter-spacing: 1px;
     background-color: none;
-    background-image: url('../../Assets/images/Group\ 287.svg');
     font-family: 'Changa', sans-serif;
 }
 .home footer .icons{
@@ -318,7 +350,8 @@
 }
 .home footer .icons  div img,
 .home footer .icons_ar  div img{
-    width: 80px;
+    width: 100px;
+    position: 30px;
 }
 
 .footer_ar .put-ads img{

@@ -1,9 +1,11 @@
 import React from 'react'
-import Circle from '../../component/Circle/Circle'
-import './Croporate.css'
+import Circle from '../../Components/Circle/Circle'
+import './index'
 import {Link} from 'react-router-dom'
-import back from '../../images/back.png'
-import image from '../../images/New folder/Group 428.png'
+import back from '../../Assets/images/back.png'
+import image1 from '../../Assets/images/New folder/Group 428.png'
+import image2 from '../../Assets/images/New folder/Component 31 – 8.png'
+import './index.css'
 function Croporate() {
   return (
     <div className='croporate'>
@@ -14,14 +16,16 @@ function Croporate() {
             </Link>
         </header>
         <Circle 
-        demand1="corporate/service_1"
-        demand2="corporate/service_2"
-        demand3="corporate/service_3"
-        demand4="corporate/service_4"
-        demand5="corporate/service_5"
-        demand6="corporate/service_6"
-        demand7="corporate/service_7"
-        demand8="corporate/service_8"
+        circle1={image1}
+        circle2={image2}
+        demand1="corporate/service1"
+        demand2="corporate/service2"
+        demand3="corporate/service3"
+        demand4="corporate/service4"
+        demand5="corporate/service5"
+        demand6="corporate/service6"
+        demand7="corporate/service7"
+        demand8="corporate/service8"
         service="Croporate"
         service1="Consultations and ideas in the current work in all areas of banking/financial/marketing ..ect"
         service2="New business advice and ideas."

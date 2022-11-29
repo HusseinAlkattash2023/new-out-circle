@@ -4,6 +4,7 @@
     height: 100vh;
     position: relative;
     padding: 0px;
+    overflow: hidden;
 }
 
 .individuals .individual{
@@ -11,8 +12,22 @@
     top: 27%;
     left: 10%;
 }
-.individuals .individual img{
+.individuals .individual .circle1{
     width: 350px;
+    position: absolute;
+    top: 27%;
+    left: 0%;
+    z-index: 2;
+}
+.individuals .individual .circle2{
+    width: 350px;
+    position: absolute;
+    top: 27%;
+    left: 0%;
+    z-index: 1;
+}
+.individuals .individual:hover.individual .circle2{
+    z-index: 3;
 }
 .individuals .individual_ar{
     position: absolute;
@@ -87,13 +102,12 @@
 }
 .individuals .services_ar .career p ,
 .individuals .services_ar .personal p{
-    font-size: 30px;
+    font-size: 35px;
     font-weight: 600;
-    font-family: algerian;
+    font-family: 'Lemonada', medium;
     position: relative;
-    top:20px;
+    top:25px;
 }
-
 .individuals .services .personal{
     border: 3px solid #199370;
     width: 600px;
@@ -152,20 +166,22 @@
 }
 .individuals .header2_ar a span{
     border: 2px solid white;
-    padding: 5px 5px 5px 85px;
+    padding: 5px 5px 8px 85px;
     position: relative;
-    left: -50px;
+    left: -150px;
     border-radius: 0px 20px 20px 0px;
     color: white;
-    opacity: 0;
-    visibility: hidden;
     transition: all 0.6s ease;
     border-left: none;
 }
-.individuals .header2 a:hover span,
+.individuals .header2 a:hover span{
+    opacity: 1;
+    visibility: visible;
+}
 .individuals .header2_ar a:hover span{
     opacity: 1;
     visibility: visible;
+    left: -30px;
 }
 
 .individuals .header1{
@@ -176,15 +192,31 @@
     position: relative;
     top:10px;
 }
+.individuals .header1_ar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    top:10px;
+}
 .individuals .header1 a img{
     width: 30px;
-    margin: 5px 10px;
+    /* margin: 15px 10px; */
+    position: absolute;
+    right: 14px;
+}
+.individuals .header1_ar a img{
+    width: 30px;
+    /* margin: 5px 10px; */
+    position: absolute;
+    left: 14px;
 }
 .individuals .header1 a span{
     border: 2px solid white;
-    padding: 5px 55px 5px 5px;
+    padding: 5px 85px 5px 5px;
     position: relative;
-    right: -50px;
+    right: -40px;
     border-radius: 20px 0% 0% 20px;
     color: white;
     opacity: 0;
@@ -192,12 +224,26 @@
     transition: all 0.6s ease;
     border-right: none;
 }
-.individuals .header1 a:hover span{
+.individuals .header1_ar a span{
+    border: 2px solid white;
+    padding: 5px 5px 5px 100px;
+    position: relative;
+    left: -50px;
+    border-radius: 0% 20px 20px 0%;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s ease;
+    border-left: none;
+    z-index: 1000;
+}
+.individuals .header1 a:hover span,
+.individuals .header1_ar a:hover span{
     opacity: 1;
     visibility: visible;
 }
 
 @font-face {
     font-family: "algerian";
-    src: url('../../fonts/Algerian\ Regular.ttf');
+    src: url('../../Assets/fonts/Algerian\ Regular.ttf');
 }

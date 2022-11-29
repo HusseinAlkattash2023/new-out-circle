@@ -1,6 +1,5 @@
 // ** React Imports
 import { useState } from 'react';
-import DatePicker from 'react-datepicker';
 
 
 // ** Third Party Components

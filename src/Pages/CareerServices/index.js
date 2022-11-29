@@ -1,8 +1,10 @@
 import React from 'react'
-import Circle from '../../component/Circle/Circle'
-import './CareerServices.css'
+import Circle from '../../Components/Circle/Circle'
+import './index.css'
 import {Link} from 'react-router-dom'
-import back from '../../images/back.png';
+import back from '../../Assets/images/back.png';
+import image1 from '../../Assets/images/New folder/Group 429.png'
+import image2 from '../../Assets/images/New folder/Component 31 – 9.png'
 function CareerServices() {
   return (
     <div className='careerServices'>
@@ -13,12 +15,14 @@ function CareerServices() {
             </Link>
         </header>
         <Circle 
-        demand1="careerservice/service_1"
-        demand2="careerservice/service_2"
-        demand3="careerservice/service_3"
-        demand4="careerservice/service_4"
-        demand5="careerservice/service_5"
-        demand6="careerservice/service_6"
+        circle1={image1}
+        circle2={image2}
+        demand1="career-services/service1"
+        demand2="career-services/service2"
+        demand3="career-services/service3"
+        demand4="career-services/service4"
+        demand5="career-services/service5"
+        demand6="career-services/service6"
         service="Individuals"
         service1="Finding appropriate development courses"
         service2="Providing a job opportunity"

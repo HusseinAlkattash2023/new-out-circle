@@ -1,6 +1,6 @@
 import React from 'react'
-import './Notifications.css'
-import NewAdr from '../../component/NewAdr/NewAdr'
+import './index.css'
+import NewAdr from '../../Components/NewAdr/NewAdr'
 const Notifications = () => {
   return (
     <div className='notifications'>

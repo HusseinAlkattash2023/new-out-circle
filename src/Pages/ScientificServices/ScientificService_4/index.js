@@ -1,6 +1,6 @@
 import React from 'react'
-import Message from '../../component/Message/Message'
-import image from '../../images/scientific/Group 445.png'
+import Message from '../../../Components/Message/Message'
+import image from '../../../Assets/images/scientific/Group 445.png'
 const ScientificService_4 = () => {
   return (
     <div>

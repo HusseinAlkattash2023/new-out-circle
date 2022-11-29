@@ -1,9 +1,9 @@
 import React from 'react'
-import logo from '../../images/Group 360.svg'
-import back from '../../images/back.png'
+import logo from '../../Assets/images/Group 360.svg'
+import back from '../../Assets/images/back.png'
 import {Link} from 'react-router-dom'
-import whyus from '../../images/Group 384.png'
-import './WhyUs.css'
+import whyus from '../../Assets/images/Group 384.png'
+import './index.css'
 function WhyUs() {
     return (
         <div className='whyus'>

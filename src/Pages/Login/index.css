@@ -46,7 +46,7 @@
     transition: all 0.6s ease;
     border-left: none;
 }
-.news .back:hover.back span,
+.login .back:hover.back span,
 .login .back_ar:hover.back_ar span{
     opacity: 1; 
     visibility: visible;
@@ -168,7 +168,6 @@ form .loginButton{
     position: absolute;
     top:0px;
     right: 0px;
-    transform: rotateY(-180deg);
 }
 
 form .forget{
@@ -185,7 +184,10 @@ form .forget{
     color:#aca59f;
     font-size:16px ;
 }
-
+.login_ar .error_ar{
+    display: flex;
+    justify-content: flex-end;
+}
 .login .bar{
     height: 250px;
     overflow-y: scroll;

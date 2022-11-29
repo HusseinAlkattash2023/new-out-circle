@@ -1,12 +1,14 @@
 import React from 'react'
-import Circle from '../../component/Circle/Circle'
-import './Scietific.css'
+import Circle from '../../Components/Circle/Circle'
+import './index.css'
 import {Link} from 'react-router-dom'
-import back from '../../images/back.png';
-import logout from '../../images/logout.png'
-import notifications from '../../images/notification.png';
-import profile from '../../images/profile.png'
-function Scietific({sceintific_}) {
+import back from '../../Assets/images/back.png';
+import logout from '../../Assets/images/logout.png'
+import notifications from '../../Assets/images/notification.png';
+import profile from '../../Assets/images/profile.png';
+import image1 from '../../Assets/images/New folder/Group 426.png';
+import image2 from '../../Assets/images/New folder/Component 31 – 10.png';
+function Scietific({sceintific_=true}) {
     
     const ClearLocalStorate = ()=>{
         localStorage.clear();
@@ -39,14 +41,16 @@ function Scietific({sceintific_}) {
                     )
                 }
         <Circle 
-        demand1="scientific/service_1"
-        demand2="scientific/service_2"
-        demand3="scientific/service_3"
-        demand4="scientific/service_4"
-        demand5="scientific/service_5"
-        demand6="scientific/service_6"
-        demand7="scientific/service_7"
-        demand8="scientific/service_8"
+        circle1={image1}
+        circle2={image2}
+        demand1="scientific/service1"
+        demand2="scientific/service2"
+        demand3="scientific/service3"
+        demand4="scientific/service4"
+        demand5="scientific/service5"
+        demand6="scientific/service6"
+        demand7="scientific/service7"
+        demand8="scientific/service8"
         service="Professional Scientific"
         service1="Consultations and ideas in the current work in all areas of banking/financial/marketing ..ect"
         service2="New business advice and ideas"

@@ -195,4 +195,4 @@ const CompanyInfo = ({formData , setFormData}) => {
   )
 }
 
-export default CompanyInfo
+export default CompanyInfo;

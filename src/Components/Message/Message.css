@@ -9,10 +9,23 @@
     position: absolute;
     right: 20px;
     top: 20px;
+    z-index: 100;
+}
+.message .back_ar {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    z-index: 100;
 }
 .message .back img{
     width: 30px;
     height: 30px;
+}
+.message .back_ar img{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left:0;
 }
 .message .back span{
     border: 2px solid white;
@@ -26,22 +39,55 @@
     transition: all 0.6s ease;
     border-right: none;
 }
+.message .back_ar span{
+    border: 2px solid white;
+    padding: 5px 5px 10px 85px;
+    position: relative;
+    left: -180px;
+    border-radius: 0px 20px 20px 0px;
+    color: white;
+    /* opacity: 0;
+    visibility: hidden; */
+    transition: all 0.6s ease;
+    border-left: none;
+}
 .message .back:hover.back span{
     opacity: 1; 
     visibility: visible;
 }
+.message .back_ar:hover.back_ar span{
+    opacity: 1; 
+    visibility: visible;
+    left: -30px;
+}
 .message .div1{
     text-align: center;
-    margin-top:10px ;
+    margin-top:0px auto 10px auto;
     color: #c4f9ae;
     font-size: 23px;
     position: relative;
-    left:80px;
+    left:34%;
+
+}
+.message .div1_ar{
+    text-align: center;
+    margin-top:15px ;
+    color: #c4f9ae;
+    font-size: 23px;
+    position: relative;
+    right:80px;
+}
+.message .div1_ar p{
+    font-family: changa;
 }
 .message .div1 p{
     font-family: book;
+    margin-top: 10px;
+    width: 600px;
+    font-size: 25px;
 }
-.message .side{
+.message .side,
+.message .side_ar{
     height: 100%;
 }
 .message .side img{
@@ -52,9 +98,23 @@
     left:-5px;
     font-family: PMingLiU;
 }
+.message .side_ar img{
+    width: 55vw;
+    height: 105%;
+    position: absolute;
+    top:-15px;
+    right:-5px;
+    font-family: PMingLiU;
+}
 .message .section2{
     position: absolute;
     right:100px;
+    top:95px;
+    width: 460px;
+}
+.message .section2_ar{
+    position: absolute;
+    left:100px;
     top:95px;
     width: 460px;
 }
@@ -68,7 +128,21 @@
     background-color: #d3f9c3;
     resize: none;
 }
-.message .section2 form .upload{
+.message .section2_ar form textarea{
+    width: 87%;
+    height: 250px;
+    border-radius: 15px;
+    border: none;
+    border: 2px solid #20ab84;
+    padding: 10px;
+    background-color: #d3f9c3;
+    resize: none;
+    text-align: right;
+    position: relative;
+    left: 59px;
+}
+.message .section2 form .upload,
+.message .section2_ar form .upload{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,30 +150,52 @@
     width: 100%;
     margin-right: 30px;
 }
-.message .section2 form button{
+.message .section2 form button,
+.message .section2_ar form button{
     background: none;
     border: none;
 }
-.message .section2 form button img{
+.message .section2 form button img
+{
     width: 50px;
     position: absolute;
     right:0px;
     top:100px;
 }
+.message .section2_ar form button img{
+    width: 50px;
+    position: absolute;
+    left:0px;
+    top:100px;
+}
 .message .section2 form .upload p{
-    background-color: #d3f9c3;
+    background-color: #d2f9c3;
     padding: 8px 10px;
     text-align: center;
     width: 90%;
     border-radius: 20px;
-    /* margin-top: 8px; */
     border: 2px solid #20ab84;
     position: relative;
     right: 10px;
 }
+.message .section2_ar form .upload p{
+    background-color: #d3f9c3;
+    padding: 8px 10px;
+    text-align: center;
+    width: 87%;
+    border-radius: 20px;
+    border: 2px solid #20ab84;
+    position: relative;
+    left: 9px;
+}
 .message .section2 form .upload img{
     position: relative;
     right: 0px;
+    bottom: 10px;
+}
+.message .section2_ar form .upload img{
+    position: relative;
+    left: -5px;
     bottom: 10px;
 }
 .message .section2 .check{
@@ -108,12 +204,30 @@
     justify-content: center;
     background-color: #22594e;
     width: 100%;
+    border-radius: 15px;
+    padding: 5px 10px;
+    color: #fff;
+    margin-top: -20px;
+}
+.message .section2_ar .check{
+    display: flex;
+    align-items: center;
+    text-align: right;
+    justify-content: space-between;
+    background-color: #22594e;
+    width: 100%;
     border-radius: 8px;
     padding: 5px 10px;
     color: #fff;
     margin-top: -20px;
     border: 1px solid #707070;
-
+}
+.message .section2_ar .check p{
+    font-size: 20px;
+}
+.message .section2 .check p{
+    text-align: center;
+    margin-top: 10px;
 }
 .message .section2 .wages{
     width: 100%;
@@ -121,18 +235,30 @@
     color: #000;
     background-color: #d2bc8e;
     padding: 5px 10px;
-    border-radius: 10px;
+    border-radius: 15px;
     font-family: arial;
+    text-align: center;
+}
+.message .section2_ar .wages{
+    width: 100%;
+    margin-top: 20px;
+    color: #000;
+    background-color: #d2bc8e;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-family: arial;
+    text-align: right;
+    font-size: 20px;
 }
  @font-face {
     font-family: "PMingLiU";
-    src: url('../../fonts/pmingliu.ttf');
+    src: url('../../Assets/fonts/pmingliu.ttf');
  }
  @font-face {
     font-family: "arial";
-    src: url('../../fonts/arial.ttf');
+    src: url('../../Assets/fonts/arial.ttf');
  }
  @font-face {
     font-family: "book";
-    src: url('../../fonts/Book\ Antiqua\ Font.ttf');
+    src: url('../../Assets/fonts/Book\ Antiqua\ Font.ttf');
  }

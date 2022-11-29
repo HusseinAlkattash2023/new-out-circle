@@ -3,6 +3,7 @@ import whatsapp from '../../Assets/images/whatsapp.png';
 import facebook from '../../Assets/images/facebook.png';
 import linkedin from '../../Assets/images/linkedin.png';
 import telegram from '../../Assets/images/telegram.png';
+import instegram from '../../Assets/images/instagram.png';
 import appStore from '../../Assets/images/appStore.png';
 import googlePlay from '../../Assets/images/googlePlay.png';
 import { Link } from 'react-router-dom';
@@ -25,28 +26,20 @@ import iui4 from '../../Assets/images/hover/18.png';
 import iui5 from '../../Assets/images/hover/17.png';
 import { useNavigate } from 'react-router-dom';
 import './index.css'
-
-function Home({ setShow_Ar }) {
+import image from '../../Assets/images/ads_spa.png';
+function Home({ pageTitle }) {
 
   const navigate = useNavigate()
   const OnClick = () => {
     navigate("/login")
-  }
-  const Show_Ar = () => {
-    setShow_Ar(false);
-    // localStorage.setItem("fav", "true");
-  }
-  const Show_En = () => {
-    setShow_Ar(true);
-    // localStorage.setItem("fav", "false");
   }
 
   return (
     <div className='home'>
       <img className='img2' src={es} alt="" />
       <header className='_header1'>
-        <button onClick={Show_Ar}>Arb</button>
-        <button onClick={Show_En}>Eng</button>
+        <button className="Ar" style={{borderRadius:"20px 0px 0px 20px" , width:"40px" , border:"2px solid #000"}} onClick={()=> navigate("/ar")}>Ar</button>
+        <button className="En" style={{borderRadius:"0px 20px 20px 0px" , width:"40px" , border:"2px solid #000"}} onClick={()=> navigate("/")}>En</button>
       </header>
       <header className='_header2'></header>
       <Link to="/news">
@@ -62,7 +55,7 @@ function Home({ setShow_Ar }) {
         <div className='main'>
           <img className='outcircle' src={outcircle} alt="" width="154" />
           <div className='cards'>
-            <Link to="/croporate" className='hov' onClick={OnClick}>
+            <Link to="/corporate" className='hov' onClick={OnClick}>
               <img className='img_ mx-3' src={i1} alt="" />
               <img className='iui' src={iui1} alt="" />
             </Link>
@@ -90,7 +83,7 @@ function Home({ setShow_Ar }) {
           <img src={logo} alt="" />
         </Link>
         <nav className='navbar_'>
-          <Link to="/whyus" className='my-4 icon1'>
+          <Link to="/why-us" className='my-4 icon1'>
             <img src={icon1} alt="" width="60px" />
             <span>Why us</span>
           </Link>
@@ -98,7 +91,7 @@ function Home({ setShow_Ar }) {
             <img src={icon2} alt="" width="60px" />
             <span>Goals&<br />Advanteges</span>
           </Link>
-          <Link to="/contactus" className='my-4 icon3'>
+          <Link to="/contact-us" className='my-4 icon3'>
             <img src={icon3} alt="" width="60px" />
             <span>Contact us</span>
           </Link>
@@ -106,7 +99,7 @@ function Home({ setShow_Ar }) {
       </div>
       <footer>
         <Link to="/ads">
-          <p>put your ads here</p>
+          <img src={image} alt="" className="ads_space"/>
         </Link>
         <div className='icons'>
           <ul>
@@ -128,6 +121,11 @@ function Home({ setShow_Ar }) {
             <li className='mx-0'>
               <Link to="">
                 <img src={telegram} alt="" />
+              </Link>
+            </li>
+            <li className='mx-0'>
+              <Link to="">
+                <img src={instegram} alt="" />
               </Link>
             </li>
           </ul>

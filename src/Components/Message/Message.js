@@ -1,15 +1,14 @@
 import React from 'react'
 import './Message.css';
 import {Link} from 'react-router-dom'
-import uploade from '../../images/Group 375.png'
-import check from '../../images/check_box.png';
-import service from '../../images/services.png';
-import back from '../../images/back.png'
-import send_message from '../../images/sendMessage.png'
+import uploade from '../../Assets/images/Group 375.png'
+import check from '../../Assets/images/check_box.png';
+import back from '../../Assets/images/back.png'
+import send_message from '../../Assets/images/sendMessage.png'
 const Message = ({image , text}) => {
     return (
         <div className='message'>
-            <Link to="/croporate" className='back'>
+            <Link to="/corporate" className='back'>
                 <span>Back</span>
                 <img src={back} alt=""/>
             </Link>
@@ -39,7 +38,7 @@ const Message = ({image , text}) => {
                 <Link to="/visitor">
                     <div className='check'>
                         <p>Information that must be complated first in case you are a visitor to send that request.</p>
-                        <img src={check} alt="" width="30px"/>
+                        <img src={check} alt="" width="40px"/>
                     </div>
                 </Link>
                 <div className='wages'>

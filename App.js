@@ -250,37 +250,37 @@ function App () {
       path:'/scientific/service_8',
       element:<ScietificService8/>
     },{
-      path:'/careerservice/service_1',
+      path:'/careerservice/service-1',
       element:<CareerService1/>
     },{
-      path:'/careerservice/service_2',
+      path:'/careerservice/service-2',
       element:<CareerService2/>
     },{
-      path:'/careerservice/service_3',
+      path:'/careerservice/service-3',
       element:<CareerService3/>
     },{
-      path:'/careerservice/service_4',
+      path:'/careerservice/service-4',
       element:<CareerService4/>
     },{
-      path:'/careerservice/service_5',
+      path:'/careerservice/service-5',
       element:<CareerService5/>
     },{
-      path:'/careerservice/service_6',
+      path:'/careerservice/service-6',
       element:<CareerService6/>
     },{
-      path:'/personalservice/service_1',
+      path:'/personalservice/service-1',
       element:<PersonalService1/>
     },{
-      path:'/personalservice/service_2',
+      path:'/personalservice/service-2',
       element:<PersonalService2/>
     },{
-      path:'/personalservice/service_3',
+      path:'/personalservice/service-3',
       element:<PersonalService3/>
     },{
-      path:'/personalservice/service_4',
+      path:'/personalservice/service-4',
       element:<PersonalService4/>
     },{
-      path:'/personalservice/service_5',
+      path:'/personalservice/service-5',
       element:<PersonalService5/>
     }
   ];

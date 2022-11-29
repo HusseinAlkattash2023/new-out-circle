@@ -1,13 +1,13 @@
 import React from 'react'
 import './Visiter.css'
 import { Link } from 'react-router-dom'
-import back from '../../images/back.png';
-import image from '../../images/Mask Group -1.png'
+import back from '../../Assets/images/back.png';
+import image from '../../Assets/images/Mask Group -1.png'
 import {BsPersonPlus} from "react-icons/bs"
 const Visiter = ({type}) => {
   return (
     <div className='visiter'>
-        <Link to="/demand" className='back'>
+        <Link to="/" className='back'>
             <span>Back</span>
             <img src={back} alt=""/>
         </Link>
