@@ -199,6 +199,9 @@ const AdsManagment = lazy(() =>
 );
 const AddAds = lazy(() => import("./Dashboard/Ads/AddAds/index.js"));
 const DeleteAds = lazy(() => import("./Dashboard/Ads/DeleteAds/index.js"));
+const NewsManagment = lazy(() => import("./Dashboard/News/NewsManagment/index.js"));
+const AddNews = lazy(() => import("./Dashboard/News/AddNews/index.js"));
+const DeleteNews = lazy(() => import("./Dashboard/News/DeleteNews/index.js"));
 const PageNotFound = lazy(() => import("./Pages/404/index"));
 
 function App() {
@@ -230,6 +233,18 @@ function App() {
     {
       path: "/dashboard/admin/delete-ads",
       element: <DeleteAds />,
+    },
+    {
+      path: "/dashboard/admin/news-managment",
+      element: <NewsManagment />,
+    },
+    {
+      path: "/dashboard/admin/add-news",
+      element: <AddNews />,
+    },
+    {
+      path: "/dashboard/admin/delete-news",
+      element: <DeleteNews />,
     },
     {
       path: "/ar",
