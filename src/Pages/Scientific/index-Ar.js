@@ -7,6 +7,7 @@ import logout from '../../Assets/images/logout.png'
 import notifications from '../../Assets/images/notification.png';
 import profile from '../../Assets/images/profile.png';
 import image from '../../Assets/images/Component 31 – 26.png'
+import image2 from '../../Assets/images/hover_ar/Component 31 – 26.png'
 function ScietificAr() {
     
     const ClearLocalStorate = ()=>{
@@ -24,17 +25,17 @@ function ScietificAr() {
                     </Link>
                     </header>
                     ):(
-                    <header className='header1'>
-                        <Link to="/profile_scientific">
-                            <span>Profile</span>
+                    <header className='header1_ar'>
+                        <Link to="/profile_scientific" className="my-2">
+                            <span>الملف الشخصي</span>
                             <img src={profile} alt=""/>
                         </Link>
-                        <Link to="/notifications">
-                            <span>Notifications</span>
+                        <Link to="/notifications" className="my-2">
+                            <span>الإشعارات</span>
                             <img src={notifications} alt=""/>
                         </Link>
-                        <Link onClick={ClearLocalStorate} to="/">
-                            <span>Logout</span>
+                        <Link onClick={ClearLocalStorate} to="/ar" className="my-2">
+                            <span>تسجيل الخروج</span>
                             <img src={logout} alt=""/>
                         </Link>
                     </header>
@@ -42,6 +43,7 @@ function ScietificAr() {
                 }
         <Circle 
         circle={image}
+        circle2={image2}
         demand1="scientific/service1-ar"
         demand2="scientific/service2-ar"
         demand3="scientific/service3-ar"

@@ -90,6 +90,21 @@
     top:30%;
     right: 100px;
 }
+.circle_ar .section1 .circle1{
+    position: absolute;
+    top:30%;
+    right:10px;
+    z-index: 2;
+}
+.circle_ar .section1 .circle2{
+    position: absolute;
+    top:30%;
+    right: 10px;
+    z-index: 1;
+}
+.circle_ar .section1:hover.section1 .circle2{
+    z-index: 3;
+}
 @font-face{
     font-family: book;
     src:url('../../Assets/fonts/Book\ Antiqua\ Font.ttf')

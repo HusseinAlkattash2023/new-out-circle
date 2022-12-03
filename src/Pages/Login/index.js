@@ -1,5 +1,5 @@
 import React, { useState , useEffect} from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import back from "../../Assets/images/back.png";
 import toast, { Toaster } from "react-hot-toast";
 import Axios from "axios";
@@ -12,7 +12,7 @@ function Login() {
   const [formValues, setFormValues] = useState(intialValues);
   const [formErrors, setFormErrors] = useState({});
 
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
@@ -28,8 +28,37 @@ function Login() {
         if (typeof data === "string") {
           toast.error(res.data);
         } else {
-          toast.success("Successed");
-          localStorage.setItem("user-info", JSON.stringify(data));
+          switch (formValues.user_type) {
+            case "companies":
+                setTimeout(() => {
+                    navigate("/corporate")
+                }, 3000);
+                break;
+            case "institute":
+                setTimeout(() => {
+                    navigate("/institute")
+                }, 3000);
+                break;
+            case "scientific_careers":
+                setTimeout(() => {
+                    navigate("/scientific")
+                    }, 3000);
+                break;
+            case "craftsmen":
+                setTimeout(() => {
+                    navigate("/handicraft")
+                }, 3000);
+                break;
+            case "individuals":
+                setTimeout(() => {
+                    navigate("/individuals")
+                }, 3000);
+                break;
+            default:
+                break;
+        }
+          toast.success("Logged in successfully...");
+          localStorage.setItem("users", JSON.stringify(data));
         }
       })
       .catch((err) => {
@@ -73,9 +102,7 @@ function Login() {
               <img src={logoLogin} alt="" style={{ width: "225px" }} />
             </div>
             <div>
-              <div>
-                <Toaster />
-              </div>
+              <div><Toaster /></div>
               <form onSubmit={handleSubmit} noValidate>
                 <div className="bar">
                   <div className="select">

@@ -11,6 +11,7 @@ import * as yup from "yup";
 import file from '../../Assets/images/file.png';
 import image from '../../Assets/images/ar_photo/scientific.png';
 import axios from 'axios';
+import toast, { Toaster } from "react-hot-toast";
 
 const schema = yup.object({
     username:yup.string().required('Please Enter your username'),
@@ -99,9 +100,14 @@ function RegisterScientific() {
         ))
         axios.post("http://localhost:8000/api/scientific-careers/add-new-user", formData)
         .then((res) => {
-        console.log(data);
-        localStorage.setItem("users", JSON.stringify({ ...data }));
-        navigate("/scientific")
+            const data1 = res.data;
+            if(typeof(data1) === "string"){
+                toast.error(data1)
+            }else{
+                toast.success("...تم إنشاء حسابك بنجاح")
+                localStorage.setItem("users", JSON.stringify({ ...data1 }));
+                setTimeout(() => navigate("/scientific-ar") , 2000);
+            }
     })
     .catch((err) => {
         console.error(err);
@@ -121,6 +127,7 @@ function RegisterScientific() {
                 <span className='icon'><BsPersonPlus/></span>
                 <span className='text'>مستخدم جديد / مهن علمية</span>
             </header>
+            <div><Toaster /></div>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <div className='bar'>
                 <div>

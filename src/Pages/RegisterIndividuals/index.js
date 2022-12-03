@@ -8,27 +8,28 @@ import { BsPersonPlus } from "react-icons/bs";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import axios from "axios";
+import Axios from "axios";
 import individuals from "../../Assets/images/Mask Group -5.png";
 import file from "../../Assets/images/file.png";
+import toast, { Toaster } from "react-hot-toast";
 
-const schema = yup
-  .object({
+const schema = yup.object({
     user_name: yup.string().required("Please Enter your username"),
     email: yup.string().email().required("Please Enter your Email"),
-    password: yup
-      .string()
-      .required("Please enter a password")
-      .min(4, "Password too short"),
-      confirm_password: yup
-      .string()
-      .required()
-      .oneOf([yup.ref("password"), null], "Passwords must match"),
-    full_name:yup.string().email().required("Please Enter your Full name")
-  })
-  .required();
+    password_: yup.string().required("Please enter a password").min(4, "Password too short"),
+    confirm_password_: yup.string().required("Please confirm password").oneOf([yup.ref("password_"), null], "Passwords must match"),
+    full_name:yup.string().required("Please Enter your Full name"),
+    // born_date:yup.string().required("Please Enter your Born date"),
+    current_city:yup.string().required("Please Enter your current city"),
+    current_address:yup.string().required("Please Enter your current address"),
+    mobile_number:yup.number().required("Please Enter your mobile number"),
+    current_work:yup.string().required("Please Enter your current work"),
+    experience:yup.string().required("Please Enter your Detialed practical experience"),
+    skills:yup.string().required("Please Enter your languages skills"),
+    it_skills:yup.string().required("Please Enter your IT skills"),
+  }).required();
 
-function RegisterIndividuals({ individual_, setIndividual_ }) {
+function RegisterIndividuals() {
   const navigate = useNavigate();
   const [data, setData] = useState({
     username: "",
@@ -54,8 +55,10 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
   const [num1, setNum1] = useState("");
   const [file1, setFile1] = useState();
   const [file2, setFile2] = useState();
-  const { register , formState:{errors}} = useForm(
-      {resolver: yupResolver(schema)});
+  const { register, handleSubmit, formState:{ errors } } = useForm({
+    resolver: yupResolver(schema)
+  });
+
   const data_ = [
     {
       key:"user_name",
@@ -125,19 +128,22 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
       value:file2
     },
   ]
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Hello")
+  const onSubmit =(e) => {
+    e.preventDefault()
     const formData = new FormData();
     data_.map((item)=>(
       formData.append(item.key , item.value)
     ))
-    axios
-      .post("http://localhost:8000/api/individuals/add-new-user", formData)
+    Axios.post("http://localhost:8000/api/individuals/add-new-user", formData)
       .then((res) => {
-        console.log(data);
-        localStorage.setItem("users", JSON.stringify({ ...data }));
-        navigate("/individuals");
+        const data1 = res.data;
+        if(typeof(data1) === "string"){
+          toast.error("Sorry, the email you entered already exists, please enter another email...")
+        }else{
+          toast.success("Your account has been created successfully")
+          localStorage.setItem("users", JSON.stringify({ ...data1 }));
+          setTimeout(() => navigate("/individuals") , 2000);
+        }
       })
       .catch((err) => {
         console.error(err);
@@ -161,22 +167,25 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
           </span>
           <span className="text">New User / Individuals</span>
         </header>
-        <form onSubmit={handleSubmit} encType="multipart/form-data">
+        <div><Toaster /></div>
+        <form onSubmit={onSubmit} encType="multipart/form-data">
           <div className="bar">
             <div className="my-3 input_">
               <input
+                type="text"
+                // {...register("user_name")}
                 className="input"
                 value={data.username}
                 onChange={(e) => {
                   setData({ ...data, username: e.target.value });
                 }}
                 placeholder="User name"
-                type="text"
               /><br/>
-              <span style={{color:"red"}}>{errors.user_name?.message}</span>
+              {/* <span style={{color:"red"}}>{errors.user_name?.message}</span> */}
             </div>
             <div className="my-3 input_">
               <input
+                // {...register("password_")}
                 className="input"
                 value={data.password}
                 onChange={(e) => {
@@ -185,10 +194,11 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
                 placeholder="Password"
                 type="password"
               /><br/>
-              {/* <span style={{color:"red"}}>{errors.password?.message}</span> */}
+              {/* <span style={{color:"red"}}>{errors.password_?.message}</span> */}
             </div>
             <div className="my-3 input_">
               <input
+                // {...register("confirm_password_")}
                 className="input"
                 value={data.confirm_password}
                 onChange={(e) => {
@@ -197,9 +207,11 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
                 placeholder="Confirm password"
                 type="password"
               /><br/>
+            {/* <span style={{color:"red"}}>{errors.confirm_password_?.message}</span> */}
             </div>
             <div className="my-3 input_">
               <input
+                // {...register("full_name")}
                 className="input"
                 value={data.full_name}
                 onChange={(e) => {
@@ -212,6 +224,7 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
             </div>
             <div className="my-3 input_">
               <input
+              // {...register("born_date")}
                 className="input"
                 ref={ref1}
                 type="text"
@@ -222,10 +235,12 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
                 }}
                 onFocus={() => (ref1.current.type = "date")}
                 onBlur={() => (ref1.current.type = "text")}
-              />
+              /><br/>
+              {/* <span style={{color:"red"}}>{errors.born_date?.message}</span> */}
             </div>
             <div className="my-3 input_">
               <input
+                // {...register("current_city")}
                 className="input"
                 value={data.current_city}
                 onChange={(e) => {
@@ -233,11 +248,12 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
                 }}
                 placeholder="Current city"
                 type="text"
-                // {...register("current_city")}
-              />
+              /><br/>
+              {/* <span style={{color:"red"}}>{errors.current_city?.message}</span> */}
             </div>
             <div className="my-3 input_">
               <input
+                // {...register("current_address")}
                 className="input"
                 value={data.current_address}
                 onChange={(e) => {
@@ -245,11 +261,12 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
                 }}
                 placeholder="Current Address"
                 type="text"
-                // {...register("current_address")}
-              />
+              /><br/>
+              {/* <span style={{color:"red"}}>{errors.current_address?.message}</span> */}
             </div>
             <div className="my-3 input_">
               <input
+                // {...register("scientific_sertificate")}
                 className="input"
                 value={data.scientific_sertificate}
                 onChange={(e) => {
@@ -261,6 +278,7 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
             </div>
             <div className="my-3 input_">
               <input
+              // {...register("academic_certificate")}
                 className="input"
                 value={data.academic_certificate}
                 onChange={(e) => {
@@ -272,6 +290,7 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
             </div>
             <div className="my-3 input_">
               <ReactPhoneInput
+                // {...register("mobile_number")}
                 value={num1}
                 onChange={setNum1}
                 className="phone_number"
@@ -279,9 +298,11 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
                 defaultCountry="sy"
                 enableSearchField
               />
+              {/* <span style={{color:"red"}}>{errors.mobile_number?.message}</span> */}
             </div>
             <div className="my-3 input_">
               <input
+                {...register("phone_number")}
                 className="input"
                 value={data.phone_number}
                 onChange={(e) => {
@@ -293,6 +314,7 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
             </div>
             <div className="my-3 input_">
               <input
+              // {...register("email")}
                 className="input"
                 value={data.email}
                 onChange={(e) => {
@@ -300,12 +322,12 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
                 }}
                 placeholder="Email Address"
                 type="email"
-                // {...register("email")}
               /><br/>
               {/* <span style={{color:"red"}}>{errors.email?.message}</span> */}
             </div>
             <div className="my-3 input_">
               <input
+                // {...register("current_work")}
                 className="input"
                 value={data.current_work}
                 onChange={(e) => {
@@ -313,11 +335,12 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
                 }}
                 placeholder="Current Work"
                 type="text"
-                // {...register("current_work")}
-              />
+              /><br/>
+              {/* <span style={{color:"red"}}>{errors.current_work?.message}</span> */}
             </div>
             <div className="my-3 input_">
               <input
+                // {...register("work_address")}
                 className="input"
                 value={data.work_address}
                 onChange={(e) => {
@@ -329,6 +352,7 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
             </div>
             <div className="my-3 input_">
               <input
+                // {...register("work_date")}
                 className="input"
                 ref={ref2}
                 type="text"
@@ -343,6 +367,7 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
             </div>
             <div className="my-3 input_">
               <input
+                // {...register("work_number")}
                 className="input"
                 value={data.work_number}
                 onChange={(e) => {
@@ -354,6 +379,7 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
             </div>
             <div className="my-3 input_">
               <input
+                // {...register("extention")}
                 className="input"
                 value={data.extention}
                 onChange={(e) => {
@@ -365,6 +391,7 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
             </div>
             <div className="my-3 input_">
               <input
+                // {...register("experience")}
                 className="input"
                 value={data.experience}
                 onChange={(e) => {
@@ -372,12 +399,12 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
                 }}
                 placeholder="Detialed practical experience"
                 type="text"
-                // {...register("experience")}
-              />
-              {/* { <p style={{color:"red"}}>{errors.experience?.message}</p> } */}
+              /><br/>
+              {/* <span style={{color:"red"}}>{errors.experience?.message}</span> */}
             </div>
             <div className="my-3 input_">
               <input
+                // {...register("skills")}
                 className="input"
                 value={data.skills}
                 onChange={(e) => {
@@ -385,11 +412,12 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
                 }}
                 placeholder="Languages skills"
                 type="text"
-                // {...register("skills")}
-              />
+              /><br/>
+              {/* <span style={{color:"red"}}>{errors.skills?.message}</span> */}
             </div>
             <div className="my-3 input_">
               <input
+                // {...register("it_skills")}
                 className="input"
                 value={data.it_skills}
                 onChange={(e) => {
@@ -397,8 +425,8 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
                 }}
                 placeholder="IT skills"
                 type="text"
-                // {...register("it_skills")}
-              />
+              /><br/>
+              {/* <span style={{color:"red"}}>{errors.it_skills?.message}</span> */}
             </div>
             <div className="my-3 input_1">
               <label htmlFor="file1">
@@ -435,7 +463,3 @@ function RegisterIndividuals({ individual_, setIndividual_ }) {
 }
 
 export default RegisterIndividuals;
-
-/*
-
-                */

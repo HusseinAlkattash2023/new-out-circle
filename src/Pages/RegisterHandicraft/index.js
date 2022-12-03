@@ -10,7 +10,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import file from '../../Assets/images/file.png'
 import image from '../../Assets/images/Mask Group -3.png';
-import axios from 'axios'
+import axios from 'axios';
+import toast, { Toaster } from "react-hot-toast";
+
 // const schema = yup.object({
 //     username:yup.string().required('Please Enter your username'),
 //     email: yup.string().email().required('Please Enter your Email'),
@@ -110,9 +112,14 @@ function RegisterHandicraft() {
     ))
     axios.post("http://localhost:8000/api/craftsmen/add-new-user", formData)
         .then((res) => {
-        console.log(data);
-        localStorage.setItem("users", JSON.stringify({ ...data }));
-        navigate("/handicraft")
+            const data1 = res.data;
+            if(typeof(data1) === "string"){
+                toast.error("Sorry, the email you entered already exists, please enter another email...")
+            }else{
+                toast.success("Your account has been created successfully")
+                localStorage.setItem("users", JSON.stringify({ ...data1 }));
+                setTimeout(() => navigate("/handicraft") , 2000);
+            }
     })
     .catch((err) => {
         console.error(err);
@@ -133,6 +140,7 @@ function RegisterHandicraft() {
                 <span className='icon'><BsPersonPlus/></span>
                 <span className='text'>New User / Handicraft</span>
             </header>
+            <div><Toaster /></div>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <div className='bar'>
                 <div>

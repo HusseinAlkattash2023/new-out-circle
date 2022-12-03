@@ -12,7 +12,7 @@ import institute from '../../Assets/images/Mask Group -2.png';
 import PersonalInfo from './steps/PersonalInfo';
 import InstituteInfo from './steps/InstituteInfo';
 import axios from 'axios'
-
+import toast, { Toaster } from "react-hot-toast";
 // const schema = yup.object({
 //   username:yup.string().required()
 // }).required()
@@ -65,7 +65,7 @@ function RegisterInstituse() {
       key:"whatsapp_number",
       value:data.whatsapp_number
     },{
-      key:"email",
+      key:"user_email",
       value:data.email
     },{
       key:"institute_name",
@@ -86,7 +86,7 @@ function RegisterInstituse() {
       key:"current_institute_activity_details",
       value:data.detailed_business
     },{
-      key:"institute_email",
+      key:"email",
       value:data.institute_email
     },{
       key:"work_start_date",
@@ -106,15 +106,21 @@ function RegisterInstituse() {
     }
   ]
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     const formData = new FormData();
     data_.map((item)=>(
       formData.append(item.key , item.value)
     ))
     axios.post("http://localhost:8000/api/institutes/add-new-user", formData)
       .then((res) => {
-        console.log(data);
-        localStorage.setItem("users", JSON.stringify({ ...data }));
+            const data1 = res.data;
+            if(typeof(data1) === "string"){
+                toast.error("Sorry, the email you entered already exists, please enter another email...")
+            }else{
+                toast.success("Your account has been created successfully")
+                localStorage.setItem("users", JSON.stringify({ ...data1 }));
+                setTimeout(() => navigate("/institute") , 2000);
+            }
       })
       .catch((err) => {
         console.error(err);
@@ -123,9 +129,9 @@ function RegisterInstituse() {
 
   const displayPage = ()=>{
     if(page === 0){
-      return <PersonalInfo num={num} setNum={setNum} email={data.email} whatsapp_number={data.whatsapp_number} born_date={data.born_date} password={data.password} confirm_password={data.confirm_password} full_name={data.full_name} username={data.username} setData={setData} data={data}/>
+      return <PersonalInfo num={num} setNum={setNum}  setData={setData} data={data}/>
     }else if(page === 1){
-      return <InstituteInfo record_history={data.record_history} setFile1={setFile1} setData={setData} data={data} landline_number={data.landline_number} fax_number={data.fax_number} phone_number={data.phone_number} start_date={data.start_date} detailed_business={data.detailed_business} institute_email={data.institute_email} institute_name={data.institute_name} record_number={data.record_number} current_city={data.current_city} current_address={data.current_address}/>
+      return <InstituteInfo setFile1={setFile1} file1={file1}  setData={setData} data={data}/>
     } 
   }
   const FormTitle = ["Personal Information" , "Institute Information"]
@@ -137,6 +143,7 @@ function RegisterInstituse() {
               <img src={back} alt=""/>
           </Link>
         </header>
+        <div><Toaster /></div>
         <section className='register2'>
           <header>
             <span className='icon'><BsPersonPlus/></span>

@@ -17,6 +17,20 @@
     padding: 10px;
     border: 1px solid #707070;
 }
+.reset .body_ar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #22594e;
+    width: 500px;
+    position: absolute;
+    left: 300px;
+    top: 50px;
+    height: 510px;
+    border-radius: 50px;
+    padding: 10px;
+    border: 1px solid #707070;
+}
 .reset form {
     text-align: center;
     width: 90%;
@@ -28,11 +42,25 @@
     align-items: flex-start;
     margin: 10px auto 10px auto;
 }
+.reset form .pass_ar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 10px auto 10px auto;
+}
 
-.reset form div label{
+.reset .body form div label{
     font-size: 20px ;
     color: #c4f9ae;
     font-family: 'Changa' , light;
+}
+.reset .body_ar form label{
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Readex Pro', sans-serif;
+    font-size: 17px;
+    color: #c4f9ae;
 }
 
 .reset form div input{
@@ -54,6 +82,11 @@
     font-family: Avengero;
     font-size: 28px;
 }
+.reset .body_ar header h2{
+    color: #c4f9ae;
+    font-family: 'Lemonada', medium;
+    font-size: 25px;
+}
 .reset header{
     display: flex;
     align-items: center;
@@ -65,7 +98,15 @@
     align-items: center;
     justify-content: center;
 }
-.reset header img{
+.reset .body_ar header img{
+    width: 60px;
+    height: 60px;
+    position: relative;
+    bottom: 10px;
+    right:20px;
+}
+
+.reset .body header img{
     width: 60px;
     height: 60px;
     position: relative;
@@ -87,12 +128,33 @@
     right: 35px;
     margin-top: 10px;
 }
+.reset .body_ar .submit{
+    border: none;
+    background-color: black;
+    color:#c4f9ae;
+    padding: 5px 25px;
+    border-radius: 25px;
+    font-size: 23px;
+    transition: all 0.5s ease;
+    font-weight: 500;
+    position: absolute;
+    left: 35px;
+    margin-top: 10px;
+    font-family: 'Readex Pro', sans-serif;
+}
 .reset .image img{
     width: 27%;
     height: 100%;
     position: absolute;
     top:0px;
     left: 0px;
+}
+.reset .image_ar img{
+    width: 27%;
+    height: 100%;
+    position: absolute;
+    top:0px;
+    right: 0px;
 }
 
 @font-face {

@@ -25,7 +25,7 @@ const schema = yup.object().shape({
 }).required();
 
 
-const PersonalInfoAr = ({formData , setFormData , page , setPage}) => {
+const PersonalInfoAr = ({data , setData , page , setPage}) => {
   const { register , formState:{errors}} = useForm(
     {resolver: yupResolver(schema)}); 
 
@@ -36,9 +36,9 @@ const PersonalInfoAr = ({formData , setFormData , page , setPage}) => {
         name="username"
         {...register("username")} 
         placeholder="اسم المستخدم"
-        value={formData.username}
+        value={data.username}
         onChange={(e) => {
-          setFormData({ ...formData, username: e.target.value });
+          setData({ ...data, username: e.target.value });
         }}
         type="text"
         />
@@ -50,9 +50,9 @@ const PersonalInfoAr = ({formData , setFormData , page , setPage}) => {
         {...register("password")} 
         placeholder="كلمة المرور" 
         type="password"
-        value={formData.password}
+        value={data.password}
         onChange={(e) => {
-          setFormData({ ...formData, password: e.target.value });
+          setData({ ...data, password: e.target.value });
         }}
         />
         <p style={{color:"red"}}>{errors.password?.message}</p>
@@ -63,9 +63,9 @@ const PersonalInfoAr = ({formData , setFormData , page , setPage}) => {
           {...register("confirmPasswod")} 
           placeholder="تأكيد كلمة المرور" 
           type="password"
-          value={formData.confirmPassword}
+          value={data.confirmPassword}
           onChange={(e) => {
-          setFormData({ ...formData, confirmPassword: e.target.value });
+          setData({ ...data, confirmPassword: e.target.value });
         }}
           />
           <p style={{color:"red"}}>{errors.confirmPasswod?.message}</p>

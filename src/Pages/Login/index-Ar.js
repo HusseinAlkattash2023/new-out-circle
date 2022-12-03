@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link , useNavigate } from 'react-router-dom'
 import back from '../../Assets/images/back.png'
 import toast  ,{Toaster} from 'react-hot-toast';
 import Axios from 'axios';
@@ -11,28 +11,58 @@ function Login_ar() {
     const intialValues = { email: "", password: "" , user_type:""};
     const [formValues, setFormValues] = useState(intialValues);
     const [formErrors, setFormErrors] = useState({});
-
+    const navigate = useNavigate();
     const handleChange = (e)=> {
         const{name , value} = e.target;
         setFormValues({...formValues , [name]:value})
     }
-    const handleSubmit = (e)=>{
+    const handleSubmit = (e) => {
         e.preventDefault();
-        setFormErrors(validate(formValues))
-        Axios.get(`http://localhost:8000/users?${`email=${formValues.email}`}&${`password=${formValues.password}`}&${`user_type=${formValues.user_type}`}`)
-        .then((res)=>{
-            console.log(res)
-            if(res.data === "Error !!!" || res.data === "عذراً الإيميل الذي ادخلته غير موجود ، رجاءً أدخل إيميل آخر من فضلك ..." || res.data === "كلمة السر التي أدخلتها غير صحيحة ، من فضلك أعد إدخال كلمة السر بشكل صحيح .."){
-                toast.error(res.data)
-            }else{
-                toast.success("Successed") 
-                localStorage.setItem('items', JSON.stringify({ ...formValues }));
+        setFormErrors(validate(formValues));
+        Axios.get(
+            `http://localhost:8000/api/users/user-info?${`input=${formValues.email}`}&${`password=${formValues.password}`}&${`user_type=${formValues.user_type}`}`
+        )
+        .then((res) => {
+            let data = res.data;
+            if (typeof data === "string") {
+                toast.error(res.data);
+            } else {
+                switch (formValues.user_type) {
+                    case "companies":
+                        setTimeout(() => {
+                            navigate("/corporate-ar")
+                        }, 3000);
+                        break;
+                    case "institute":
+                        setTimeout(() => {
+                            navigate("/institute-ar")
+                        }, 3000);
+                        break;
+                    case "scientific_careers":
+                        setTimeout(() => {
+                            navigate("/scientific-ar")
+                            }, 3000);
+                        break;
+                    case "craftsmen":
+                        setTimeout(() => {
+                            navigate("/handicraft-ar")
+                        }, 3000);
+                        break;
+                    case "individuals":
+                        setTimeout(() => {
+                            navigate("/individuals-ar")
+                        }, 3000);
+                        break;
+                    default:
+                        break;
+                }
+                toast.success("...تم تسجيل الدخول بنجاح");
+                localStorage.setItem("users", JSON.stringify(data));
             }
-        })
-        .catch((err)=>{
-            console.error(err)
-        })
-    }
+        }).catch((err) => {
+            console.error(err);
+        });
+    };
     const validate = (values) => {
         let errors = {};
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -67,21 +97,21 @@ function Login_ar() {
                 <div><Toaster/></div>
                 <form onSubmit={handleSubmit} noValidate>
                 <div className='bar'>
-                    <div className='select mt-3'>
+                    <div className='select mt-2'>
                         <label>اختر نوع الحساب</label><br/>
                         <select name='user_type' value={formValues.user_type} onChange={handleChange}>
-                        <option value="">...</option>
-                        <option value="companies">Corporate</option>
-                        <option value="institutes">Institute</option>
-                        <option value="scientific_careers">Scientific Profissional</option>
-                        <option value="craftsmen">Handicraft</option>
-                        <option value="individuals">Individuals</option>
+                        <option value="" hidden> نوع الحساب</option>
+                        <option value="companies">شركة</option>
+                        <option value="institute">مؤسسة</option>
+                        <option value="scientific_careers">مهن علمية</option>
+                        <option value="craftsmen">حرفيين</option>
+                        <option value="individuals">أفراد</option>
                         </select>
                     {formErrors.user_type && (
                         <span className="error_ar" style={{color:"red"}}>{formErrors.user_type}</span>
                         )}
                     </div>
-                    <div className='email mt-3'>
+                    <div className='email mt-2'>
                         <label htmlFor="email" >رقم الموبايل أو الإيميل</label><br/>
                         <input 
                         type="text" 
@@ -95,7 +125,7 @@ function Login_ar() {
                         <span className="error_ar" style={{color:"red"}}>{formErrors.email}</span>
                         )}
                     </div>
-                    <div className='password mt-3'>
+                    <div className='password mt-2'>
                         <label htmlFor="password_">كلمة المرور</label><br/>
                         <input 
                         type="password" 
@@ -110,7 +140,7 @@ function Login_ar() {
                         )}
                     </div>
                     </div>
-                    <Link className='forget' to="/forget-password">نسيت كلمة المرور</Link>
+                    <Link className='forget' to="/forget-password-ar">نسيت كلمة المرور</Link>
                     <button type='submit' className='loginButton mt-3'>تسجيل الدخول</button><br/>
                 </form>
                 <div className='register mt-3'>

@@ -3,19 +3,19 @@ import { Link , useNavigate} from 'react-router-dom'
 import password from '../../Assets/images/password.svg'
 import './index'
 import Axios from "axios";
-import image from '../../Assets/images/Mask Group 2.png'
+import image from '../../Assets/images/ar_photo/login.png'
 import './index.css'
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import toast, { Toaster } from "react-hot-toast";
-
+import back from '../../Assets/images/back.png';
 const schema = yup
   .object({
-    email: yup.string().email().required("Please Enter your Email"),
+    email: yup.string().email().required("اكتب ايميلك من فضلك"),
   }).required();
 
-const ForgetPass = () => {
+const ForgetPassAr = () => {
   const [email , setEmail] = useState("");
   const { register, handleSubmit , formState:{errors}} = useForm({resolver: yupResolver(schema)});
   
@@ -25,12 +25,12 @@ const ForgetPass = () => {
     .then(res => {
       const response = res.data
       if(typeof response === "string"){
-        toast.error("Sorry, the account does not exist...")
+        toast.error("...عذرا الحساب غير موجود")
       }else{
-        toast.success("Check your email...");
         setTimeout(() => {
-          navigate('/reset-password');
+          navigate('/reset-password-ar')
         }, 4000);
+        toast.success("...تحقق من بريدك الالكتروني");
         localStorage.setItem("user_id",response.user_id);
         localStorage.setItem("account_type",response.account_type);
         localStorage.setItem("code",response.code[0]);
@@ -43,28 +43,28 @@ const ForgetPass = () => {
 
   return (
     <div className="forgetpass">
-      <div><Toaster/></div>
-    <div className='body'>
+    <div><Toaster/></div>
+    <div className='body_ar'>
         <header>
-            <h2>forget password</h2>
             <img src={password} alt=""/>
+            <h2>!نسيت كلمة المرور</h2>
         </header>
         <form onSubmit={handleSubmit(onSubmit)} className="needs-validation">
             <div className='pass'>
-            <label>Please Write your email</label>
+            <label>أكتب ايميلك من فضلك</label>
             <input type="email"  {...register("email")} value={email} onChange={(e)=> {setEmail(e.target.value)}}/>
-            <span style={{color:"red"}}>{errors.email?.message}</span>
+            <span>{errors.email?.message}</span>
             </div>
             <button type='submit'>
-                Submit
+                إرسال
             </button>
         </form>
     </div>
-    <div className="image">
+    <div className="image_ar">
       <img src={image} alt=""/>
     </div>
     </div>
   )
 }
 
-export default ForgetPass;
+export default ForgetPassAr;

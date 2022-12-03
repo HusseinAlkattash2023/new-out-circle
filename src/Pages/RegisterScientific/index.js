@@ -11,6 +11,7 @@ import * as yup from "yup";
 import file from '../../Assets/images/file.png';
 import image from '../../Assets/images/Mask Group -4.png';
 import axios from 'axios';
+import toast, { Toaster } from "react-hot-toast";
 
 const schema = yup.object({
     username:yup.string().required('Please Enter your username'),
@@ -39,7 +40,7 @@ function RegisterScientific() {
         phone_number:""
     })
     const [ num , setNum ] = useState("")
-    const [ file1 , setFile1 ] = useState(null)
+    const [ file1 , setFile1 ] = useState()
     const ref1 = useRef();
     const ref2 = useRef();
     const navigate = useNavigate();
@@ -84,7 +85,7 @@ function RegisterScientific() {
             key:"work_start_date",
             value:data.start_date
         },{
-            key:"file1",
+            key:"file_src",
             value:file1
         }
     ]
@@ -95,19 +96,23 @@ function RegisterScientific() {
         e.preventDefault();
         const formData = new FormData();
         data_.map((item)=>(
-        formData.append(item.key , item.value)
-        ))
+            formData.append(item.key , item.value)
+        ));
         axios.post("http://localhost:8000/api/scientific-careers/add-new-user", formData)
         .then((res) => {
-        console.log(data);
-        localStorage.setItem("users", JSON.stringify({ ...data }));
-        navigate("/scientific")
+            const data1 = res.data;
+            if(typeof(data1) === "string"){
+                toast.error("Sorry, the email you entered already exists, please enter another email...")
+            }else{
+                toast.success("Your account has been created successfully")
+                localStorage.setItem("users", JSON.stringify({ ...data1 }));
+                setTimeout(() => navigate("/scientific") , 2000);
+            }
     })
     .catch((err) => {
         console.error(err);
     });
     }
-    
     return (
         <div className="scientific">
             <header>
@@ -121,6 +126,7 @@ function RegisterScientific() {
                 <span className='icon'><BsPersonPlus/></span>
                 <span className='text'>New User / Profisional Scientific</span>
             </header>
+            <div><Toaster /></div>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <div className='bar'>
                 <div>

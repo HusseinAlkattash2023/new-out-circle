@@ -1,8 +1,7 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
-import back from '../../Assets/images/back.png'
-import circle from '../../Assets/images/New folder/Group 429.png'
-import logout from '../../Assets/images/logout.png'
+import {Link} from 'react-router-dom';
+import back from '../../Assets/images/back.png';
+import circle from '../../Assets/images/New folder/Group 429.png';
+import logout from '../../Assets/images/logout.png';
 import notifications from '../../Assets/images/notification.png';
 import profile from '../../Assets/images/profile.png';
 import image2 from '../../Assets/images/New folder/Component 31 – 9.png';
@@ -11,7 +10,7 @@ function Individuals() {
     const ClearLocalStorate = ()=>{
         localStorage.clear();
     }
-    const state = localStorage.getItem("users")
+    const state = localStorage.getItem("users");
     return (
         <div className='individuals'>
                 {

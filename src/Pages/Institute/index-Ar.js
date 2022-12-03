@@ -6,16 +6,43 @@ import back from '../../Assets/images/back.png'
 import logout from '../../Assets/images/logout.png'
 import notifications from '../../Assets/images/notification.png';
 import profile from '../../Assets/images/profile.png'
-import image from '../../Assets/images/Component 31 – 25.png'
+import image from '../../Assets/images/Component 31 – 25.png';
+import image2 from '../../Assets/images/hover_ar/Component 31 – 25.png'
 function Institute_ar() {
+    const ClearLocalStorate = ()=>{
+        localStorage.clear();
+      }
+    const state = localStorage.getItem("users");
 return (
     <div className='institute'>
-            <Link to="/ar" className="back_ar">
-                <img src={back} alt=""/>
-                <span>رجوع</span>
-            </Link>
+            {
+                    !state ? (
+                    <header className='header2_ar'>
+                    <Link to="/">
+                        <span>رجوع</span>
+                        <img src={back} alt=""/>
+                    </Link>
+                    </header>
+                    ):(
+                        <header className='header1_ar'>
+                        <Link to="/profile_individual" className="my-2">
+                            <span>الملف الشخصي</span>
+                            <img src={profile} alt=""/>
+                        </Link>
+                        <Link to="/notifications" className="my-2">
+                            <span>الإشعارات</span>
+                            <img src={notifications} alt=""/>
+                        </Link>
+                        <Link onClick={ClearLocalStorate} to="/ar" className="my-2">
+                            <span>تسجيل الخروج</span>
+                            <img src={logout} alt=""/>
+                        </Link>
+                    </header>
+                    )
+                }
         <Circle 
         circle={image}
+        circle2={image2}
         demand1="institute/service1-ar"
         demand2="institute/service2-ar"
         demand3="institute/service3-ar"

@@ -115,7 +115,13 @@
     width: 100%;
     color: white;
 }
-
+.login_ar .select select{
+    text-align: right;
+    font-family: 'Changa', medium;
+}
+.login_ar .select option{
+    text-align: right;
+}
 form .loginButton{
     width:400px;
     border-radius: 30px;
@@ -187,6 +193,7 @@ form .forget{
 .login_ar .error_ar{
     display: flex;
     justify-content: flex-end;
+    font-family: 'Readex Pro', sans-serif;
 }
 .login .bar{
     height: 250px;

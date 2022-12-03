@@ -1,25 +1,25 @@
 import React , {useRef} from 'react'
 import file from '../../../../Assets/images/file.png'
 
-const InstituteInfo =({ record_history , setFile1 , institute_name , data , setData , institute_email , record_number , current_city , current_address , detailed_business , start_date , phone_number , fax_number , landline_number})=>{
+const InstituteInfo =({data , setData , file1 , setFile1})=>{
   const ref1 = useRef();
   const ref2 = useRef();
     return(
         <div>
           <form encType="multipart/form-data">
           <div className='my-3 input_'>
-                      <input value={institute_name} onChange={(e)=> setData({...data , institute_name:e.target.value})} placeholder="Institute name" type="text"/>
+                      <input value={data.institute_name} onChange={(e)=> setData({...data , institute_name:e.target.value})} placeholder="Institute name" type="text"/>
                       {/* <p>{errors.username?.message}</p> */}
                     </div>
                     <div className='my-3 input_'>
-                      <input value={record_number} onChange={(e)=> setData({...data , record_number:e.target.value})} placeholder="Institute record number" type="number"/>
+                      <input value={data.record_number} onChange={(e)=> setData({...data , record_number:e.target.value})} placeholder="Institute record number" type="number"/>
                       {/* <p>{errors.username?.message}</p> */}
                     </div>
                     <div className='my-3 input_'>
                       <input 
                       ref={ref2}
-                      value={record_history} 
-                      onChange={(e)=> setData({...data , born_date:e.target.value})}  
+                      value={data.record_history} 
+                      onChange={(e)=> setData({...data , record_history:e.target.value})}  
                       onFocus={() => (ref2.current.type = "date")}
                       onBlur={() => (ref2.current.type = "text")}
                       type="text" 
@@ -28,25 +28,25 @@ const InstituteInfo =({ record_history , setFile1 , institute_name , data , setD
                       />
                     </div>
                     <div className='my-3 input_'>
-                      <input value={current_city} onChange={(e)=> setData({...data , current_city:e.target.value})} placeholder="Current city" type="text"/>
+                      <input value={data.current_city} onChange={(e)=> setData({...data , current_city:e.target.value})} placeholder="Current city" type="text"/>
                       {/* <p>{errors.username?.message}</p> */}
                     </div>
                     <div className='my-3 input_'>
-                      <input value={current_address} onChange={(e)=> setData({...data , current_address:e.target.value})}  placeholder="Current address" type="text"/>
+                      <input value={data.current_address} onChange={(e)=> setData({...data , current_address:e.target.value})}  placeholder="Current address" type="text"/>
                       {/* <p>{errors.username?.message}</p> */}
                     </div>
                     <div className='my-3 input_'>
-                      <textarea value={detailed_business} onChange={(e)=> setData({...data , detailed_business:e.target.value})}  placeholder="institute's detailed business activity" type="text"/>
+                      <textarea value={data.detailed_business} onChange={(e)=> setData({...data , detailed_business:e.target.value})}  placeholder="institute's detailed business activity" type="text"/>
                       {/* <p>{errors.username?.message}</p> */}
                     </div>
                     <div className='my-3 input_'>
-                      <input value={institute_email} onChange={(e)=> setData({...data , institute_email:e.target.value})}  placeholder="Institute email address" type="email"/>
+                      <input value={data.institute_email} onChange={(e)=> setData({...data , institute_email:e.target.value})}  placeholder="Institute email address" type="email"/>
                       {/* <p>{errors.username?.message}</p> */}
                     </div>
                     <div className='my-3 input_'> 
                       <input 
                       ref={ref1}
-                      value={start_date} 
+                      value={data.start_date} 
                       onChange={(e)=> setData({...data , start_date:e.target.value})}
                       type="text" 
                       placeholder="Actual start date" 
@@ -58,14 +58,14 @@ const InstituteInfo =({ record_history , setFile1 , institute_name , data , setD
                   </div>
                   <div className='my-3 input_'>
                     <input 
-                    value={phone_number} 
+                    value={data.phone_number} 
                     onChange={(e)=> setData({...data , phone_number:e.target.value})}
                     placeholder="Phone number" 
                     type="number"/>
                   </div>
                   <div className='my-3 input_'>
                     <input 
-                    value={fax_number} 
+                    value={data.fax_number} 
                     onChange={(e)=> setData({...data , fax_number:e.target.value})}
                     placeholder="Fax number" 
                     type="number"
@@ -73,7 +73,7 @@ const InstituteInfo =({ record_history , setFile1 , institute_name , data , setD
                   </div>
                   <div className='my-3 input_'>
                     <input 
-                    value={landline_number} 
+                    value={data.landline_number} 
                     onChange={(e)=> setData({...data , landline_number:e.target.value})}
                     placeholder="Landline extention" 
                     type="number"/>

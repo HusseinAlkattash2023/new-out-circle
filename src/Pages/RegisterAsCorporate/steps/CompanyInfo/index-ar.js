@@ -1,24 +1,10 @@
 import React , {useRef} from 'react'
 import { useForm} from 'react-hook-form'
 import file from '../../../../Assets/images/file.png';
+import ReactPhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
-/*
-companyName:"",
-    typeCompany:"",
-    companyRecord:"",
-    companyDate:"",
-    currentCity:"",
-    currentAddress:"",
-    detaileBusiness:"",
-    companyEmail:"",
-    companyMobile:"",
-    actualStart:"",
-    phoneNumber:"",
-    faxNumber:"",
-    fileRecord:"",
-    establContract:"",
-    */
-const CompanyInfoAr = ({formData , setFormData}) => {
+const CompanyInfoAr = ({ data , setData , num , setNum }) => {
     const ref2 = useRef();
     const ref1 = useRef();
   const { register , formState:{errors}} = useForm()
@@ -30,9 +16,9 @@ const CompanyInfoAr = ({formData , setFormData}) => {
           name="companyName"
           {...register("companyName")} 
           placeholder='اسم الشركة'
-          value={formData.companyName}
+          value={data.companyName}
           onChange={(e) => {
-            setFormData({ ...formData, companyName: e.target.value });
+            setData({ ...data, companyName: e.target.value });
           }}
           />
           <p></p>
@@ -43,9 +29,9 @@ const CompanyInfoAr = ({formData , setFormData}) => {
           name="typeCompany"
           {...register("typeCompany")} 
           placeholder='نوع الشركة'
-          value={formData.typeCompany}
+          value={data.typeCompany}
           onChange={(e) => {
-            setFormData({ ...formData, typeCompany: e.target.value });
+            setData({ ...data, typeCompany: e.target.value });
           }}
           />
           <p></p>
@@ -56,9 +42,9 @@ const CompanyInfoAr = ({formData , setFormData}) => {
           name="companyRecord"
           {...register("companyRecord")} 
           placeholder='رقم سجل الشركة'
-          value={formData.companyRecord}
+          value={data.companyRecord}
           onChange={(e) => {
-            setFormData({ ...formData, companyRecord: e.target.value });
+            setData({ ...data, companyRecord: e.target.value });
           }}
           />
           <p></p>
@@ -66,12 +52,16 @@ const CompanyInfoAr = ({formData , setFormData}) => {
         <div className='my-3 input_'>
                     <input 
                     className='input'
-                    ref={ref2}
-                    onFocus={() => (ref2.current.type = "date")}
-                    onBlur={() => (ref2.current.type = "text")}
+                    ref={ref1}
+                    onFocus={() => (ref1.current.type = "date")}
+                    onBlur={() => (ref1.current.type = "text")}
                     placeholder="تاريخ سجل الشركة" 
-                    type="text"/>
-                    {/* <p style={{color:"red"}}>{errors.username?.message}</p> */}
+                    type="text"
+                    value={data.companyDate}
+                    onChange = {(e) => {
+                      setData({ ...data,  companyDate: e.target.value });
+                    }}
+                    />
                 </div>
         <div className='my-3 input_'>
           <input
@@ -79,9 +69,9 @@ const CompanyInfoAr = ({formData , setFormData}) => {
           name="currentCity"
           {...register("currentCity")} 
           placeholder='المحافظة'
-          value={formData.currentCity}
+          value={data.currentCity}
           onChange={(e) => {
-            setFormData({ ...formData,  currentCity: e.target.value });
+            setData({ ...data,  currentCity: e.target.value });
           }}
           />
           <p></p>
@@ -92,9 +82,9 @@ const CompanyInfoAr = ({formData , setFormData}) => {
           name="currentAddress"
           {...register("currentAddress")} 
           placeholder='العنوان الحالي'
-          value={formData.currentAddress}
+          value={data.currentAddress}
           onChange={(e) => {
-            setFormData({ ...formData,  currentAddress: e.target.value });
+            setData({ ...data,  currentAddress: e.target.value });
           }}
           />
           <p></p>
@@ -105,9 +95,9 @@ const CompanyInfoAr = ({formData , setFormData}) => {
           name="detaileBusiness"
           {...register("detaileBusiness")} 
           placeholder="تفاصيل نشاط الشركة الحالي"
-          value={formData.detaileBusiness}
+          value={data.detaileBusiness}
           onChange={(e) => {
-            setFormData({ ...formData, detaileBusiness: e.target.value });
+            setData({ ...data, detaileBusiness: e.target.value });
           }}
           />
           <p></p>
@@ -118,32 +108,27 @@ const CompanyInfoAr = ({formData , setFormData}) => {
           name="companyEmail"
           {...register("companyEmail")} 
           placeholder="البريد الألكتروني للشركة"
-          value={formData.companyEmail}
+          value={data.companyEmail}
           onChange={(e) => {
-            setFormData({ ...formData, companyEmail: e.target.value });
+            setData({ ...data, companyEmail: e.target.value });
           }}
           />
           <p></p>
         </div>
         <div className='my-3 input_'>
-          <input
-          type="number"
-          name="companyMobile"
-          {...register("companyMobile")} 
-          placeholder="رقم موبايل الشركة"
-          value={formData.companyMobile}
-          onChange={(e) => {
-            setFormData({ ...formData, companyMobile: e.target.value });
-          }}
-          />
-          <p></p>
+        <ReactPhoneInput  
+            value={num}
+            onChange={setNum}
+            className="phone_number" 
+            placeholder='رقم موبايل الشركة' 
+            defaultCountry="sy" enableSearchField />
         </div>
         <div className='my-3 input_'>
             <input 
             className='input'
             ref={ref2}
-            onFocus={() => (ref1.current.type = "date")}
-            onBlur={() => (ref1.current.type = "text")}
+            onFocus={() => (ref2.current.type = "date")}
+            onBlur={() => (ref2.current.type = "text")}
             placeholder="تاريخ بدء العمل الفعلي" 
             type="text"/> 
         </div>
@@ -153,9 +138,9 @@ const CompanyInfoAr = ({formData , setFormData}) => {
           name="phoneNumber"
           {...register("phoneNumber")} 
           placeholder="الهاتف الأرضي"
-          value={formData.phoneNumber}
+          value={data.phoneNumber}
           onChange={(e) => {
-            setFormData({ ...formData, phoneNumber: e.target.value });
+            setData({ ...data, phoneNumber: e.target.value });
           }}
           />
           <p></p>
@@ -166,9 +151,9 @@ const CompanyInfoAr = ({formData , setFormData}) => {
           name="faxNumber"
           {...register("faxNumber")} 
           placeholder="رقم الفاكس"
-          value={formData.faxNumber}
+          value={data.faxNumber}
           onChange={(e) => {
-            setFormData({ ...formData, faxNumber: e.target.value });
+            setData({ ...data, faxNumber: e.target.value });
           }}
           />
           <p></p>
@@ -179,9 +164,9 @@ const CompanyInfoAr = ({formData , setFormData}) => {
           name="number_partners"
           {...register("number_partners")} 
           placeholder="عدد الشركاء"
-          value={formData.number_partners}
+          value={data.number_partners}
           onChange={(e) => {
-            setFormData({ ...formData, number_partners: e.target.value });
+            setData({ ...data, number_partners: e.target.value });
           }}
           />
           <p></p>
@@ -191,25 +176,31 @@ const CompanyInfoAr = ({formData , setFormData}) => {
                         <p>تحميل سجل الشركة</p>
                         <img src={file} alt="" width="30"/>
                     </label>
-                    <input 
+                    <input
+                    onChange = {(e)=>{
+                      setData({...data , file_record:e.target.files[0]})
+                    }}
                     className='input text-light' 
                     name='uploadFile' 
                     id="file2" 
                     placeholder="Upload file" 
                     type="file"/>                     
-                </div>
-                <div className='my-3 input_1'>
-                    <label htmlFor="file2">
-                        <p>تحميل عقد تأسيس الشركة</p>
-                        <img src={file} alt="" width="30"/>
-                    </label>
-                    <input 
-                    className='input text-light' 
-                    name='uploadFile' 
-                    id="file2" 
-                    placeholder="Upload file" 
-                    type="file"/>                     
-                </div>
+        </div>
+        <div className='my-3 input_1'>
+            <label htmlFor="file2">
+                <p>تحميل عقد تأسيس الشركة</p>
+                <img src={file} alt="" width="30"/>
+            </label>
+            <input 
+              onChange = {(e)=>{
+                setData({...data , establContract:e.target.files[0]})
+              }}
+                className='input text-light' 
+                name='uploadFile' 
+                id="file2" 
+                placeholder="Upload file" 
+                type="file"/>                     
+        </div>
     </div>
   )
 }

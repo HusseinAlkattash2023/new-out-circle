@@ -8,15 +8,16 @@ import notifications from '../../Assets/images/notification.png';
 import profile from '../../Assets/images/profile.png';
 import image1 from '../../Assets/images/New folder/Group 426.png';
 import image2 from '../../Assets/images/New folder/Component 31 – 10.png';
-function Scietific({sceintific_=true}) {
+function Scietific() {
     
     const ClearLocalStorate = ()=>{
         localStorage.clear();
     }
+    const state = localStorage.getItem("users");
   return (
     <div className='scientific_'>
         {
-                    sceintific_ ? (
+                    !state ? (
                     <header className='header2'>
                     <Link to="/">
                         <span>Back</span>
@@ -25,15 +26,15 @@ function Scietific({sceintific_=true}) {
                     </header>
                     ):(
                     <header className='header1'>
-                        <Link to="/profile_scientific">
+                        <Link to="/profile_scientific" className="my-2">
                             <span>Profile</span>
                             <img src={profile} alt=""/>
                         </Link>
-                        <Link to="/notifications">
+                        <Link to="/notifications" className="my-2">
                             <span>Notifications</span>
                             <img src={notifications} alt=""/>
                         </Link>
-                        <Link onClick={ClearLocalStorate} to="/">
+                        <Link onClick={ClearLocalStorate} to="/" className="my-2">
                             <span>Logout</span>
                             <img src={logout} alt=""/>
                         </Link>

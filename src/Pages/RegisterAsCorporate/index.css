@@ -237,4 +237,23 @@ font-family: 'Readex Pro', sans-serif;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
+.registerCorporate .register1 .form-container .input_ .phone_number input,
+.registerCorporate .register1_ar .form-container.input_ .phone_number input{
+    padding: 10px 50px;
+    background: none;
+    border: none;
+    border: 2px solid #c4f9ae;
+    border-radius: 10px;
+    color: white;
+    width: 400px;
+    height: 43px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.registerCorporate .register1_ar .form-container .input_ .phone_number input{
+    text-align: right;
+    font-family: 'Readex Pro', sans-serif;
+    font-size: 17px;
+    padding:20px ;
+}
 

@@ -1,22 +1,22 @@
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
-import {BsPersonPlus} from "react-icons/bs"
-import back from '../../Assets/images/back.png'
+import {BsPersonPlus} from "react-icons/bs";
+import back from '../../Assets/images/back.png';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import './index.css'
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom'
+import './index.css';
+import { Link , useNavigate } from 'react-router-dom';
 import PersonalInfo from './steps/PersonalInfo';
 import CompanyInfo from './steps/CompanyInfo';
-import PartnerInfo from './steps/PartnerInfo';
-import corporate from '../../Assets/images/Mask Group -1.png'
-
+import corporate from '../../Assets/images/Mask Group -1.png';
+import Axios from 'axios';
+import toast, { Toaster } from "react-hot-toast";
 
 function RegisterCorporate() {
-
+  const navigate = useNavigate();
+  const [ num , setNum ] = useState("")
   const [page , setPage] = useState(0)
-  const [formData , setFormData] = useState({
+  const [data , setData] = useState({
     username:"",
     email:"",
     password:"",
@@ -41,16 +41,92 @@ function RegisterCorporate() {
     file_record:"",
     establContract:"",
   })
+  const data_ = [
+    {
+      key:"user_name",
+      value:data.username
+  },{
+    key:"company_name",
+    value:data.companyName
+  },{
+    key:"company_type",
+    value:data.typeCompany
+  },{
+    key:"company_record_history",
+    value:data.companyDate
+  },{
+    key:"city",
+    value:data.currentCity
+  },{
+    key:"current_address",
+    value:data.currentAddress
+  },{
+    key:"current_company_activity_details",
+    value:data.detaileBusiness
+  },{
+    key:"phone_number",
+    value:num
+  },{
+    key:"work_start_date",
+    value:data.actualStart
+  },{
+    key:"landline_number",
+    value:data.phoneNumber
+  },{
+    key:"fax_number",
+    value:data.faxNumber
+  },{
+    key:"number_of_partners",
+    value:data.number_partners
+  },{
+      key:"company_record_number",
+      value:data.companyRecord
+  },{
+        key:"email",
+        value:data.companyEmail
+    },{
+      key:"password",
+      value:data.password
+  },{
+        key:"file1",
+        value:data.file_record
+    },{
+        key:"file2",
+        value:data.establContract
+    },
+]
+  const handleSubmit= ()=>{
+    const formData = new FormData();
+    data_.map((item)=>(
+        formData.append(item.key , item.value)
+    ))
+    Axios
+      .post("http://localhost:8000/api/companies/add-new-user", formData)
+      .then((res) => {
+        const data1 = res.data;
+        if(data1 === "عذراً البريد الالكتروني الذي أدخلته موجود مسبقاً ،  من فضلك أدخل بريد الكتروني آخر ..."){
+            toast.error("Sorry, the email you entered already exists, please enter another email...")
+        }else if( data1 === "عذراً ، توجد شركة تحمل نفس رقم السجل ، الرجاء إدخال رقم سجل آخر ..."){
+          toast.error("Sorry, there is a company with the same registration number, please enter another registration number...")
+        }else{
+            toast.success("Your account has been created successfully")
+            localStorage.setItem("users", JSON.stringify({ ...data1 }));
+            localStorage.setItem("number_partners", data.number_partners);
+            setTimeout(() => navigate("/add-partners") , 2000);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
   const displayPage = ()=>{
     if(page === 0){
-      return <PersonalInfo page={page} setPage={setPage} formData={formData} setFormData={setFormData}/>
+      return <PersonalInfo page={page} setPage={setPage} data={data} setData={setData}/>
     }else if(page === 1){
-      return <CompanyInfo formData={formData} setFormData={setFormData}/>
-    }else{
-      return <PartnerInfo/>
+      return <CompanyInfo num={num} setNum={setNum} data={data} setData={setData}/>
     }
   }
-  const FormTitle = ["Personal Information" , "Company Information" , ""]
+  const FormTitle = ["Personal Information" , "Company Information"]
   return(
     <div className='registerCorporate'>
         <header>
@@ -59,6 +135,7 @@ function RegisterCorporate() {
               <img src={back} alt=""/>
           </Link>
         </header>
+        <div><Toaster /></div>
         <section className='register1'>
           <header>
             <span className='icon'><BsPersonPlus/></span>
@@ -83,8 +160,7 @@ function RegisterCorporate() {
               className='next mt-3 ms-2 py-1 px-4'
               onClick={(currPage) => {
                 if(page === FormTitle.length-1){
-                  alert("Form Submitted")
-                  console.log(formData)
+                    handleSubmit();
                 }else{
                   setPage((currPage) => currPage + 1)
                 }

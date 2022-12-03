@@ -11,24 +11,27 @@ import * as yup from "yup";
 import axios from "axios";
 import individuals from "../../Assets/images/ar_photo/Mask Group -6.png";
 import file from "../../Assets/images/file.png";
+import toast, { Toaster } from "react-hot-toast";
+
 
 const schema = yup
   .object({
     user_name: yup.string().required("Please Enter your username"),
     email: yup.string().email().required("Please Enter your Email"),
-    password: yup
-      .string()
-      .required("Please enter a password")
-      .min(4, "Password too short"),
-      confirm_password: yup
-      .string()
-      .required()
-      .oneOf([yup.ref("password"), null], "Passwords must match"),
-    full_name:yup.string().email().required("Please Enter your Full name")
-  })
-  .required();
+    password_: yup.string().required("Please enter a password").min(4, "Password too short"),
+    confirm_password_: yup.string().required("Please confirm password").oneOf([yup.ref("password_"), null], "Passwords must match"),
+    full_name:yup.string().required("Please Enter your Full name"),
+    // born_date:yup.string().required("Please Enter your Born date"),
+    current_city:yup.string().required("Please Enter your current city"),
+    current_address:yup.string().required("Please Enter your current address"),
+    mobile_number:yup.number().required("Please Enter your mobile number"),
+    current_work:yup.string().required("Please Enter your current work"),
+    experience:yup.string().required("Please Enter your Detialed practical experience"),
+    skills:yup.string().required("Please Enter your languages skills"),
+    it_skills:yup.string().required("Please Enter your IT skills"),
+  }).required();
 
-function RegisterIndividualsAr({ individual_, setIndividual_ }) {
+function RegisterIndividualsAr() {
   const navigate = useNavigate();
   const [data, setData] = useState({
     username: "",
@@ -54,7 +57,7 @@ function RegisterIndividualsAr({ individual_, setIndividual_ }) {
   const [num1, setNum1] = useState("");
   const [file1, setFile1] = useState();
   const [file2, setFile2] = useState();
-  const { register , formState:{errors}} = useForm(
+  const { register , handleSubmit , formState:{errors}} = useForm(
       {resolver: yupResolver(schema)});
   const data_ = [
     {
@@ -125,9 +128,8 @@ function RegisterIndividualsAr({ individual_, setIndividual_ }) {
       value:file2
     },
   ]
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    console.log("Hello")
     const formData = new FormData();
     data_.map((item)=>(
       formData.append(item.key , item.value)
@@ -135,9 +137,14 @@ function RegisterIndividualsAr({ individual_, setIndividual_ }) {
     axios
       .post("http://localhost:8000/api/individuals/add-new-user", formData)
       .then((res) => {
-        console.log(data);
-        localStorage.setItem("users", JSON.stringify({ ...data }));
-        navigate("/individuals-ar")
+        const data1 = res.data;
+        if(typeof(data1) === "string"){
+          toast.error(data1)
+        }else{
+          toast.success("...تم إنشاء حسابك بنجاح")
+          localStorage.setItem("users", JSON.stringify({ ...data1 }));
+          setTimeout(() => navigate("/individuals") , 2000);
+        }
       })
       .catch((err) => {
         console.error(err);
@@ -161,10 +168,12 @@ function RegisterIndividualsAr({ individual_, setIndividual_ }) {
           </span>
           <span className="text">مستخدم جديد / أفراد</span>
         </header>
-        <form onSubmit={handleSubmit} encType="multipart/form-data">
+        <div><Toaster /></div>
+        <form onSubmit={onSubmit} encType="multipart/form-data">
           <div className="bar">
             <div className="my-3 input_">
               <input
+              // {...register("user_name")}
                 className="input"
                 value={data.username}
                 onChange={(e) => {
@@ -172,6 +181,7 @@ function RegisterIndividualsAr({ individual_, setIndividual_ }) {
                 }}
                 placeholder="اسم المستخدم"
                 type="text"
+                name="user_name"
               /><br/>
               {/* <span style={{color:"red"}}>{errors.user_name?.message}</span> */}
             </div>

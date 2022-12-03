@@ -3,7 +3,8 @@ import Circle from '../../Components/Circle/Circle_ar';
 import './index.css';
 import {Link} from 'react-router-dom';
 import back from '../../Assets/images/back.png';
-import image from '../../Assets/images/Component 31 – 28.png'
+import image from '../../Assets/images/Component 31 – 28.png';
+import image2 from '../../Assets/images/hover_ar/Component 31 – 28.png'
 function PersonalServices_ar() {
   return (
     <div className='personalServices'>
@@ -15,6 +16,7 @@ function PersonalServices_ar() {
         </header>
         <Circle 
         circle={image}
+        circle2={image2}
         demand1="personal-service/service1-ar"
         demand2="personal-service/service2-ar"
         demand3="personal-service/service3-ar"

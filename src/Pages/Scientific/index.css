@@ -3,6 +3,7 @@
     background-color: #0a382b;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 
 .scientific_ .header2 a{
@@ -61,23 +62,54 @@
     position: relative;
     top:10px;
 }
+.scientific_ .header1_ar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    top:10px;
+}
 .scientific_ .header1 a img{
     width: 30px;
-    margin: 5px 10px;
+    position: absolute;
+    right: 14px;
+}
+.scientific_ .header1_ar a img{
+    width: 30px;
+    position: absolute;
+    left:14px;
 }
 .scientific_ .header1 a span{
     border: 2px solid white;
-    padding: 5px 55px 5px 5px;
+    padding: 5px 100px 5px 10px;
     position: relative;
-    right: -50px;
+    right: -220px;
     border-radius: 20px 0% 0% 20px;
     color: white;
-    opacity: 0;
-    visibility: hidden;
     transition: all 0.6s ease;
     border-right: none;
 }
+.scientific_ .header1_ar a span{
+    border: 2px solid white;
+    padding: 5px 10px 10px 100px;
+    position: relative;
+    left: -220px;
+    border-radius: 0px 20px 20px 0px;
+    color: white;
+    transition: all 0.6s ease;
+    border-left: none;
+    font-family: 'Readex Pro', sans-serif;
+    font-size: 14px;
+}
+
 .scientific_ .header1 a:hover span{
     opacity: 1;
     visibility: visible;
+    right: -50px;
+}
+.scientific_ .header1_ar a:hover span{
+    opacity: 1;
+    visibility: visible;
+    left: -50px;
 }

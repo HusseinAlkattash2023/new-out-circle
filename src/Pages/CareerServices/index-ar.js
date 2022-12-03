@@ -4,6 +4,7 @@ import './index.css';
 import {Link} from 'react-router-dom';
 import back from '../../Assets/images/back.png';
 import image from '../../Assets/images/Component 31 – 28.png';
+import image2 from '../../Assets/images/hover_ar/Component 31 – 28.png'
 function CareerServices() {
   return (
     <div className='careerServices'>
@@ -15,6 +16,7 @@ function CareerServices() {
         </header>
         <Circle 
         circle={image}
+        circle2={image2}
         demand1="career-service/service1-ar"
         demand2="career-service/service2-ar"
         demand3="career-service/service3-ar"

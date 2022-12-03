@@ -65,7 +65,7 @@ function RegisterInstituse() {
       key:"whatsapp_number",
       value:data.whatsapp_number
     },{
-      key:"email",
+      key:"user_email",
       value:data.email
     },{
       key:"institute_name",
@@ -86,7 +86,7 @@ function RegisterInstituse() {
       key:"current_institute_activity_details",
       value:data.detailed_business
     },{
-      key:"institute_email",
+      key:"email",
       value:data.institute_email
     },{
       key:"work_start_date",
@@ -101,16 +101,16 @@ function RegisterInstituse() {
       key:"land_phone_extension",
       value:data.landline_number
     },{
-      key:"file_src",
+      key:"file1",
       value:file1
     }
   ]
-  const handleSubmit = (e) => {
-    // e.preventDefault();
+  const handleSubmit = () => {
     const formData = new FormData();
     data_.map((item)=>(
       formData.append(item.key , item.value)
     ))
+    console.log(data)
     axios.post("http://localhost:8000/api/institutes/add-new-user", formData)
       .then((res) => {
         console.log(data);
@@ -123,9 +123,9 @@ function RegisterInstituse() {
 
   const displayPage = ()=>{
     if(page === 0){
-      return <PersonalInfoAr num={num} setNum={setNum} email={data.email} whatsapp_number={data.whatsapp_number} born_date={data.born_date} password={data.password} confirm_password={data.confirm_password} full_name={data.full_name} username={data.username} setData={setData} data={data}/>
+      return <PersonalInfoAr num={num} setNum={setNum}  setData={setData} data={data}/>
     }else if(page === 1){
-      return <InstituteInfoAr record_history={data.record_history} setFile1={setFile1} setData={setData} data={data} landline_number={data.landline_number} fax_number={data.fax_number} phone_number={data.phone_number} start_date={data.start_date} detailed_business={data.detailed_business} institute_email={data.institute_email} institute_name={data.institute_name} record_number={data.record_number} current_city={data.current_city} current_address={data.current_address}/>
+      return <InstituteInfoAr setFile1={setFile1} setData={setData} data={data} />
     } 
   }
   const FormTitle = ["معلومات شخصية" , "معلومات المؤسسة"]

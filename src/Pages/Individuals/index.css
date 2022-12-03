@@ -202,13 +202,11 @@
 }
 .individuals .header1 a img{
     width: 30px;
-    /* margin: 15px 10px; */
     position: absolute;
     right: 14px;
 }
 .individuals .header1_ar a img{
     width: 30px;
-    /* margin: 5px 10px; */
     position: absolute;
     left: 14px;
 }

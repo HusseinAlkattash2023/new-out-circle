@@ -1,9 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-// import circle from '../../images/circle.svg'
 import './Circle.css'
 
-function Circle({service ,circle, 
+function Circle({service ,circle,circle2, 
     service1 , service2 ,
     service3 , service4 , 
     service5 , service6,
@@ -15,7 +14,8 @@ function Circle({service ,circle,
     return (
         <div className='circle_ar'>
             <div className='section1'>
-                <img src={circle} alt="" width="280apx"/>
+                <img src={circle} alt="" width="280apx" className="circle1"/>
+                <img src={circle2} alt="" width="280px" className="circle2"/>
             </div>
             <div className='section2' data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%">
                     <Link to={`/${demand1}`}>{service1}</Link>

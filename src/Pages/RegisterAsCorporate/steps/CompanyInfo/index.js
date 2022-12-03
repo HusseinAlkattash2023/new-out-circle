@@ -1,36 +1,24 @@
-import React from 'react'
+import React ,{useRef} from 'react'
 import { useForm} from 'react-hook-form'
+import ReactPhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import file from '../../../../Assets/images/file.png';
 
-
-/*
-companyName:"",
-    typeCompany:"",
-    companyRecord:"",
-    companyDate:"",
-    currentCity:"",
-    currentAddress:"",
-    detaileBusiness:"",
-    companyEmail:"",
-    companyMobile:"",
-    actualStart:"",
-    phoneNumber:"",
-    faxNumber:"",
-    fileRecord:"",
-    establContract:"",
-    */
-const CompanyInfo = ({formData , setFormData}) => {
-  const { register , formState:{errors}} = useForm()
+const CompanyInfo = ({data , setData , setNum , num}) => {
+  const { register , formState:{errors}} = useForm();
+  const ref1 = useRef()
   return (
     <div>
+      <form encType="multipart/form-data">
         <div className='my-3 input_'>
           <input
           type="text"
           name="companyName"
           {...register("companyName")} 
           placeholder='Company name'
-          value={formData.companyName}
+          value={data.companyName}
           onChange={(e) => {
-            setFormData({ ...formData, companyName: e.target.value });
+            setData({ ...data, companyName: e.target.value });
           }}
           />
           <p></p>
@@ -41,9 +29,9 @@ const CompanyInfo = ({formData , setFormData}) => {
           name="typeCompany"
           {...register("typeCompany")} 
           placeholder='Type of company'
-          value={formData.typeCompany}
+          value={data.typeCompany}
           onChange={(e) => {
-            setFormData({ ...formData, typeCompany: e.target.value });
+            setData({ ...data, typeCompany: e.target.value });
           }}
           />
           <p></p>
@@ -54,12 +42,26 @@ const CompanyInfo = ({formData , setFormData}) => {
           name="companyRecord"
           {...register("companyRecord")} 
           placeholder='Company record number'
-          value={formData.companyRecord}
+          value={data.companyRecord}
           onChange={(e) => {
-            setFormData({ ...formData, companyRecord: e.target.value });
+            setData({ ...data, companyRecord: e.target.value });
           }}
           />
           <p></p>
+        </div>
+        <div className='my-3 input_'>
+            <input 
+            className='input'
+            ref={ref1}
+            onFocus={() => (ref1.current.type = "date")}
+            onBlur={() => (ref1.current.type = "text")}
+            placeholder="Company record history" 
+            type="text"
+            value={data.companyDate}
+            onChange = {(e) => {
+              setData({ ...data,  companyDate: e.target.value });
+            }}
+              />
         </div>
         <div className='my-3 input_'>
           <input
@@ -67,9 +69,9 @@ const CompanyInfo = ({formData , setFormData}) => {
           name="currentCity"
           {...register("currentCity")} 
           placeholder='Current city'
-          value={formData.currentCity}
+          value={data.currentCity}
           onChange={(e) => {
-            setFormData({ ...formData,  currentCity: e.target.value });
+            setData({ ...data,  currentCity: e.target.value });
           }}
           />
           <p></p>
@@ -80,9 +82,9 @@ const CompanyInfo = ({formData , setFormData}) => {
           name="currentAddress"
           {...register("currentAddress")} 
           placeholder='Current Address'
-          value={formData.currentAddress}
+          value={data.currentAddress}
           onChange={(e) => {
-            setFormData({ ...formData,  currentAddress: e.target.value });
+            setData({ ...data,  currentAddress: e.target.value });
           }}
           />
           <p></p>
@@ -93,9 +95,9 @@ const CompanyInfo = ({formData , setFormData}) => {
           name="detaileBusiness"
           {...register("detaileBusiness")} 
           placeholder="Company's detialed business"
-          value={formData.detaileBusiness}
+          value={data.detaileBusiness}
           onChange={(e) => {
-            setFormData({ ...formData, detaileBusiness: e.target.value });
+            setData({ ...data, detaileBusiness: e.target.value });
           }}
           />
           <p></p>
@@ -106,25 +108,20 @@ const CompanyInfo = ({formData , setFormData}) => {
           name="companyEmail"
           {...register("companyEmail")} 
           placeholder="Company Email address"
-          value={formData.companyEmail}
+          value={data.companyEmail}
           onChange={(e) => {
-            setFormData({ ...formData, companyEmail: e.target.value });
+            setData({ ...data, companyEmail: e.target.value });
           }}
           />
           <p></p>
         </div>
         <div className='my-3 input_'>
-          <input
-          type="number"
-          name="companyMobile"
-          {...register("companyMobile")} 
-          placeholder="Company mobile number"
-          value={formData.companyMobile}
-          onChange={(e) => {
-            setFormData({ ...formData, companyMobile: e.target.value });
-          }}
-          />
-          <p></p>
+            <ReactPhoneInput  
+            value={num}
+            onChange={setNum}
+            className="phone_number" 
+            placeholder='Company mobile number' 
+            defaultCountry="sy" enableSearchField />
         </div>
         <div className='my-3 input_'>
           <input
@@ -132,9 +129,9 @@ const CompanyInfo = ({formData , setFormData}) => {
           name="phoneNumber"
           {...register("phoneNumber")} 
           placeholder="Phone number"
-          value={formData.phoneNumber}
+          value={data.phoneNumber}
           onChange={(e) => {
-            setFormData({ ...formData, phoneNumber: e.target.value });
+            setData({ ...data, phoneNumber: e.target.value });
           }}
           />
           <p></p>
@@ -145,9 +142,9 @@ const CompanyInfo = ({formData , setFormData}) => {
           name="faxNumber"
           {...register("faxNumber")} 
           placeholder="Fax number"
-          value={formData.faxNumber}
+          value={data.faxNumber}
           onChange={(e) => {
-            setFormData({ ...formData, faxNumber: e.target.value });
+            setData({ ...data, faxNumber: e.target.value });
           }}
           />
           <p></p>
@@ -158,39 +155,45 @@ const CompanyInfo = ({formData , setFormData}) => {
           name="number_partners"
           {...register("number_partners")} 
           placeholder="Number of partners"
-          value={formData.number_partners}
+          value={data.number_partners}
           onChange={(e) => {
-            setFormData({ ...formData, number_partners: e.target.value });
+            setData({ ...data, number_partners: e.target.value });
           }}
           />
           <p></p>
         </div>
-        <div className='my-3 input_'>
-          <input
-          type="file"
-          name="file_record"
-          {...register("file_record")} 
-          placeholder=""
-          value={formData.file_record}
-          onChange={(e) => {
-            setFormData({ ...formData, file_record: e.target.value });
-          }}
-          />
-          <p></p>
+        <div className='my-3 input_1'>
+              <label htmlFor="file2">
+                  <p>Upload company record</p>
+                  <img src={file} alt="" width="30"/>
+              </label>
+              <input 
+                  className='input text-light' 
+                  name='uploadFile' 
+                  id="file2" 
+                  placeholder="Upload file" 
+                  type="file"
+                  onChange = {(e)=>{
+                    setData({...data , file_record:e.target.files[0]})
+                  }}
+                  />                     
         </div>
-        <div className='my-3 input_'>
-          <input
-          type="file"
-          name="establContract"
-          {...register("establContract")} 
-          placeholder=""
-          value={formData.establContract}
-          onChange={(e) => {
-            setFormData({ ...formData, establContract: e.target.value });
-          }}
-          />
-          <p></p>
+        <div className='my-3 input_1'>
+            <label htmlFor="file2">
+                <p>تحميل عقد تأسيس الشركة</p>
+                <img src={file} alt="" width="30"/>
+            </label>
+            <input 
+              onChange = {(e)=>{
+                setData({...data , establContract:e.target.files[0]})
+              }}
+                className='input text-light' 
+                name='uploadFile' 
+                id="file2" 
+                placeholder="Upload file" 
+                type="file"/>                     
         </div>
+        </form>
     </div>
   )
 }

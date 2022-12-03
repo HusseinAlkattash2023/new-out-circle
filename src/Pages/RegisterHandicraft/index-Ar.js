@@ -11,6 +11,7 @@ import * as yup from "yup";
 import file from '../../Assets/images/file.png'
 import image from '../../Assets/images/ar_photo/handicraft.png';
 import axios from 'axios';
+import toast, { Toaster } from "react-hot-toast";
 
 const schema = yup.object({
     username:yup.string().required('Please Enter your username'),
@@ -112,9 +113,14 @@ function RegisterHandicraftAr() {
         ))
         axios.post("http://localhost:8000/api/craftsmen/add-new-user", formData)
             .then((res) => {
-            console.log(data);
-            localStorage.setItem("users", JSON.stringify({ ...data }));
-            navigate("/handicraft-ar")
+                const data1 = res.data;
+                if(typeof(data1) === "string"){
+                    toast.error("...عذرا ، البريد الإلكتروني الذي أدخلته موجود بالفعل ، يرجى إدخال بريد إلكتروني آخر")
+                }else{
+                    toast.success("...تم إنشاء حسابك بنجاح")
+                    localStorage.setItem("users", JSON.stringify({ ...data1 }));
+                    setTimeout(() => navigate("/handicraft-ar") , 2000);
+                }
         })
         .catch((err) => {
             console.error(err);
@@ -134,6 +140,7 @@ function RegisterHandicraftAr() {
                 <span className='icon'><BsPersonPlus/></span>
                 <span className='text'>مستخدم جديد / حرفيين</span>
             </header>
+            <div><Toaster /></div>
             <form onSubmit={handleSubmit}>
                 <div className='bar'>
                 <div>

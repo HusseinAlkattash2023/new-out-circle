@@ -5,21 +5,25 @@
     overflow: hidden;
 }
 
-.institute .back{
+.institute .header2 a{
     position: absolute;
     right: 20px;
     top: 20px;
 }
-.institute .back_ar{
+.institute .header2_ar a{
     position: absolute;
     left: 20px;
     top: 20px;
 }
-.institute .back img,
-.institute .back_ar img{
+.institute .header2 a img,
+.institute .header2_ar a img{
     width: 30px;
 }
-.institute .back span{
+.institute .header2_ar a img{
+    position: absolute;
+    left:0;
+}
+.institute .header2 a span{
     border: 2px solid white;
     padding: 5px 55px 5px 5px;
     position: relative;
@@ -31,20 +35,82 @@
     transition: all 0.6s ease;
     border-right: none;
 }
-.institute .back_ar span{
+.institute .header2_ar a span{
     border: 2px solid white;
-    padding: 5px 5px 5px 55px;
+    padding: 5px 5px 8px 85px;
     position: relative;
-    left: -50px;
+    left: -150px;
     border-radius: 0px 20px 20px 0px;
     color: white;
-    opacity: 0;
-    visibility: hidden;
     transition: all 0.6s ease;
     border-left: none;
 }
-.institute .back:hover span,
-.institute .back_ar:hover span{
+.institute .header2 a:hover span{
     opacity: 1;
     visibility: visible;
+}
+.institute .header2_ar a:hover span{
+    opacity: 1;
+    visibility: visible;
+    left: -30px;
+}
+
+.institute .header1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    top:10px;
+}
+.institute .header1_ar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    top:10px;
+}
+.institute .header1 a img{
+    width: 30px;
+    position: absolute;
+    right: 14px;
+}
+.institute .header1_ar a img{
+    width: 30px;
+    position: absolute;
+    left: 14px;
+}
+.institute .header1 a span{
+    border: 2px solid white;
+    padding: 5px 100px 5px 10px;
+    position: relative;
+    right: -220px;
+    border-radius: 20px 0% 0% 20px;
+    color: white;
+    transition: all 0.6s ease;
+    border-right: none;
+}
+.institute .header1_ar a span{
+    border: 2px solid white;
+    padding: 5px 10px 10px 100px;
+    position: relative;
+    left: -220px;
+    border-radius: 0% 20px 20px 0%;
+    color: white;
+    transition: all 0.6s ease;
+    border-left: none;
+    z-index: 1000;
+    font-family: 'Readex Pro', sans-serif;
+    font-size: 14px;
+}
+.institute .header1 a:hover span{
+    opacity: 1;
+    visibility: visible;
+    right:-50px;
+}
+.institute .header1_ar a:hover span{
+    opacity: 1;
+    visibility: visible;
+    left: -50px;
 }
