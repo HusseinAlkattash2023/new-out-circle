@@ -49,31 +49,31 @@ function ContactUs() {
             </section>
             <footer>
             <div className='icons'>
-          <ul>
-            <li className='mx-0'>
-              <Link to="">
+            <ul>
+            <li className="mx-0">
+              <a href="https://wa.me/+963946202311" target="_blank">
                 <img src={whatsapp} alt="" />
-              </Link>
+              </a>
             </li>
-            <li className='mx-0'>
-              <Link to="">
+            <li className="mx-0">
+              <a href="https://m.facebook.com/profile.php?id=100088302496274&mibextid=ZbWKwL" target="_blank">
                 <img src={facebook} alt="" />
-              </Link>
+              </a>
             </li>
-            <li className='mx-0'>
-              <Link to="">
+            <li className="mx-0">
+              <a href="" target="_blank">
                 <img src={Linkedin} alt="" />
-              </Link>
+              </a>
             </li>
-            <li className='mx-0'>
-              <Link to="">
+            <li className="mx-0">
+              <a href="http://t.me/OutCircle" target="_blank">
                 <img src={telegram} alt="" />
-              </Link>
+              </a>
             </li>
-            <li className='mx-0'>
-              <Link to="">
+            <li className="mx-0">
+              <a href="" target="_blank">
                 <img src={instegram} alt="" />
-              </Link>
+              </a>
             </li>
           </ul>
           <div className='ms-4'>

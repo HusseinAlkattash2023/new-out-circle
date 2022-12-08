@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import {Link} from 'react-router-dom';
-// import {BsArrowReturnLeft} from 'react-icons/bs';
-import back from '../../Assets/images/back.png'
-import logo from '../../Assets/images/Group 360.svg'
-import './NewAdr.css'
+import back from '../../Assets/images/back.png';
+import logo from '../../Assets/images/Group 360.svg';
+import './NewAdr.css';
+
 const NewAdr = ({title , route}) => {
     return (
         <div className='news'>

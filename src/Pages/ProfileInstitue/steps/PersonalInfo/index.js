@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import update from '../../../images/update.png'
+import update from '../../../../Assets/images/update.png'
 const PersonalInfo = ({value}) => {
   return (
     <div>

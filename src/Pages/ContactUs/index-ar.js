@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 import facebook from "../../Assets/images/facebook.png";
 import telegram from '../../Assets/images/telegram.png';
 import whatsapp from '../../Assets/images/whatsapp.png';
-import Linkedin from '../../Assets/images/linkedin.png';
+import linkedin from '../../Assets/images/linkedin.png';
 import instegram from '../../Assets/images/instagram.png'
 import appStore from '../../Assets/images/appStore.png';
 import googlePlay from '../../Assets/images/googlePlay.png';
@@ -27,58 +27,58 @@ function ContactUs() {
                     </Link>
                 </div>
             <img className="background" src={contact} alt=""/>
-            <div className="rectangle"></div>
+            <div className="rectangle_ar"></div>
             <section className='main'>
                 <div>
                     <h2 style={{fontFamily:"changa"}}>اتصل بنا</h2>
                 </div>
-                <div className='text'>
+                <div className='text_ar'>
                     <ul>
-                        <li>Website:</li>
-                        <li>Email:</li>
-                        <li>Mobile 1:</li>
-                        <li>Mobile 2:</li>
-                        <li>WhatsApp / Telegram:</li>
+                        <li>:الموقع الإلكتروني</li>
+                        <li>:البريد الإلكتروني</li>
+                        <li>:رقم هاتف 1</li>
+                        <li>:رقم هاتف 2</li>
+                        <li>:واتس أب / تيليجرام</li>
                     </ul>
                     <p>----------------------------</p>
                     <ul>
-                        <li>General Manager:<br/><span className="jareer">Jareer Sayed Ahmad</span></li>
-                        <li>Mobile:</li>
-                        <li>WhatsApp:</li>
-                        <li>Email:</li>
+                        <li>:المدير العام<br/><span className="jareer_ar">جرير سيد أحمد</span></li>
+                        <li>:رقم الموبايل</li>
+                        <li>:الواتس أب</li>
+                        <li>:البريد الإلكتروني</li>
                     </ul>
                 </div>
             </section>
-            <footer>
-            <div className='icons_ar'>
+        <footer className="footer">
+        <div className='icons_ar'>
         <ul>
-            <li className='mx-0'>
-              <Link to="">
+            <li className="mx-0">
+              <a href="https://wa.me/+963946202311" target="_blank">
                 <img src={whatsapp} alt="" />
-              </Link>
+              </a>
             </li>
-            <li className='mx-0'>
-              <Link to="">
+            <li className="mx-0">
+              <a href="https://m.facebook.com/profile.php?id=100088302496274&mibextid=ZbWKwL" target="_blank">
                 <img src={facebook} alt="" />
-              </Link>
+              </a>
             </li>
-            <li className='mx-0'>
-              <Link to="">
-                <img src={Linkedin} alt="" />
-              </Link>
+            <li className="mx-0">
+              <a href="" target="_blank">
+                <img src={linkedin} alt="" />
+              </a>
             </li>
-            <li className='mx-0'>
-              <Link to="">
+            <li className="mx-0">
+              <a href="http://t.me/OutCircle" target="_blank">
                 <img src={telegram} alt="" />
-              </Link>
+              </a>
             </li>
-            <li className='mx-0'>
-            <Link to="">
+            <li className="mx-0">
+              <a href="" target="_blank">
                 <img src={instegram} alt="" />
-            </Link>
+              </a>
             </li>
-        </ul>
-        <div className='ms-4'>
+          </ul>
+        <div className='ddd ms-2'>
             <Link to="" className='me-1'>
                 <img src={googlePlay} alt="" />
             </Link>

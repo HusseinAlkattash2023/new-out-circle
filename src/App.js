@@ -151,7 +151,9 @@ const GoalsAr = lazy(() => import("./Pages/Goals/index-ar.js"));
 const ContactUs = lazy(() => import("./Pages/ContactUs/index.js"));
 const ContactUsAr = lazy(() => import("./Pages/ContactUs/index-ar.js"));
 const News = lazy(() => import("./Pages/News/index.js"));
+const NewsAr = lazy(() => import("./Pages/News/index-ar.js"));
 const Ads = lazy(() => import("./Pages/Ads/index.js"));
+const AdsAr = lazy(() => import("./Pages/Ads/index-ar.js"));
 const Visitor = lazy(() => import("./Components/Visiter/Visiter.js"));
 const Notifications = lazy(() => import("./Pages/Notifications/index.js"));
 const CareerServices = lazy(() => import("./Pages/CareerServices/index.js"));
@@ -164,12 +166,16 @@ const PersonalServices = lazy(() =>
 const PersonalServicesAr = lazy(() =>
   import("./Pages/PersonalServices/index-ar.js")
 );
-const ProfileIndividual = lazy(() => import("./Pages/Individuals/index.js"));
-const ProfileHandicraft = lazy(() => import("./Pages/Handicraft/index.js"));
-const ProfileScientific = lazy(() => import("./Pages/Scientific/index.js"));
-const ProfileInstitute = lazy(() => import("./Pages/Institute/index.js"));
+const ProfileIndividual = lazy(() => import("./Pages/ProfileIndividual/index.js"));
+const ProfileIndividualAr = lazy(() => import("./Pages/ProfileIndividual/index-ar.js"));
+const ProfileHandicraft = lazy(() => import("./Pages/ProfileHandicraft/index.js"));
+const ProfileScientific = lazy(() => import("./Pages/ProfileScientific/index.js"));
+const ProfileInstitute = lazy(() => import("./Pages/ProfileInstitue/index.js"));
 const ChangePassword = lazy(() =>
   import("./Components/ChangePassword/ChangePassword.js")
+);
+const ChangePasswordAr = lazy(() =>
+  import("./Components/ChangePassword/ChangePasswordAr.js")
 );
 const HomeAr = lazy(() => import("./Pages/Home/index-Ar.js"));
 const LoginAr = lazy(() => import("./Pages/Login/index-Ar.js"));
@@ -204,6 +210,7 @@ const AddNews = lazy(() => import("./Dashboard/News/AddNews/index.js"));
 const DeleteNews = lazy(() => import("./Dashboard/News/DeleteNews/index.js"));
 const NotificationsManagment = lazy(() => import("./Dashboard/Notifications/NotificationsManagment/index.js"));
 const AddNotification = lazy(() => import("./Dashboard/Notifications/AddNotifications/index.js"));
+const DetailsAds = lazy(() => import("./Pages/DetailsAds/index.js"));
 const PageNotFound = lazy(() => import("./Pages/404/index"));
 
 function App() {
@@ -421,14 +428,26 @@ function App() {
     {
       path: "/news",
       element: <News />,
+    },{
+      path: "/news-ar",
+      element: <NewsAr/>,
     },
     {
       path: "/ads",
       element: <Ads />,
+    },{
+      path: "/ads-ar",
+      element: <AdsAr/>,
+    },{
+      path: "/detials-ads",
+      element: <DetailsAds/>,
     },
     {
       path: "/profile-individual",
       element: <ProfileIndividual />,
+    },{
+      path: "/profile-individual-ar",
+      element: <ProfileIndividualAr/>,
     },
     {
       path: "/notifications",
@@ -437,6 +456,9 @@ function App() {
     {
       path: "/change-password",
       element: <ChangePassword />,
+    },{
+      path: "/change-password-ar",
+      element: <ChangePasswordAr/>,
     },
     {
       path: "/profile-handicraft",
@@ -797,7 +819,7 @@ function App() {
     {
       path: "/personal-service/service5-ar",
       element: <PersonalServiceAr5 />,
-    },
+    }, 
     {
       path: "*",
       element: <PageNotFound />,

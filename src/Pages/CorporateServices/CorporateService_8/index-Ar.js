@@ -4,7 +4,17 @@ import image1 from '../../../Assets/images/Corporate_ar/corporate7.png'
 const CorporateServiceAr_8 = () => {
   return (
     <div>
-        <MessageAr image={image1} text={"الخدمات الإعلانية"}/>
+        <MessageAr 
+        image={image1} text={"الخدمات الإعلانية"}
+        head={"شركة"} address = {"الخدمات الإعلانية"}
+        text1={"حجز مساحة إعلانية لمنتجك أو خدمتك"}
+        text2={"إعلان عام لمدة محددة عبر كافة الوسائل الخاصة بنا "}
+        text3={"الاستشارة الإعلانية وأفكار عن إعلانك وإداراته"}
+        text4={"أفكار إعلان جديد مع إمكانية تصميمه ومتابعته"}
+        text5={"...."}
+        text6={"...."}
+        text7={"...."}
+        />
     </div>
 )
 }

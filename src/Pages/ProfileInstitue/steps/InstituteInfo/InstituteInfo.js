@@ -1,6 +1,6 @@
 import React from 'react'
-import update from '../../../images/update.png'
-import file from '../../../images/file.png';
+import update from '../../../../Assets/images/update.png'
+import file from '../../../../Assets/images/file.png';
 
 const InstituteInfo = ({value}) => {
   return (

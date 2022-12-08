@@ -18,7 +18,7 @@ return (
             {
                     !state ? (
                     <header className='header2_ar'>
-                    <Link to="/">
+                    <Link to="/ar">
                         <span>رجوع</span>
                         <img src={back} alt=""/>
                     </Link>

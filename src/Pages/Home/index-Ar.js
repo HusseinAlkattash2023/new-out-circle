@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React , {useState , useEffect ,Fragment, useCallback} from 'react';
 import whatsapp from '../../Assets/images/whatsapp.png';
 import facebook from '../../Assets/images/facebook.png'
 import linkedin from '../../Assets/images/linkedin.png'
@@ -26,8 +26,50 @@ import iui4 from '../../Assets/images/serviceAr/hover/Group 521.png'
 import iui5 from '../../Assets/images/serviceAr/hover/Group 522.png'
 import { useNavigate } from 'react-router-dom';
 import './index.css'
-import image from '../../Assets/images/Group 287.png'
+import image from '../../Assets/images/Group 287.png';
+import { useSelector } from "react-redux";
+import Axios from 'axios';
+
 function HomeAr() {
+
+  const [adsImage, setAdsImage] = useState([]);
+  const [newsInfo, setNewsInfo] = useState([]);
+
+    const BASE_API_URL = useSelector((state) => state.BASE_API_URL);
+
+     
+    const getAllNews = useCallback(() => {
+      return new Promise((resolve, reject) => {
+        Axios.get(`${BASE_API_URL}/api/news/all-news`)
+          .then((res) => {
+            resolve(res.data);
+          })
+          .catch((err) => reject(err));
+      });
+    }, [BASE_API_URL]);
+  
+    const getAllAds = useCallback(() => {
+        return new Promise((resolve, reject) => {
+          Axios.get(`${BASE_API_URL}/api/ads/all-ads`)
+            .then((res) => {
+              resolve(res.data);
+            })
+            .catch((err) => reject(err));
+        });
+  
+    }, [BASE_API_URL])
+  
+    useEffect(() => {
+      getAllNews()
+        .then((data) => {
+          setNewsInfo(data);
+          getAllAds().then((data) => {
+            setAdsImage(data);
+          })
+          .catch((err) => console.log(err));
+        })
+        .catch((err) => console.log(err));
+    }, [BASE_API_URL, getAllNews, getAllAds]);
 
 
   const navigate =  useNavigate()
@@ -42,8 +84,15 @@ function HomeAr() {
       <button className="En_" style={{borderRadius:"0px 20px 20px 0px" , width:"40px" , border:"2px solid #000"}} onClick={() => navigate("/")}>En</button>
       </header>
       <header className='_header2_ar'></header>
-      <Link to="/news">
-          <marquee className="marquee_ar" direction="right">نحن فريق يقدم خدمات استشارية وتطويرية ، بالإضافة إلى الخدمات المهنية لجميع قطاعات الأعمال الخاصة في معظم محافظات سوريا بطريقة فنية غير عادية توفر الوقت والجهد على الجميع.</marquee>
+      <Link to="/news-ar">
+          <marquee className="marquee_ar" direction="right">
+          {newsInfo.map((item) => (
+            <Fragment key={item._id}>
+              <span>{item.content}</span>
+              <span>|</span>
+            </Fragment>
+          ))}
+          </marquee>
       </Link>
       <div>
       <div className='login1_ar'>
@@ -99,38 +148,44 @@ function HomeAr() {
         </div>  
         <footer className="footer_ar">
         <Link to="/ads">
-          <div className="put-ads">
-            <img src={image} alt=""/>
-          </div>
+          {
+            adsImage ? (
+              adsImage.map((item)=> (
+                <div key={item._id}>
+                  <img className="ads_space_ar" src={`http://localhost:8000/${item.file_paths[0]}`} alt=""/>
+                </div>
+              ))
+            ) : <img src={image} alt="" className="ads_space"/> 
+          }
         </Link>
         <div className='icons_ar'>
-            <ul>
-                <li className='mx-0'>
-                <Link to="">
-                    <img src={instegram} alt=""/>
-                </Link>
-                </li>
-                <li className='mx-0'>
-                <Link to="">
-                    <img src={whatsapp} alt=""/>
-                </Link>
-                </li>
-                <li className='mx-0'>
-                <Link to="">
-                  <img src={facebook} alt=""/>
-                </Link>
-              </li>
-              <li className='mx-0'>
-                <Link to="">
-                  <img src={linkedin} alt=""/>
-                </Link>
-              </li>
-              <li className='mx-0'>
-                <Link to="">
-                  <img src={telegram} alt=""/>
-                </Link>
-              </li>
-            </ul>
+        <ul>
+            <li className="mx-0">
+              <a href="https://wa.me/+963946202311" target="_blank">
+                <img src={whatsapp} alt="" />
+              </a>
+            </li>
+            <li className="mx-0">
+              <a href="https://m.facebook.com/profile.php?id=100088302496274&mibextid=ZbWKwL" target="_blank">
+                <img src={facebook} alt="" />
+              </a>
+            </li>
+            <li className="mx-0">
+              <a href="" target="_blank">
+                <img src={linkedin} alt="" />
+              </a>
+            </li>
+            <li className="mx-0">
+              <a href="http://t.me/OutCircle" target="_blank">
+                <img src={telegram} alt="" />
+              </a>
+            </li>
+            <li className="mx-0">
+              <a href="" target="_blank">
+                <img src={instegram} alt="" />
+              </a>
+            </li>
+          </ul>
             <div className='ms-4'>
             <Link to="" className='me-1'>
               <img src={googlePlay} alt=""/>

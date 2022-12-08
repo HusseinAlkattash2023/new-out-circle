@@ -1,12 +1,12 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {BsArrowReturnLeft} from "react-icons/bs"
-import user from '../../images/user.png'
-import update from '../../images/update.png'
-import file from '../../images/file.png'
-import individuals from '../../images/Mask Group -5.png'
+import user from '../../Assets/images/user.png'
+import update from '../../Assets/images/update.png'
+import file from '../../Assets/images/file.png'
+import individuals from '../../Assets/images/Mask Group -5.png';
+import './index.css';
 
-import './ProfileIndividual.css' 
 const ProfileIndividual = ({value}) => {
     return (
     <div className='profile'>
@@ -15,7 +15,7 @@ const ProfileIndividual = ({value}) => {
                 <button><BsArrowReturnLeft/></button>
             </Link>
         </header>
-        <section>
+        <section className="section1">
         <header>
                 <span className='icon'><img src={user} alt="" width="40px"/></span>
                 <span className='text'>Your Profile</span>
@@ -122,6 +122,12 @@ const ProfileIndividual = ({value}) => {
                     </div>
                 </div>
                 <div className='information'>
+                    <input type="text" defaultValue={value || "IT skills"}/>
+                    <div>
+                        <img src={update} alt=""/>
+                    </div>
+                </div>
+                <div className='information'>
                     <p>Upload file</p>
                     <div>
                         <img src={file} alt=""/>
@@ -148,4 +154,4 @@ const ProfileIndividual = ({value}) => {
 )
 }
 
-export default ProfileIndividual
+export default ProfileIndividual;

@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import back from '../../images/back.png';
-import institute from "../../images/Mask Group -2.png"
+import back from '../../Assets/images/back.png';
+import institute from "../../Assets/images/Mask Group -2.png"
 import PersonalInfo from './steps/PersonalInfo';
 import InstituteInfo from './steps/InstituteInfo/InstituteInfo'
-import user from '../../images/user.png'
-import './ProfileInstitute.css';
+import user from '../../Assets/images/user.png'
+import './index.css';
 
 const ProfileInstitute = () => {
   const [page , setPage] = useState(0);

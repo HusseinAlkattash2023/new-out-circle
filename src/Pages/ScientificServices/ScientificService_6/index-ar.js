@@ -4,7 +4,17 @@ import image1 from '../../../Assets/images/scientific_ar/image6.png'
 const ScientificServiceAr_6 = () => {
 return (
     <div>
-        <MessageAr image={image1} text={"أفكار وخدمات إكساء وديكور للشركة"}/>
+        <MessageAr 
+        image={image1} text={"أفكار وخدمات إكساء وديكور للشركة"}
+        head={"مهن علمية"} address = {"أفكار وخدمات إكساء وديكور للشركة"}
+        text1={"تعهد إكساء عقار كامل أو جزئي"}
+        text2={"الإشراف على الإكساء القائم و متابعته"}
+        text3={"طرح أفكار ديكور"}
+        text4={"إمكانية إنجاز تصاميم الديكور وتطبيقها ومتابعتها"}
+        text5={"...."}
+        text6={"...."}
+        text7={"...."}
+        />
     </div>
 )
 }

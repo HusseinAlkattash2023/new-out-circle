@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import back from '../../images/back.png'
+import back from '../../Assets/images/back.png'
 import './Profile.css';
-import handicraft from '../../images/Mask Group -3.png'
-import user from '../../images/user.png'
-import update from '../../images/update.png'
-import file from '../../images/file.png'
+import handicraft from '../../Assets/images/Mask Group -3.png'
+import user from '../../Assets/images/user.png'
+import update from '../../Assets/images/update.png'
+import file from '../../Assets/images/file.png'
 const ProfileHandicraft = ({image , value}) => {
   return (
     <div className='profile_handicraft'>

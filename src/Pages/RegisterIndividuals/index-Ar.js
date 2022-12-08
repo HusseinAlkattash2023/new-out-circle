@@ -372,7 +372,7 @@ function RegisterIndividualsAr() {
                   setData({ ...data, extention: e.target.value });
                 }}
                 placeholder="التحويلة"
-                type="text"
+                type="number"
               />
             </div>
             <div className="my-3 input_">

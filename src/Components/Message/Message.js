@@ -1,11 +1,23 @@
-import React from 'react'
+import React from 'react';
 import './Message.css';
-import {Link} from 'react-router-dom'
-import uploade from '../../Assets/images/Group 375.png'
+import {Link} from 'react-router-dom';
+import uploade from '../../Assets/images/Group 375.png';
 import check from '../../Assets/images/check_box.png';
-import back from '../../Assets/images/back.png'
-import send_message from '../../Assets/images/sendMessage.png'
+import back from '../../Assets/images/back.png';
+import send_message from '../../Assets/images/sendMessage.png';
+import { AudioRecorder  } from 'react-audio-voice-recorder';
+
 const Message = ({image , text}) => {
+    const addAudioElement = (blob) => {
+        const url = URL.createObjectURL(blob);
+        const audio = document.createElement("audio");
+        audio.src = url;
+        audio.controls = true;
+        document.body.appendChild(audio);
+        const nest = document.body.appendChild(audio);
+        nest.className="fff"
+    };
+
     return (
         <div className='message'>
             <Link to="/corporate" className='back'>
@@ -28,6 +40,9 @@ const Message = ({image , text}) => {
                         <Link to="">
                             <img src={uploade} alt="" width="40px"/>
                         </Link>
+                    </div>
+                    <div className="audio">
+                        <AudioRecorder  onRecordingComplete={addAudioElement} />
                     </div>
                     <div>
                         <button>

@@ -1,6 +1,6 @@
 import React from 'react'
-import sceintific from '../../images/Mask Group -4.png'
-import Profile from '../../component/Profile/Profile'
+import sceintific from '../../Assets/images/Mask Group -4.png'
+import Profile from '../../Components/Profile/Profile'
 const ProfileScientific = () => {
   return (
     <div>

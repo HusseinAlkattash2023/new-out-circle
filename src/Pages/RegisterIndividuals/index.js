@@ -386,7 +386,7 @@ function RegisterIndividuals() {
                   setData({ ...data, extention: e.target.value });
                 }}
                 placeholder="Extention"
-                type="text"
+                type="number"
               />
             </div>
             <div className="my-3 input_">

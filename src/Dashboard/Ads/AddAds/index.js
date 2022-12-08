@@ -1,8 +1,12 @@
 import { useState } from "react";
 import Axios from "axios";
 import { useSelector } from "react-redux";
+import {useNavigate} from 'react-router-dom';
+import toast, { Toaster } from "react-hot-toast";
 
 const AddAds = () => {
+  const navigate = useNavigate();
+
   const [text, setText] = useState("");
 
   const [yourFile, setYourFile] = useState();
@@ -20,12 +24,18 @@ const AddAds = () => {
         formData.append("file" + i, customerFiles[i]);
     }
     Axios.post(`${BASE_API_URL}/api/ads/add-new-ads`, formData)
-      .then((res) => {})
+      .then((res) => {
+        toast.success("تم إضافة الإعلان بنجاح")
+        setTimeout(() => {
+          navigate("/dashboard/admin/ads-managment")
+        }, 3000);
+      })
       .catch((err) => console.log(err));
   };
   return (
     <div className="add-ads text-center">
       <div className="container">
+        <div><Toaster/></div>
         <h1>Add Ads</h1>
         <form className="add-ads-form mb-4" onSubmit={handleSubmit} encType="multipart/form-data">
           <textarea

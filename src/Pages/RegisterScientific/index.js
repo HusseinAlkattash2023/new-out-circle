@@ -10,8 +10,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import file from '../../Assets/images/file.png';
 import image from '../../Assets/images/Mask Group -4.png';
-import axios from 'axios';
+import Axios from 'axios';
 import toast, { Toaster } from "react-hot-toast";
+import { useSelector } from "react-redux";
 
 const schema = yup.object({
     username:yup.string().required('Please Enter your username'),
@@ -40,7 +41,11 @@ function RegisterScientific() {
         phone_number:""
     })
     const [ num , setNum ] = useState("")
+
     const [ file1 , setFile1 ] = useState()
+
+    const BASE_API_URL = useSelector(state => state.BASE_API_URL);
+
     const ref1 = useRef();
     const ref2 = useRef();
     const navigate = useNavigate();
@@ -98,7 +103,11 @@ function RegisterScientific() {
         data_.map((item)=>(
             formData.append(item.key , item.value)
         ));
-        axios.post("http://localhost:8000/api/scientific-careers/add-new-user", formData)
+        console.log(data_)
+        for(let data of formData){
+            console.log(data)
+        }
+        Axios.post(`${BASE_API_URL}/api/scientific-careers/add-new-user`,formData)
         .then((res) => {
             const data1 = res.data;
             if(typeof(data1) === "string"){
@@ -248,7 +257,7 @@ function RegisterScientific() {
                     {/* <p style={{color:"red"}}>{errors.email?.message}</p> */}
                 </div>
                 <div className='my-3 input_1'>
-                    <label htmlFor="file2">
+                    <label htmlFor="file1">
                         <p>Upload work license and certificate</p>
                         <img src={file} alt="" width="30"/>
                     </label>
@@ -256,7 +265,7 @@ function RegisterScientific() {
                     onChange={(e) => setFile1(e.target.files[0])} 
                     className='input text-light' 
                     name='uploadFile' 
-                    id="file2" 
+                    id="file1" 
                     type="file"
                     />                     
                 </div>

@@ -99,7 +99,9 @@
     width: 80%;
     right: 0px;
 }
-
+.home marquee span{
+    margin-left:10px;
+}
 .home .marquee_ar{
     width: 100%;
 }
@@ -297,10 +299,21 @@
     height: 140px;
     right:-20px;
     z-index: 0;
-    text-transform: uppercase;
     padding: 20px;
-    color: #0a382b;
-    font-size: 40px;
+    border: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    background-color: none;
+    font-family: 'Changa', sans-serif;
+}
+.home footer .ads_space_ar{
+    position: absolute;
+    bottom:-26px;
+    width: 90%;
+    height: 140px;
+    padding: 20px;
+    z-index: 0;
+    left:-20px;
     border: none;
     font-weight: 500;
     letter-spacing: 1px;
@@ -362,3 +375,35 @@
     width: 80%;
     z-index: 0;
 }
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
