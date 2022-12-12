@@ -18,7 +18,7 @@ const schema = yup.object({
     username:yup.string().required('Please Enter your username'),
     email: yup.string().email().required('Please Enter your Email'),
     password:yup.string().required("Please enter a password")
-    .min(8, "Password too short"),
+    .min(4, "Password too short"),
     confirmPassword: yup
     .string()
     .required()
@@ -26,6 +26,10 @@ const schema = yup.object({
 }).required()
 
 function RegisterScientific() {
+
+    const { register, handleSubmit, formState:{ errors } } = useForm({
+    resolver: yupResolver(schema)});
+
     const [data , setData] = useState({
         username:"",
         password:"",
@@ -95,18 +99,12 @@ function RegisterScientific() {
         }
     ]
 
-    // const { register, handleSubmit , formState:{errors}} = useForm(
-    //     {resolver: yupResolver(schema)});
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const onSubmit = () => {
         const formData = new FormData();
         data_.map((item)=>(
             formData.append(item.key , item.value)
         ));
-        console.log(data_)
-        for(let data of formData){
-            console.log(data)
-        }
+        console.log("hello")
         Axios.post(`${BASE_API_URL}/api/scientific-careers/add-new-user`,formData)
         .then((res) => {
             const data1 = res.data;
@@ -136,18 +134,19 @@ function RegisterScientific() {
                 <span className='text'>New User / Profisional Scientific</span>
             </header>
             <div><Toaster /></div>
-            <form onSubmit={handleSubmit} encType="multipart/form-data">
+            <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
                 <div className='bar'>
                 <div>
                 </div>
                 <div className='my-2 input_'>
                     <input  
+                    {...register("username")}
                     value={data.username}
                     onChange={(e)=>{setData({...data , username:e.target.value})}}
                     placeholder="User name" 
                     className='input' 
                     type="text"/>
-                    {/* <p style={{color:"red"}}>{errors.username?.message}</p> */}
+                    <p style={{color:"red"}}>{errors.username?.message}</p>
                 </div>
                 <div className='my-2 input_'>
                     <input  

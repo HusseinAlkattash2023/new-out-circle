@@ -781,23 +781,23 @@ function App() {
       element: <CareerServiceAr6 />,
     },
     {
-      path: "/personal-service/service1",
+      path: "/personal-services/service1",
       element: <PersonalService1 />,
     },
     {
-      path: "/personal-service/service2",
+      path: "/personal-services/service2",
       element: <PersonalService2 />,
     },
     {
-      path: "/personal-service/service3",
+      path: "/personal-services/service3",
       element: <PersonalService3 />,
     },
     {
-      path: "/personal-service/service4",
+      path: "/personal-services/service4",
       element: <PersonalService4 />,
     },
     {
-      path: "/personal-service/service5",
+      path: "/personal-services/service5",
       element: <PersonalService5 />,
     },
     {

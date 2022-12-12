@@ -71,7 +71,7 @@
     background-repeat: no-repeat;
     position: absolute;
     top: 25px;
-    right: -0px;
+    right: 0px;
     width: 85%;
     height: 45.8px;
     padding: 10px 0px;
@@ -207,7 +207,7 @@
     visibility: visible;
 }
 
-.home .sidebar{
+.home .sidebar_{
     width: 350px;
     height: 100vh;
     position: absolute;
@@ -230,7 +230,7 @@
     justify-content: center;
     z-index: 60;
 }
-.home .sidebar .logo{
+.home .sidebar_ .logo{
     position: absolute;
     top: 5px;
     left: 40px;
@@ -241,12 +241,12 @@
     right: 40px;
     z-index: 1111;
 }
-.home .sidebar .logo img,
+.home .sidebar_ .logo img,
 .home .sidebar_ar .logo img{
     width: 150px;
 }
 
-.home .sidebar a,
+.home .sidebar_ a,
 .home .sidebar_ar a{
     display: flex;
     flex-direction: column;
@@ -256,7 +256,7 @@
     margin-top: 30px;
     transition: all 0.5s ease;
 }
-.home .sidebar .icon1{
+.home .sidebar_ .icon1{
     position: relative;
     left:40px;
 }
@@ -264,7 +264,7 @@
     position: relative;
     right:40px;
 }
-.home .sidebar .icon2{
+.home .sidebar_ .icon2{
     position: relative;
     right: 90px;
 }
@@ -272,7 +272,7 @@
     position: relative;
     left: 90px;
 }
-.home .sidebar .icon3{
+.home .sidebar_ .icon3{
     position: relative;
     left: 36px;
     bottom: 10px;
@@ -282,7 +282,7 @@
     right: 20px;
     bottom: 0px;
 }
-.home .sidebar span,
+.home .sidebar_ span,
 .home .sidebar_ar span{
     color: white;
     font-weight: 600;
@@ -406,4 +406,175 @@
     height: 100%;
     object-fit: cover;
   }
-  
+
+/*------------ style sidebar --------*/
+.active .off{
+    position:absolute;
+    top:-55px;
+    z-index:1000;
+    left:10px;
+}
+.name_qr .off{
+    position:absolute;
+    top:-55px;
+    z-index:1000;
+    right:10px;
+}
+.sidebar .icon1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: center;
+}
+.sidebar .icon1 span{
+    color: #fff;
+    font-family: changa;
+    font-size: 20px;
+}
+.sidebar .icons{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.sidebar .icons ul{
+    display: flex;
+    list-style-type: none;
+    position: relative;
+    top:10px;
+}
+
+.sidebar .icons ul li{
+    padding:5px;
+    border-radius: 50%;
+    line-height: 50%;
+}
+
+.sidebar .icons ul li img{
+    width: 34px;
+}
+.sidebar .icons  div img{
+    width: 100px;
+    position: 30px;
+}
+
+@media only screen and (max-width: 1300px){
+    .home .img2,
+    .home .img2_ar{
+        display: none;
+    }
+    .home .sidebar_,
+    .home .sidebar_ar{
+        display: none;
+    }
+    .home footer .icons,
+    .home footer .icons_ar{
+        display: none;
+    }
+    .home ._header2,
+    .home ._header2_ar{
+        width: 114%;
+        right: 0;
+    }
+    .home footer .ads_space,
+    .home footer .ads_space_ar{
+        width: 140%;
+        right: -20px;
+    }
+    .home .main,
+    .home .main_ar{
+        position: relative;
+        left: 35%;
+        transform: translate(-50%);
+    }
+    .home{
+        text-align: center;
+        overflow: hidden;
+        background-color: #fff;
+        height: 100%;
+        width: 100%;
+    }
+    .home footer .ads_space ,
+    .home footer .ads_space_ar{
+        position: relative;
+        width: 120%;
+        bottom: -20px;
+        margin-top:80px ;
+        left: -50px;
+    }
+}
+@media only screen and (max-width: 1170px){
+    .home .main ,
+    .home .main_ar{
+        position: relative;
+        left: 30%;
+        transform: translate(-50%);
+    }
+    .home ._header2 ,
+    .home ._header2_ar{
+        width: 140%;
+        right: 0;
+    }
+}
+@media only screen and (max-width: 990px){
+    .home .cards{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .home .main_ar .hov .img_{
+        margin-top: 20px;
+        width: 200px;
+        height: 400px;
+    }
+    .home .main_ar .hov .iu ,
+    .home .main_ar .hov .iui{
+        height: 400px;
+        margin-top: 20px;
+    }
+}
+@media only screen and (max-width: 880px){
+    .home .main_ar .cards{
+        position: relative;
+        left:75%;
+        transform: translate(-50%);
+    }
+    .home .main_ar .outcircle{
+        position: relative;
+        /* text-align: center; */
+    }
+}
+@media only screen and (max-width: 600px){
+    .home .main_ar .outcircle{
+        position: relative;
+        left: 18%;
+    }
+    .home .main_ar .cards{
+        position: relative;
+        left:70%;
+        transform: translate(-50%);
+    }
+}
+@media only screen and (max-width: 400px){
+    .home ._header2,
+    .home ._header2_ar{
+        width: 150%;
+    }
+    .home .main_ar .hov .img_{
+        margin-top: 20px;
+        width: 150px;
+        height: 300px;
+    }
+    .home .main_ar .hov .iu ,
+    .home .main_ar .hov .iui{
+        height: 300px;
+        margin-top: 20px;
+        width: 200px;
+    }
+    .home .main_ar .outcircle{
+        width: 130px;
+        margin-top: 20px;
+    }
+}

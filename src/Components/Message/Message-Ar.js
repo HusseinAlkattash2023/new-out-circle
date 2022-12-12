@@ -15,8 +15,6 @@ function getWindowSize() {
 
 const MessageAr = ({address , head , image , text , text1 , text2 , text3 , text4 , text5 , text6 , text7}) => {
 
-    const[message , setMessage] = useState();
-    const [file , setFile] = useState();
     const [windowSize, setWindowSize] = useState(getWindowSize());
     useEffect(() => {
         function handleWindowResize() {

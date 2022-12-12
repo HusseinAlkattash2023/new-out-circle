@@ -29,8 +29,30 @@ import "./index.css";
 import image from "../../Assets/images/ads_spa.png";
 import { useSelector } from "react-redux";
 import Axios from "axios";
+import Sidebar from '../../Components/Sidebar/index';
+
+function getWindowSize() {
+  const {innerWidth, innerHeight} = window;
+  return {innerWidth, innerHeight};
+}
+
 
 function Home() {
+
+
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+    useEffect(() => {
+        function handleWindowResize() {
+            setWindowSize(getWindowSize());
+        }
+        window.addEventListener('resize', handleWindowResize);
+        return () => {
+            window.removeEventListener('resize', handleWindowResize);
+        };
+        }, []);
+        const width = windowSize.innerWidth;
+
+
   const [adsImage, setAdsImage] = useState([]);
   const [newsInfo, setNewsInfo] = useState([]);
 
@@ -101,7 +123,9 @@ function Home() {
           En
         </button>
       </header>
+
       <header className="_header2"></header>
+
       <Link to="/news">
         <marquee direction="left">
           {newsInfo.map((item) => (
@@ -113,6 +137,7 @@ function Home() {
         </marquee>
       </Link>
       <div>
+
         <div className="login1">
           <Link
             to="/login"
@@ -129,6 +154,11 @@ function Home() {
               style={{ background: "#DCECDD", borderRadius: "50%" }}
             />
           </Link>
+        </div>
+        <div className="active">
+          {
+            width < 1300 && <Sidebar item1={"Why us"} item2={"Goals & Advanteges"} item3={"Contact us"}/>
+          }
         </div>
         <div className="main">
           <img className="outcircle" src={outcircle} alt="" width="154" />
@@ -156,7 +186,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="sidebar">
+      <div className="sidebar_">
         <Link to="/" className="logo">
           <img src={logo} alt="" />
         </Link>
@@ -234,3 +264,5 @@ function Home() {
 }
 
 export default Home;
+
+

@@ -4,11 +4,14 @@ import { useSelector } from "react-redux";
 import back from '../../Assets/images/back.png';
 import logo from '../../Assets/images/Group 360.svg';
 import './index.css';
-import {Link} from 'react-router-dom';
+import { Link , useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 
 
 const Ads = () => {
+    
+    const navigate = useNavigate();
+
     const [adsInfo, setAdsInfo] = useState([]);
 
     const BASE_API_URL = useSelector((state) => state.BASE_API_URL);
@@ -18,7 +21,6 @@ const Ads = () => {
             .then((res) => {
             let data = res.data;
             setAdsInfo(data);
-            console.log(data)
         })
         .catch((err) => console.log(err));
     }, [BASE_API_URL]);
@@ -36,7 +38,14 @@ const Ads = () => {
                     adsInfo && adsInfo.map((item) => (
                         <div key={item._id} className="item">
                             <img src={`${BASE_API_URL}/${item.file_paths[0]}`} alt="" className="image"/>
-                            <Link to="/detials-ads" className="details">Click for more details</Link>
+                            <Link 
+                            onClick={
+                                () => {
+                                    localStorage.setItem("ads_id" ,item._id)
+                                    navigate("/detials-ads")
+                                }}
+                            to="/detials-ads" className="details text-danger"
+                            >Click for more details</Link>
                         </div>
                     ))
                 }

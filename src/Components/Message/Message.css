@@ -316,7 +316,7 @@
 .message2 .head{
     background-color:#105c48;
     border-radius: 0px 0px 50% 50%;
-    height: 180px;
+    height: 220px;
     position: relative;
     border: 1px solid #707070;
 }
@@ -324,6 +324,7 @@
     position: absolute;
     right:10px;
     top:10px;
+    width: 100px;
 }
 .message2 .head h2{
     text-align: center;
@@ -333,6 +334,9 @@
     font-family: 'Readex Pro', sans-serif;
     font-weight: 900;
 }
+.message2 .head .head2{
+    text-transform: uppercase;
+}
 .message2 .head p{
     text-align: center;
     padding-top: 20px;
@@ -341,7 +345,23 @@
     font-family:changa;
     font-weight: 400;
 }
+.message2 .head .address{
+    font-family: PMingLiU;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 21px;
+    color:#c4f9ae;
+    font-weight: 600;
+}
 .message2 .body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+    width: 100%;
+}
+.message2 .body_{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -359,6 +379,23 @@
     text-align:right ;
     height: 50px;
     border: 1px solid #707070;
+}
+.message2 .body_ div{
+    /* background-color: #20ab84; */
+    background-image: linear-gradient(to right, #20ab84, #105c48);
+    margin: 5px auto;
+    padding: 5px 10px;
+    border-radius: 50px;
+    width: 90%;
+    text-align:left;
+    height: 50px;
+    border: 1px solid #707070;
+}
+.message2 .body_ div p{
+    font-size: 16px;
+    color:#c4f9ae;
+    font-family: PMingLiU;
+    font-weight: 800;
 }
 .message2 .body div p{
     font-size: 15px;
@@ -386,6 +423,9 @@
     top:0%;
     text-align: right;
     font-family: 'Readex Pro', sans-serif;
+}
+.message2 .content .textarea{
+    text-align: left;
 }
 .message2 .content form label{
     position: absolute;
@@ -456,6 +496,19 @@
     bottom: 30px;
     left: 0px;
 }
+.message2 .content .wages_{
+    position: absolute;
+    width: 100%;
+    color: #000;
+    background-color: #d2bc8e;
+    padding: 5px 10px;
+    border-radius: 25px;
+    font-family: arial;
+    text-align: center;
+    font-size: 17px;
+    bottom: -10px;
+    left: 0px;
+}
 /*------------------- media query --------------*/
 @media only screen and (max-width: 1230px){
     .message .section2_ar{
@@ -464,12 +517,29 @@
         top:95px;
         width: 460px;
     }
+    .message .section2{
+        position: absolute;
+        right:50px;
+        top:95px;
+        width: 460px;
+    }
 }
 @media only screen and (max-width: 1120px){
     .message .section1 .side_ar{
         display: none;
     }
+    .message .section1 .side{
+        display: none;
+    }
     .message .section2_ar{
+        position: relative;
+        top: 40%;
+        width:60%;
+        left: 50%;
+        transform: translate(-50% , -50%);
+        margin-top: 50px;
+    }
+    .message .section2{
         position: relative;
         top: 40%;
         width:60%;
@@ -502,12 +572,25 @@
         position: relative;
         right:0px;
     }
+    .message .div1 p{
+        text-align: center;
+        margin-top:15px;
+        color: #c4f9ae;
+        font-size: 23px;
+        position: relative;
+        right: 150px;
+    }
 }
 
 @media only screen and (max-width: 540px){
     .message2 .content .wages{
         position: absolute;
         bottom: 10px;
+    }
+    .message2 .content .wages_{
+        position: absolute;
+        bottom: -20px;
+        font-size: 16px;
     }
 }
 @media only screen and (max-width: 470px){
@@ -532,5 +615,25 @@
     .message2 .content .wages{
         position: absolute;
         bottom: -20px;
+    }
+}
+@media only screen and (max-width: 470px){
+    .message2 .content .wages_{
+        position: absolute;
+        bottom: -50px;
+        font-size: 16px;
+        margin-bottom: 0px;
+    }
+    .message2 .content{
+        margin-bottom: 60px;
+    }
+}
+@media only screen and (max-width: 450px){
+    .message2 .head .logo{
+        width:70px;
+    }
+    .message2 .head .head2{
+        font-size: 34px;
+        font-weight: bold;
     }
 }

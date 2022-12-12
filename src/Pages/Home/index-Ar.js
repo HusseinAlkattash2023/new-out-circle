@@ -29,8 +29,29 @@ import './index.css'
 import image from '../../Assets/images/Group 287.png';
 import { useSelector } from "react-redux";
 import Axios from 'axios';
+import Sidebar from '../../Components/Sidebar/index';
+
+
+function getWindowSize() {
+  const {innerWidth, innerHeight} = window;
+  return {innerWidth, innerHeight};
+}
+
 
 function HomeAr() {
+
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+  useEffect(() => {
+    function handleWindowResize() {
+        setWindowSize(getWindowSize());
+    }
+    window.addEventListener('resize', handleWindowResize);
+    return () => {
+        window.removeEventListener('resize', handleWindowResize);
+    };
+    }, []);
+    const width = windowSize.innerWidth;
+
 
   const [adsImage, setAdsImage] = useState([]);
   const [newsInfo, setNewsInfo] = useState([]);
@@ -101,6 +122,11 @@ function HomeAr() {
             <img src={user} alt="" width="36px" style={{background:"#DCECDD" , borderRadius:"50%"}}/>
       </Link>
       </div> 
+      <div className="name_qr">
+        {
+            width < 1300 && <Sidebar item1={"من نحن"} item2={"أهدافنا و مميزاتنا"} item3={"أتصل بنا"}/>
+        }
+      </div>
       <div className='main_ar'>
         <img className='outcircle' src={outcircle} alt="" width="154"/>
         <div className='cards'>

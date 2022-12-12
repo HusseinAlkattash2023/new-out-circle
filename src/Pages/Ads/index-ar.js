@@ -36,7 +36,7 @@ const Ads = () => {
                     adsInfo && adsInfo.map((item) => (
                         <div key={item._id} className="item">
                             <img src={`${BASE_API_URL}/${item.file_paths[0]}`} alt="" className="image"/>
-                            <Link to="/detials-ads" className="details">انقر لمزيد من التفاصيل</Link>
+                            <Link to="/detials-ads" className="details text-danger">انقر لمزيد من التفاصيل</Link>
                         </div>
                     ))
                 }

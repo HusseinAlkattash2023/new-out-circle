@@ -18,7 +18,10 @@ const AddNotification = () => {
       email,
       content,
     })
-      .then((res) => navigate("/dashboard/admin/news-managment"))
+      .then((res) =>{
+        navigate("/dashboard/admin/notifications-managment")
+        localStorage.setItem("email", email);
+      })
       .catch((err) => console.log(err));
   };
   return (

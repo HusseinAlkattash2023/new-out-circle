@@ -90,28 +90,29 @@ function RegisterScientific() {
         }
     ]
 
-    // const { register, handleSubmit , formState:{errors}} = useForm(
-    //     {resolver: yupResolver(schema)});
-    const handleSubmit = (e) => {
+    const { register, handleSubmit , formState:{errors}} = useForm(
+        {resolver: yupResolver(schema)});
+    const onSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
         data_.map((item)=>(
         formData.append(item.key , item.value)
         ))
-        axios.post("http://localhost:8000/api/scientific-careers/add-new-user", formData)
-        .then((res) => {
-            const data1 = res.data;
-            if(typeof(data1) === "string"){
-                toast.error(data1)
-            }else{
-                toast.success("...تم إنشاء حسابك بنجاح")
-                localStorage.setItem("users", JSON.stringify({ ...data1 }));
-                setTimeout(() => navigate("/scientific-ar") , 2000);
-            }
-    })
-    .catch((err) => {
-        console.error(err);
-    });
+        console.log("Hello")
+    //     axios.post("http://localhost:8000/api/scientific-careers/add-new-user", formData)
+    //     .then((res) => {
+    //         const data1 = res.data;
+    //         if(typeof(data1) === "string"){
+    //             toast.error(data1)
+    //         }else{
+    //             toast.success("...تم إنشاء حسابك بنجاح")
+    //             localStorage.setItem("users", JSON.stringify({ ...data1 }));
+    //             setTimeout(() => navigate("/scientific-ar") , 2000);
+    //         }
+    // })
+    // .catch((err) => {
+    //     console.error(err);
+    // });
     }
     
     return (
@@ -128,18 +129,19 @@ function RegisterScientific() {
                 <span className='text'>مستخدم جديد / مهن علمية</span>
             </header>
             <div><Toaster /></div>
-            <form onSubmit={handleSubmit} encType="multipart/form-data">
+            <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
                 <div className='bar'>
                 <div>
                 </div>
                 <div className='my-2 input_'>
-                    <input  
+                    <input 
+                    {...register("username")} 
                     value={data.username}
                     onChange={(e)=>{setData({...data , username:e.target.value})}}
                     placeholder="اسم المستخدم" 
                     className='input' 
                     type="text"/>
-                    {/* <p style={{color:"red"}}>{errors.username?.message}</p> */}
+                    <p style={{color:"red"}}>{errors.username?.message}</p>
                 </div>
                 <div className='my-2 input_'>
                     <input  
