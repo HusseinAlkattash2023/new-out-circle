@@ -99,7 +99,7 @@ function Login() {
                 alignItems: "center",
               }}
             >
-              <img src={logoLogin} alt="" style={{ width: "225px" }} />
+              <img src={logoLogin} alt="" />
             </div>
             <div>
               <div><Toaster /></div>
@@ -113,7 +113,7 @@ function Login() {
                       value={formValues.user_type}
                       onChange={handleChange}
                     >
-                      <option value="">...</option>
+                      <option value="">account type</option>
                       <option value="companies">Corporate</option>
                       <option value="institutes">Institute</option>
                       <option value="scientific_careers">

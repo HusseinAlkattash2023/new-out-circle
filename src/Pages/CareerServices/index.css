@@ -79,3 +79,11 @@
     font-family: book;
     src:url('../../Assets/fonts/Book\ Antiqua\ Font.ttf')
 }
+
+@media only screen and (max-width: 1050px){
+    .careerServices{
+        position: relative;
+        height: 900px;
+        width: 100%;
+    }
+}

@@ -245,3 +245,114 @@
     font-family: "algerian";
     src: url('../../Assets/fonts/Algerian\ Regular.ttf');
 }
+
+@media only screen and (max-width: 1300px){
+    .individuals .individual .circle1{
+        width: 300px;
+        position: absolute;
+        top: 28%;
+        left: 0%;
+        z-index: 2;
+    }
+    .individuals .individual .circle2{
+        width: 300px;
+        position: absolute;
+        top: 29%;
+        left: 0%;
+        z-index: 1;
+    }
+    .individuals .services .career{
+        width: 500px;
+        height: 130px;
+    }
+    .individuals .services .personal{
+        width: 500px;
+        height: 130px;
+    }
+}
+@media only screen and (max-width: 1050px){
+    .individuals .services{
+        position: absolute;
+        left: 56%;
+        top:51%
+    }
+    .individuals .individual .circle1{
+        width: 250px;
+        position: absolute;
+        top: 40px;
+        left: 0%;
+        z-index: 2;
+    }
+    .individuals .individual .circle2{
+        width: 250px;
+        position: absolute;
+        top: 40px;
+        left: 0%;
+        z-index: 1;
+    }
+}
+@media only screen and (max-width: 850px){
+    .individuals{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    .individuals .services{
+        position: relative;
+        left: 50%;
+        transform: translate(-50% , -50%);
+        top: 60%;
+    }
+    .individuals .individual {
+        position: relative;
+        left: -10%;
+        top: -30%;
+    }
+    .individuals .individual .circle1{
+        width: 200px;
+        position: absolute;
+        top: 40px;
+        left: 0%;
+        z-index: 2;
+    }
+    .individuals .individual .circle2{
+        width: 200px;
+        position: absolute;
+        top: 40px;
+        left: 0%;
+        z-index: 1;
+    }
+}
+
+@media only screen and (max-width: 670px){
+     .individuals .services{
+        position: relative;
+        left: 60%;
+        transform: translate(-50% , -50%);
+        top: 60%;
+    }
+    .individuals .individual {
+        position: relative;
+        left: -15%;
+        top: -30%;
+    }
+    .individuals .services .career{
+        width: 400px;
+        height: 100px;
+    }
+    .individuals .services .career p ,
+    .individuals .services .personal p{
+        font-size: 25px;
+        position: relative;
+        top: 10px;
+    }
+    .individuals .services .personal{
+        width: 400px;
+        height: 100px;
+    }
+}

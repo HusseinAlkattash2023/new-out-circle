@@ -113,3 +113,16 @@
     visibility: visible;
     left: -50px;
 }
+@media only screen and (max-width: 1050px){
+    .scientific_{
+        position: relative;
+        height: 900px;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 600px){
+    .scientific_ .header2 a,
+    .scientific_ .header2_ar a{
+        display: none;
+    }
+}

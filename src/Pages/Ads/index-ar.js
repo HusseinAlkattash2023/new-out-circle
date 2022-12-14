@@ -3,12 +3,30 @@ import NewAdr from '../../Components/NewAdr/NewAdr';
 import { useSelector } from "react-redux";
 import back from '../../Assets/images/back.png';
 import logo from '../../Assets/images/Group 360.svg';
+import logo1 from '../../Assets/images/logo.svg';
 import './index.css';
 import {Link} from 'react-router-dom';
 import Axios from 'axios';
 
+function getWindowSize() {
+    const {innerWidth, innerHeight} = window;
+    return {innerWidth, innerHeight};
+}
 
 const Ads = () => {
+
+    const [windowSize, setWindowSize] = useState(getWindowSize());
+    useEffect(() => {
+        function handleWindowResize() {
+            setWindowSize(getWindowSize());
+        }
+        window.addEventListener('resize', handleWindowResize);
+        return () => {
+            window.removeEventListener('resize', handleWindowResize);
+        };
+        }, []);
+        const width = windowSize.innerWidth;
+
     const [adsInfo, setAdsInfo] = useState([]);
 
     const BASE_API_URL = useSelector((state) => state.BASE_API_URL);
@@ -18,7 +36,6 @@ const Ads = () => {
             .then((res) => {
             let data = res.data;
             setAdsInfo(data);
-            console.log(data)
         })
         .catch((err) => console.log(err));
     }, [BASE_API_URL]);
@@ -46,6 +63,18 @@ const Ads = () => {
                     <img src={logo} alt=""/>
                 </Link>
                 <span className='title'>الإعلانات</span>
+            </div>
+            <div>
+                {
+                    width < 600 && (
+                    <div className='head'>
+                        <span className='title ar'>الإعلانات</span>
+                        <Link to="/">
+                            <img src={logo1} alt=""/>
+                        </Link>
+                    </div>
+                    )
+                }
             </div>
         </div>
 )

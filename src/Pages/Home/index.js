@@ -30,6 +30,12 @@ import image from "../../Assets/images/ads_spa.png";
 import { useSelector } from "react-redux";
 import Axios from "axios";
 import Sidebar from '../../Components/Sidebar/index';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Autoplay } from "swiper";
+
 
 function getWindowSize() {
   const {innerWidth, innerHeight} = window;
@@ -210,17 +216,31 @@ function Home() {
         </nav>
       </div>
       <footer>
-        <Link to="/ads">
+        <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Autoplay]}
+        className="mySwiper"
+        >
           {adsImage.map((item) => (
-            <div key={item._id}>
+          <SwiperSlide  key={item._id}>
+            <Link to="/ads">
               <img
                 className="ads_space"
                 src={`http://localhost:8000/${item.file_paths[0]}`}
                 alt=""
               />
-            </div>
+            </Link>
+          </SwiperSlide>
           ))}
-        </Link>
+        </Swiper>
         <div className="icons">
           <ul>
             <li className="mx-0">

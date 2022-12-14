@@ -3,6 +3,7 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    position: relative;
 }
 
 /*.croporate  .back{
@@ -159,4 +160,17 @@
     opacity: 1;
     visibility: visible;
     left: -50px;
+}
+@media only screen and (max-width: 1050px){
+    .croporate{
+        position: relative;
+        height: 900px;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 600px){
+    .croporate .header2 a,
+    .croporate .header2_ar a{
+        display: none;
+    }
 }

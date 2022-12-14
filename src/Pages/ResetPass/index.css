@@ -161,3 +161,77 @@
     font-family: Avengero ;
     src: url('../../Assets/fonts/Avengero\ Regular\ 400.ttf');
 }
+
+
+
+/* --------------- media quary for responsive -------------*/
+@media only screen and (max-width: 1190px){
+    .reset .body{
+        position: absolute;
+        right: 150px;
+        top: 50px;
+    }
+    .reset .body_ar{
+        position: absolute;
+        left: 150px;
+        top: 50px;
+    }
+}
+
+@media only screen and (max-width: 960px){
+    .reset .image img ,
+    .reset .image_ar img{
+        display: none;
+    }
+    .reset .body,
+    .reset .body_ar{
+        position: absolute;
+        left:50%;
+        transform: translate(-50%);
+        top:80px;
+    }
+}
+@media only screen and (max-width: 600px){
+    .reset .body ,
+    .reset .body_ar{
+        position: absolute;
+        left:50%;
+        width: 400px;
+        transform: translate(-50%);
+        top:70px;
+    }
+    .reset header h2 ,
+    .reset .body_ar header h2{
+        font-size: 20px;
+    }
+    .reset .submit ,
+    .reset .body_ar .submit{
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 460px){
+    .reset .body,
+    .reset .body_ar{
+        position: absolute;
+        left:50%;
+        width: 330px;
+        height: 460px;
+        transform: translate(-50%);
+        top:100px;
+        border-radius: 30px;
+    }
+    .reset .body_ar header h2{
+        font-size: 19px;
+    }
+    .reset .body form div label{
+        font-size: 17px ;
+        color: #c4f9ae;
+        font-family: 'Changa' , light;
+    }
+    .reset .body_ar form div label{
+        font-size: 16px;
+    }
+    .reset form div input{
+        padding: 7px;
+    }
+}

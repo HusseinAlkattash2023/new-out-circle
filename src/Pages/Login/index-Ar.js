@@ -91,7 +91,7 @@ function Login_ar() {
         <div className="login_ar">
         <div>
             <div style={{display:"flex" , justifyContent:"center" , alignItems:"center"}}>
-                <img src={logoLogin} alt="" style={{width:"225px"}}/>
+                <img src={logoLogin} alt=""/>
             </div>
             <div>
                 <div><Toaster/></div>
@@ -141,7 +141,7 @@ function Login_ar() {
                     </div>
                     </div>
                     <Link className='forget' to="/forget-password-ar">نسيت كلمة المرور</Link>
-                    <button type='submit' className='loginButton mt-3'>تسجيل الدخول</button><br/>
+                    <button type='submit' className='loginButton mt-2'>تسجيل الدخول</button><br/>
                 </form>
                 <div className='register mt-3'>
                     <p className='my-0'>هل لديك حساب؟</p>

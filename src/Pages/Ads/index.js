@@ -2,14 +2,33 @@ import {useEffect , useState} from 'react';
 import NewAdr from '../../Components/NewAdr/NewAdr';
 import { useSelector } from "react-redux";
 import back from '../../Assets/images/back.png';
-import logo from '../../Assets/images/Group 360.svg';
+import logo from '../../Assets/images/logo.svg';
+import logo1 from '../../Assets/images/Group 360.svg';
 import './index.css';
 import { Link , useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 
+function getWindowSize() {
+    const {innerWidth, innerHeight} = window;
+    return {innerWidth, innerHeight};
+}
+
 
 const Ads = () => {
     
+    const [windowSize, setWindowSize] = useState(getWindowSize());
+    useEffect(() => {
+        function handleWindowResize() {
+            setWindowSize(getWindowSize());
+        }
+        window.addEventListener('resize', handleWindowResize);
+        return () => {
+            window.removeEventListener('resize', handleWindowResize);
+        };
+        }, []);
+        const width = windowSize.innerWidth;
+
+
     const navigate = useNavigate();
 
     const [adsInfo, setAdsInfo] = useState([]);
@@ -52,9 +71,21 @@ const Ads = () => {
             </div>
             <div className='side'>
                 <Link to="/">
-                    <img src={logo} alt=""/>
+                    <img src={logo1} alt=""/>
                 </Link>
                 <span className='title'>ads</span>
+            </div>
+            <div>
+                {
+                    width < 600 && (
+                    <div className='head'>
+                        <span className='title'>ads</span>
+                        <Link to="/">
+                            <img src={logo} alt=""/>
+                        </Link>
+                    </div>
+                    )
+                }
             </div>
         </div>
 )

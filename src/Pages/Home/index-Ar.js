@@ -30,7 +30,11 @@ import image from '../../Assets/images/Group 287.png';
 import { useSelector } from "react-redux";
 import Axios from 'axios';
 import Sidebar from '../../Components/Sidebar/index';
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Autoplay } from "swiper";
 
 function getWindowSize() {
   const {innerWidth, innerHeight} = window;
@@ -173,17 +177,31 @@ function HomeAr() {
           </nav>
         </div>  
         <footer className="footer_ar">
-        <Link to="/ads">
-          {
-            adsImage ? (
-              adsImage.map((item)=> (
-                <div key={item._id}>
-                  <img className="ads_space_ar" src={`http://localhost:8000/${item.file_paths[0]}`} alt=""/>
-                </div>
-              ))
-            ) : <img src={image} alt="" className="ads_space"/> 
-          }
-        </Link>
+        <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Autoplay]}
+        className="mySwiper"
+        >
+          {adsImage.map((item) => (
+          <SwiperSlide  key={item._id}>
+            <Link to="/ads-ar">
+              <img
+                className="ads_space"
+                src={`http://localhost:8000/${item.file_paths[0]}`}
+                alt=""
+              />
+            </Link>
+          </SwiperSlide>
+          ))}
+        </Swiper>
         <div className='icons_ar'>
         <ul>
             <li className="mx-0">

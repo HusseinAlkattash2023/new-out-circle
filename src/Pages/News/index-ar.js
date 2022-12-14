@@ -5,8 +5,29 @@ import { useSelector } from "react-redux";
 import back from '../../Assets/images/back.png';
 import logo from '../../Assets/images/Group 360.svg';
 import './index.css';
+import logo1 from '../../Assets/images/logo.svg';
+
+
+function getWindowSize() {
+    const {innerWidth, innerHeight} = window;
+    return {innerWidth, innerHeight};
+}
+
 
 const News = () => {
+
+    const [windowSize, setWindowSize] = useState(getWindowSize());
+    useEffect(() => {
+        function handleWindowResize() {
+            setWindowSize(getWindowSize());
+        }
+        window.addEventListener('resize', handleWindowResize);
+        return () => {
+            window.removeEventListener('resize', handleWindowResize);
+        };
+        }, []);
+        const width = windowSize.innerWidth;
+
     const [newsInfo, setNewsInfo] = useState([]);
 
     const BASE_API_URL = useSelector((state) => state.BASE_API_URL);
@@ -42,6 +63,18 @@ return (
                     <img src={logo} alt=""/>
                 </Link>
                 <span className='title'>الأخبار</span>
+            </div>
+            <div>
+                {
+                    width < 600 && (
+                    <div className='head'>
+                        <span className='title ar'>الأخبار</span>
+                        <Link to="/">
+                            <img src={logo1} alt=""/>
+                        </Link>
+                    </div>
+                    )
+                }
             </div>
         </div>
     </div>

@@ -114,3 +114,17 @@
     visibility: visible;
     left: -50px;
 }
+
+@media only screen and (max-width: 1050px){
+    .institute{
+        position: relative;
+        height: 900px;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 600px){
+    .institute .header2 a,
+    .institute .header2_ar a{
+        display: none;
+    }
+}

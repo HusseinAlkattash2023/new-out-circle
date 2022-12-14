@@ -4,10 +4,30 @@ import Axios from 'axios';
 import { useSelector } from "react-redux";
 import back from '../../Assets/images/back.png';
 import logo from '../../Assets/images/Group 360.svg';
+import logo1 from '../../Assets/images/logo.svg';
 import './index.css';
 
+function getWindowSize() {
+    const {innerWidth, innerHeight} = window;
+    return {innerWidth, innerHeight};
+}
+
 const News = () => {
-  const [newsInfo, setNewsInfo] = useState([]);
+    const [newsInfo, setNewsInfo] = useState([]);
+
+    const [windowSize, setWindowSize] = useState(getWindowSize());
+    useEffect(() => {
+        function handleWindowResize() {
+            setWindowSize(getWindowSize());
+        }
+        window.addEventListener('resize', handleWindowResize);
+        return () => {
+            window.removeEventListener('resize', handleWindowResize);
+        };
+        }, []);
+        const width = windowSize.innerWidth;
+
+
 
   const BASE_API_URL = useSelector((state) => state.BASE_API_URL);
 
@@ -19,6 +39,7 @@ const News = () => {
       })
       .catch((err) => console.log(err));
   }, [BASE_API_URL]);
+  
   return (
     <div>
         <div className='news'>
@@ -42,6 +63,18 @@ const News = () => {
                     <img src={logo} alt=""/>
                 </Link>
                 <span className='title'>news</span>
+            </div>
+            <div>
+                {
+                    width < 600 && (
+                    <div className='head'>
+                        <span className='title'>news</span>
+                        <Link to="/">
+                            <img src={logo1} alt=""/>
+                        </Link>
+                    </div>
+                    )
+                }
             </div>
         </div>
     </div>

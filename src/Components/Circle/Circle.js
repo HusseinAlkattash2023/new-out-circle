@@ -14,10 +14,10 @@ function Circle({service ,
     demand5 , demand6,
     demand7 , demand8}) {
     return (
-        <div className='circle'>
+        <div className='circle_'>
             <div className='section1'>
-                <img src={circle1} alt="" width="280px" className="circle1"/>
-                <img src={circle2} alt="" width="280px" className="circle2"/>
+                <img src={circle1} alt=""  className="circle1"/>
+                <img src={circle2} alt=""  className="circle2"/>
             </div>
             <div className='section2' data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%">
                     <Link to={`/${demand1}`}>{service1}</Link>

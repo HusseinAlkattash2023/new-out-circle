@@ -38,6 +38,7 @@
     color: white;
     transition: all 0.6s ease;
     border-left: none;
+    font-family: 'Readex Pro', sans-serif;
 }
 .ads .back:hover.back span{
     opacity: 1; 
@@ -148,4 +149,124 @@
     left: 100px;
     width: 150px;
     margin: 40px;
+}
+
+@media only screen and (max-width: 1100px){
+    .ads .side,
+    .ads .side_ar{
+        display: none;
+    }
+    .ads .rectangle,
+    .ads .rectangle_ar{
+    width: 80%;
+    margin: auto;
+    position: relative;
+    border-radius: 20px;
+    text-align: center;
+    }
+    .ads .rectangle .item{
+        width: 96%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-self: center;
+        position: relative;
+        right: 30px;
+    }
+    .ads .rectangle_ar .item{
+        width: 96%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-self: center;
+        position: relative;
+        left: 30px;
+    }
+    .ads .rectangle .item img,
+    .ads .rectangle_ar .item img{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 700px){
+    .ads header a ,
+    .ads header .back_ar{
+        display: none;
+    }
+    .ads .rectangle .item{
+        width: 100%;
+        text-align: center;
+        position: relative;
+        right: 50px;
+    }
+    .ads .rectangle_ar .item{
+        width: 100%;
+        text-align: center;
+        position: relative;
+        left: 20px;
+    }
+    .ads .rectangle,
+    .ads .rectangle_ar{
+        width: 90%;
+        overflow-x: hidden;
+        height: 70%;
+        position: relative;
+        top: 100px;
+    }
+}
+@media only screen and (max-width: 600px){
+    .ads{
+        background-color: #0a382b;
+        width: 100%;
+        height: 1000px;
+        overflow: hidden;
+        position: relative;
+    }
+    .ads .rectangle,
+    .ads .rectangle_ar{
+        position: relative;
+        top:200px;
+        margin: 50px auto;
+    }
+    .ads .head{
+        background-color:#105c48;
+        position: absolute;
+        top:0px;
+        width: 100%;
+        height: 200px;
+        border-radius: 0px 0px 50% 50%;
+        text-align: center;
+    }
+    .ads .head img{
+        width: 100px;
+        position: absolute;
+        right: 10px;
+        top:10px;
+    }
+    .ads .head  .title{
+        font-size: 60px;
+        font-weight: 700;
+        color: #c4f9ae;
+        position: relative;
+        top:50px;
+        font-family: 'Readex Pro', sans-serif;
+    }
+}
+@media only screen and (max-width: 420px){
+    .ads .head img{
+        width: 80px;
+    }
+    .ads .head  .title{
+        font-size:50px;
+    }
+    .ads .head  .ar{
+        font-size:40px;
+        position: relative;
+        top:60px;
+    }
+    .ads .rectangle_ar .item{
+        width: 130%;
+        text-align: center;
+        position: relative;
+        left:-7px;
+    }
 }

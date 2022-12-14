@@ -138,3 +138,108 @@
     font-family:Avengero ;
     src: url('../../Assets/fonts/Avengero\ Regular\ 400.ttf');
 }
+
+
+/*----------------- media quary for responsive ---------------*/
+
+@media only screen and (max-width: 1190px){
+    .forgetpass .body{
+        position: absolute;
+        right: 150px;
+    }
+    .forgetpass .body_ar{
+        position: absolute;
+        left: 150px;
+    }
+}
+@media only screen and (max-width: 960px){
+    .forgetpass .image img{
+        display: none;
+    }
+    .forgetpass .image_ar img{
+        display: none;
+    }
+    .forgetpass .body,
+    .forgetpass .body_ar{
+        position: absolute;
+        left:50%;
+        transform: translate(-50%);
+        top:80px;
+    }
+}
+@media only screen and (max-width: 600px){
+    .forgetpass .body,
+    .forgetpass .body_ar{
+        position: absolute;
+        left:50%;
+        width: 400px;
+        transform: translate(-50%);
+        top:100px;
+    }
+    .forgetpass .body h2,
+    .forgetpass .body_ar h2{
+    font-size: 20px;
+}
+.forgetpass .body .pass input,
+.forgetpass .body_ar .pass input{
+    width: 300px;
+    color: white;
+}
+.forgetpass .body button,
+.forgetpass .body_ar button{ 
+    font-size: 18px;
+}
+}
+@media only screen and (max-width: 460px){
+    .forgetpass .body,
+    .forgetpass .body_ar{
+        position: absolute;
+        left:50%;
+        width: 330px;
+        transform: translate(-50%);
+        top:100px;
+        border-radius: 30px;
+    }
+    .body .pass span{
+        font-size: 14px;
+    }
+.forgetpass .body .pass label{
+    margin: 20px 0px 5px 0px;
+    color: #c4f9ae;
+    font-size: 17px;
+}
+.forgetpass .body_ar .pass label{
+    font-size: 16px;
+}
+.forgetpass .body .pass input,
+.forgetpass .body_ar .pass input{
+    background: none;
+    border: none;
+    border: 2px solid #c4f9ae;
+    padding: 7px;
+    border-radius: 10px;
+    margin-top: 6px;
+    width: 270px;
+    color: white;
+}
+.forgetpass .body button{
+    border: none;
+    background-color: black;
+    color:#c4f9ae;
+    padding: 5px 25px;
+    border-radius: 25px;
+    font-size: 18px;
+    transition: all 0.5s ease;
+    font-weight: 500;
+    position: absolute;
+    right:20px;
+    top:210px;
+}
+.forgetpass .body_ar button{
+    position: absolute;
+    left:20px;
+}
+.forgetpass .body_ar .pass span{
+    font-size: 14px;
+}
+}
